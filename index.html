@@ -1,56 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ALDCTORAH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALDCTORAH Interactive</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden;
       font-family: 'Inter', sans-serif;
-      background-color: #000;
-      color: #fff;
+      background: black;
+      color: white;
+      overflow: hidden;
     }
-    .cover {
-      background-image: url('https://via.placeholder.com/1920x1080'); /* Replace this */
+    body {
+      background-image: url('https://via.placeholder.com/1920x1080');
       background-size: cover;
       background-position: center;
+      transition: background 0.5s ease;
+    }
+
+    /* Cover button */
+    #cover {
       height: 100vh;
       width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: transparent;
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.7s ease;
     }
-    .cta {
-      font-size: 1.2rem;
+    #cover.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #enter-btn {
+      font-size: 1.4rem;
       font-weight: 300;
       background: none;
       border: 2px solid rgba(255,255,255,0.6);
-      padding: 0.8rem 1.5rem;
+      padding: 1rem 2rem;
       color: #fff;
       border-radius: 50px;
       cursor: pointer;
-      transition: all 0.3s ease;
       backdrop-filter: blur(4px);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    .cta:hover {
+    #enter-btn:hover {
       background-color: rgba(255,255,255,0.1);
       border-color: #fff;
+    }
+
+    /* Nav bar */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 2rem;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      z-index: 3;
+    }
+    nav.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      user-select: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ddd;
+    }
+    nav a span.icon {
+      font-size: 1.4rem;
     }
   </style>
 </head>
 <body>
-  <div class="cover">
-    <button class="cta">Experience the Butterfly Effect</button>
+  <div id="cover">
+    <button id="enter-btn">Experience the Butterfly Effect</button>
   </div>
+
+  <nav id="top-nav">
+    <a href="#"><span class="icon">📝</span> Blog</a>
+    <a href="#"><span class="icon">🎵</span> Music</a>
+    <a href="#"><span class="icon">🌐</span> Social</a>
+    <a href="#"><span class="icon">🌟</span> Values</a>
+  </nav>
+
+  <script>
+    const enterBtn = document.getElementById('enter-btn');
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('top-nav');
+
+    enterBtn.addEventListener('click', () => {
+      // Fade out cover button
+      cover.classList.add('hidden');
+
+      // After fade, show nav bar
+      setTimeout(() => {
+        nav.classList.add('visible');
+      }, 700);
+    });
+  </script>
 </body>
 </html>
