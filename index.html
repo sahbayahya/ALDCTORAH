@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALDCTORAH</title>
+<style>
+  /* Reset & basic styles */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #eee;
+    overflow: hidden;
+  }
+
+  /* Container for the pages */
+  #book {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1500px;
+    overflow: hidden;
+  }
+
+  /* Each page styles */
+  .page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    box-sizing: border-box;
+    transition: transform 0.8s ease;
+  }
+
+  /* Cover page with background image */
+  #cover {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    color: white;
+    font-size: 4em;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    justify-content: flex-end;
+    padding-bottom: 5em;
+    cursor: pointer;
+  }
+
+  #cover h1 {
+    margin-bottom: 0.2em;
+  }
+
+  #cover button {
+    font-size: 1.5em;
+    padding: 0.7em 2em;
+    background: rgba(0,188,212,0.8);
+    border: none;
+    border-radius: 25px;
+    color: #121212;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease;
+  }
+
+  #cover button:hover {
+    background: #00acc1;
+  }
+
+  /* Pages stacked vertically, only the active page is visible */
+  .page:not(.active) {
+    transform: translateY(100vh);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .page.active {
+    transform: translateY(0);
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  /* Navigation bar at bottom */
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    padding: 1em 0;
+    font-size: 1.2em;
+  }
+
+  nav a {
+    color: #90caf9;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  nav a:hover {
+    color: #00bcd4;
+  }
+
+  /* Content styling for About, Blog, Contact */
+  section {
+    max-width: 700px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #00bcd4;
+    margin-bottom: 1em;
+  }
+
+  /* Blog article styling */
+  article {
+    background: #2a2a2a;
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  /* Contact links */
+  .contact-links a {
+    color: #90caf9;
+    text-decoration: none;
+    margin: 0 1em;
+  }
+
+  .contact-links a:hover {
+    color: #00bcd4;
+  }
+
+  /* Skills list */
+  ul.skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+  }
+
+  ul.skills li {
+    background: #00bcd4;
+    color: #121212;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  /* Resume button */
+  .resume-btn {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.7em 2em;
+    background: #00bcd4;
+    color: #121212;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 25px;
+  }
+
+  .resume-btn:hover {
+    background: #0097a7;
+  }
+
+  /* Profile photo styling */
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1em auto 2em;
+    border: 4px solid #00bcd4;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    #cover h1 {
+      font-size: 2.5em;
+    }
+
+    nav {
+      font-size: 1em;
+      gap: 1.5em;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="book">
+
+    <section id="cover" class="page active">
+      <h1>ALDCTORAH</h1>
+      <button id="openBookBtn">Open Book</button>
+    </section>
+
+    <section id="about" class="page">
+      <img src="https://avatars.githubusercontent.com/u/9919?s=150&v=4" alt="Profile Photo" class="profile-photo" />
+      <h2>About Me</h2>
+      <p>Hello! I’m ALDCTORAH, a passionate developer and creative thinker. I love building projects that solve real problems and learning new technologies every day.</p>
+      <ul class="skills">
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>CSS</li>
+      </ul>
+      <a href="#" class="resume-btn">View Resume</a>
+    </section>
+
+    <section id="blog" class="page">
+      <h2>Blog / Projects</h2>
+      <article>
+        <h3>Project One</h3>
+        <p>This project is about building a sleek website using modern JavaScript and CSS techniques.</p>
+      </article>
+      <article>
+        <h3>Project Two</h3>
+        <p>A cool Python automation script that saves hours of manual work.</p>
+      </article>
+    </section>
+
+    <section id="contact" class="page">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+      </div>
+    </section>
+
+  </div>
+
+  <nav>
+    <a href="#cover" data-target="cover">Cover</a>
+    <a href="#about" data-target="about">About Me</a>
+    <a href="#blog" data-target="blog">Blog</a>
+    <a href="#contact" data-target="contact">Contact</a>
+  </nav>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('nav a');
+    const openBookBtn = document.getElementById('openBookBtn');
+
+    let currentPage = 0;
+
+    function showPage(index) {
+      pages.forEach((page, i) => {
+        if (i === index) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+      currentPage = index;
+      updateNav();
+    }
+
+    function updateNav() {
+      navLinks.forEach(link => {
+        if (link.dataset.target === pages[currentPage].id) {
+          link.style.color = '#00bcd4';
+          link.style.fontWeight = '700';
+        } else {
+          link.style.color = '#90caf9';
+          link.style.fontWeight = '400';
+        }
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = e.target.dataset.target;
+        const targetIndex = Array.from(pages).findIndex(p => p.id === targetId);
+        if (targetIndex !== -1) {
+          showPage(targetIndex);
+          window.scrollTo(0, 0);
+        }
+      });
+    });
+
+    openBookBtn.addEventListener('click', () => {
+      showPage(1);
+    });
+
+    // Optional: keyboard navigation (up/down arrows)
+    window.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') {
+        let next = (currentPage + 1) % pages.length;
+        showPage(next);
+      } else if (e.key === 'ArrowUp') {
+        let prev = (currentPage - 1 + pages.length) % pages.length;
+        showPage(prev);
+      }
+    });
+
+  </script>
+</body>
+</html>
