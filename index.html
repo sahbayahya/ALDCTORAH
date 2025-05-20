@@ -20,8 +20,10 @@
     }
     body {
       background-image: url('PNG image.png');
+      background-position: center center;
+      background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
+
       transition: background 0.5s ease;
     }
 
@@ -60,51 +62,73 @@
 
     /* Nav bar */
     nav {
-      position: relative;
-      top: 0; left: 0; right: 0;
-      height: 60px;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 2rem;
-      gap: 2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.7s ease;
-      z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;  /* stack vertically */
+  gap: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+  z-index: 3;
+  width: max-content;
+  text-align: center;
     }
     nav.visible {
       opacity: 1;
       pointer-events: auto;
     }
-    nav a {
 
-       font-size: 1.4rem;
-      font-weight: 300;
-      background: none;
-      border: 2px solid rgba(255,255,255,0.6);
-      padding: 1rem 2rem;
-      color: #fff;
-      border-radius: 50px;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      user-select: none;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ddd;
-    }
-    nav a span.icon {
-      font-size: 1.4rem;
-    }
+nav {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+  z-index: 3;
+  width: max-content;
+  text-align: center;
+}
+
+nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+nav a {
+  color: white;
+  font-weight: 300;
+  font-size: 1.4rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ddd;
+}
+
+nav a span.icon {
+  font-size: 2rem;
+}
+
   </style>
 </head>
 <body>
@@ -112,12 +136,12 @@
     <button id="enter-btn">Experience the Butterfly Effect</button>
   </div>
 
-  <nav id="top-nav">
-    <a href="#"><span class="icon"></span> Blog</a>
-    <a href="#"><span class="icon"></span> Music</a>
-    <a href="#"><span class="icon"></span> Social</a>
-    <a href="#"><span class="icon"></span> Values</a>
-  </nav>
+<nav id="top-nav">
+  <a href="/blog"><span class="icon"></span> Blog</a>
+  <a href="/music"><span class="icon"></span> Music</a>
+  <a href="/social"><span class="icon"></span> Social</a>
+  <a href="/values"><span class="icon"></span> Values</a>
+</nav>
 
   <script>
     const enterBtn = document.getElementById('enter-btn');
