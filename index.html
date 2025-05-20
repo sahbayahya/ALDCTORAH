@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
       color: #fff;
     }
     .cover {
-      background-image: url('https://via.placeholder.com/1920x1080');
+      background-image: url('https://via.placeholder.com/1920x1080'); /* Replace this */
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -30,37 +29,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      flex-direction: column;
-      gap: 2rem;
     }
-    .title {
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      font-size: 4.5rem;
-      font-weight: 600;
-      color: white;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
-    }
-    .open-button {
+    .cta {
       font-size: 1.2rem;
-      background-color: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.3);
+      font-weight: 300;
+      background: none;
+      border: 2px solid rgba(255,255,255,0.6);
       padding: 0.8rem 1.5rem;
       color: #fff;
-      border-radius: 8px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
     }
-    .open-button:hover {
-      background-color: rgba(255,255,255,0.25);
+    .cta:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: #fff;
     }
   </style>
 </head>
 <body>
   <div class="cover">
-    <div class="title">ALDCTORAH</div>
-    <div class="open-button">Experience the Butterfly Effect</div>
+    <button class="cta">Experience the Butterfly Effect</button>
   </div>
 </body>
 </html>
