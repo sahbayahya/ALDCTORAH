@@ -1,0 +1,29 @@
+body.page {
+  background: black;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  margin: 0;
+}
+
+.page-content {
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #ccc;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: white;
+}
