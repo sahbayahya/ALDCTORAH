@@ -3,14 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music — ALDCTORAH</title>
+  <title>ALDCTORAH – Music</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page">
-  <div class="page-content">
-    <h1>🎵 Music</h1>
-    <p>Explore sounds, projects, and upcoming tracks from ALDCTORAH.</p>
-    <a href="index.html" class="back-link">← Back</a>
+<body>
+  <div class="cover-container">
+    <img src="cover.jpg" alt="Cover" class="cover-image">
+    <div class="cover-text">
+      <div class="main-icon">My Music</div>
+      <a href="#" class="sc-icon" title="Listen on SoundCloud">
+        <img src="https://simpleicons.org/icons/soundcloud.svg" alt="SoundCloud" />
+      </a>
+    </div>
   </div>
+
+  <div class="player-container">
+    <iframe id="sc-player" width="100%" height="120" scrolling="no" frameborder="no"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/yourname/yourtrack&auto_play=true">
+    </iframe>
+  </div>
+
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script>
+    const iframeElement = document.getElementById('sc-player');
+    const widget = SC.Widget(iframeElement);
+    widget.bind(SC.Widget.Events.FINISH, () => {
+      widget.seekTo(0);
+      widget.play();
+    });
+  </script>
 </body>
 </html>
