@@ -2,90 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ALDCTORAH – Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALDCTORAH – Music Archive</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .section-icon {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50px;
-      padding: 1rem 2rem;
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-image: url('PNG image.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
       color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      margin: 1rem;
-      transition: background 0.3s;
+      overflow: hidden;
     }
 
-    .section-icon:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .music-nav {
+    body {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .music-section {
-      padding: 4rem 2rem;
+      align-items: center;
+      height: 100vh;
       text-align: center;
     }
 
-    iframe, audio {
-      margin-top: 1rem;
-      max-width: 90%;
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      border-radius: 40px;
+      padding: 3rem 4rem;
+      max-width: 900px;
+      width: 90%;
+      box-sizing: border-box;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .main-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      color: white;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    summary {
+      outline: none;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    details[open] {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    ul.track-list {
+      margin-top: 1rem;
+      padding-left: 1rem;
+      list-style-type: disc;
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    ul.track-list li {
+      margin: 0.5rem 0;
+    }
+
+    ul.track-list li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    ul.track-list li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .overlay {
+        padding: 2rem 1.5rem;
+        width: 95%;
+      }
+      details {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="cover-container">
-    <img src="PNG image.png" alt="Cover" class="cover-image">
-    <div class="cover-text">
-      <div class="main-icon">Music Archive</div>
-      <div class="music-nav">
-        <a class="section-icon" href="#dj">🎧 DJ Sets</a>
-        <a class="section-icon" href="#remix">🎚️ Remixes</a>
-        <a class="section-icon" href="#techno">🌀 Techno Rave Originals</a>
-      </div>
-    </div>
+
+  <div class="overlay">
+    <div class="main-icon">🎵 Music Archive</div>
+
+    <details>
+      <summary>🎧 DJ Set</summary>
+      <ul class="track-list">
+        <li><a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=1c9f794aeb67464ea7ed741036fe9e6b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">Arabian Up-Beat Deep House Mix</a></li>
+        <!-- Add more DJ Set tracks here -->
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔄 Remixes</summary>
+      <ul class="track-list">
+        <li><a href="https://soundcloud.com/user-683135207-458196881/sets/remixes?si=9e5dcd8bd66d41ccac09e01a25bf8d20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">Remixes Collection</a></li>
+        <!-- Add more remix tracks here -->
+      </ul>
+    </details>
+
+    <details>
+      <summary>🚀 Techno Rave Originals</summary>
+      <ul class="track-list">
+        <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank">Techno Prayers</a></li>
+        <!-- Add more Techno Rave tracks here -->
+      </ul>
+    </details>
+
   </div>
 
-  <div id="dj" class="music-section">
-    <h2>🎧 DJ Sets</h2>
-    <iframe width="100%" height="160" scrolling="no" frameborder="no"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix&auto_play=true&show_comments=false&show_user=true&visual=true">
-    </iframe>
-  </div>
-
-  <div id="remix" class="music-section">
-    <h2>🎚️ Remixes</h2>
-    <iframe width="100%" height="160" scrolling="no" frameborder="no"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/sets/remixes&auto_play=true&hide_related=false&show_comments=false&show_user=true&show_reposts=false&visual=true">
-    </iframe>
-  </div>
-
-  <div id="techno" class="music-section">
-    <h2>🌀 Techno Rave Originals</h2>
-
-    <!-- Playlist: Techno Prayers -->
-    <iframe width="100%" height="160" scrolling="no" frameborder="no"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/sets/techno-prayers&auto_play=true&hide_related=false&show_comments=false&show_user=true&show_reposts=false&visual=true">
-    </iframe>
-
-    <!-- Individual track: Ya Wadood Part 2 -->
-    <iframe width="100%" height="120" scrolling="no" frameborder="no"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/ya-wadood-part2&auto_play=true">
-    </iframe>
-  </div>
-
-  <script src="https://w.soundcloud.com/player/api.js"></script>
 </body>
 </html>
