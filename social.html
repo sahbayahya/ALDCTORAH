@@ -3,14 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Social — ALDCTORAH</title>
+  <title>ALDCTORAH – Social</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #000000, #111111);
+      font-family: 'Helvetica Neue', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .main-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+      width: fit-content;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .social-link-container {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      flex: 1 1 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+    .social-link-container:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .social-link {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      max-width: 220px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 600px) {
+      .social-links {
+        gap: 2rem;
+      }
+      .social-link-container {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
-<body class="page">
-  <div class="page-content">
-    <h1>🌐 Social</h1>
-    <p>Links and updates from the digital world. Follow ALDCTORAH everywhere.</p>
-    <a href="index.html" class="back-link">← Back</a>
+<body>
+
+  <div class="main-icon">🌐 Connect With Me</div>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/aldctorah/" target="_blank" class="social-link-container">
+      <div class="social-link">📷 Instagram</div>
+      <div class="social-desc">Discover my musical journey and beats that shape the future.</div>
+    </a>
+    <a href="https://www.linkedin.com/in/sahbayahya/" target="_blank" class="social-link-container">
+      <div class="social-link">💼 LinkedIn</div>
+      <div class="social-desc">Explore another life — professional paths beyond the music realm.</div>
+    </a>
   </div>
+
 </body>
 </html>
