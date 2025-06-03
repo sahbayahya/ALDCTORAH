@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ALDCTORAH – Social</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #000000, #111111);
+    html, body {
+      margin: 0; padding: 0; height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: white;
+      overflow: hidden;
+    }
+
+    body {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      border-radius: 40px;
+      padding: 3rem 4rem;
+      max-width: 900px;
+      width: 90%;
+      box-sizing: border-box;
       text-align: center;
     }
 
@@ -24,10 +36,12 @@
       background: rgba(255, 255, 255, 0.08);
       border-radius: 50px;
       padding: 1rem 2rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: bold;
       margin-bottom: 3rem;
       width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .social-links {
@@ -35,8 +49,6 @@
       gap: 4rem;
       flex-wrap: wrap;
       justify-content: center;
-      max-width: 900px;
-      width: 100%;
     }
 
     .social-link-container {
@@ -50,6 +62,7 @@
       transition: background 0.3s;
       text-decoration: none;
       color: white;
+      cursor: pointer;
     }
     .social-link-container:hover {
       background: rgba(255, 255, 255, 0.15);
@@ -71,6 +84,7 @@
     @media (max-width: 600px) {
       .social-links {
         gap: 2rem;
+        flex-direction: column;
       }
       .social-link-container {
         flex: 1 1 100%;
@@ -79,7 +93,6 @@
   </style>
 </head>
 <body>
-
   <div class="main-icon">🌐 Connect With Me</div>
 
   <div class="social-links">
@@ -91,9 +104,9 @@
       <div class="social-link">💼 LinkedIn</div>
       <div class="social-desc">Explore another life — professional paths beyond the music realm.</div>
     </a>
-    <a href="mailto:your.email@example.com" target="_blank" class="social-link-container">
+    <a href="mailto:aldctorah@gmail.com" target="_blank" class="social-link-container">
       <div class="social-link">📩 Booking</div>
-      <div class="social-desc">If you want to book me for one of my talents, contact me directly via this link.</div>
+      <div class="social-desc"> Let’s craft a sonic experience that echoes forever — contact us directly through this link and let the transformation begin.”.</div>
     </a>
   </div>
 
