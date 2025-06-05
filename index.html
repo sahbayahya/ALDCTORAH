@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,9 +7,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
 
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       height: 100%;
       width: 100%;
@@ -18,174 +17,143 @@
       color: white;
       overflow: hidden;
     }
+
     body {
       background-image: url('PNG image.png');
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-
       transition: background 0.5s ease;
     }
 
-    /* Cover button */
+    /* Cover layer */
     #cover {
       height: 100vh;
       width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: transparent;
-      position: relative;
-      z-index: 2;
-      transition: opacity 0.0s ease;
+      position: absolute;
+      z-index: 10;
+      background: rgba(0,0,0,0.3);
+      transition: opacity 1.2s ease;
     }
+
     #cover.hidden {
       opacity: 0;
       pointer-events: none;
     }
+
+    /* Butterfly Button */
     #enter-btn {
       font-size: 1.4rem;
       font-weight: 300;
       background: none;
       border: 2px solid rgba(255,255,255,0.6);
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       color: #fff;
       border-radius: 50px;
       cursor: pointer;
       backdrop-filter: blur(4px);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+      position: relative;
+      animation: glow 2.5s infinite ease-in-out;
     }
+
     #enter-btn:hover {
       background-color: rgba(255,255,255,0.1);
       border-color: #fff;
     }
 
-    /* Nav bar */
-    nav {
-  color: white;
-  font-weight: 300;
-  font-size: 1.4rem;
-  background: none;
-  border: 2px solid rgba(255,255,255,0.1);
-  padding: 1rem 2rem;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.5s ease;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: raw;  /* stack horizentally */
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 3;
-  width: max-content;
-  text-align: center;
+    /* Glow animation */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      }
     }
+
+    /* Nav links */
+    nav {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.4s ease;
+      z-index: 5;
+    }
+
     nav.visible {
       opacity: 1;
       pointer-events: auto;
     }
 
-nav {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 2rem;
-  background: transparent;  /* fully transparent */
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.7s ease;
-  z-index: 3;
-  width: max-content;
-}
+    nav a {
+      color: white;
+      font-weight: 300;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+    }
 
-nav.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-    
-/* Icon container style - same as "Experience the butterfly effect" icon */
-.icon-shape {
-  background: rgba(255, 255, 255, 0.1); /* very light transparent white */
-  border-radius: 20px;                   /* softly rounded corners */
-  padding: 1rem 1.2rem;                  /* spacing inside the shape */
-  display: inline-flex;                  /* center the icon */
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;                     /* icon size */
-  transition: background-color 0.3s ease;
-}
-
-/* Hover effect */
-.icon-shape:hover {
-  background: rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  color: #ddd;
-}
-
-/* For nav links */
-nav a {
-  color: white;
-  font-weight: 300;
-  font-size: 1.4rem;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Use the icon-shape class on the span wrapping the icon */
-nav a span.icon {
-  composes: icon-shape; /* if using CSS modules, otherwise just add the class */
-  /* or just add the styles directly */
-}
-
-
-
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ddd;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Butterfly Sound -->
+  <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
+
+  <!-- Cover Button -->
   <div id="cover">
     <button id="enter-btn">Experience the Butterfly Effect</button>
   </div>
 
-<nav id="top-nav">
-  <a href="blog.html" class="section-icon"> Blog</a>
-  <a href="music.html" class="section-icon"> Music</a>
-  <a href="social.html" class="section-icon"> Social</a>
-  <a href="about.html" class="section-icon"> About Us</a>
-</nav>
+  <!-- Navigation -->
+  <nav id="top-nav">
+    <a href="blog.html">Blog</a>
+    <a href="music.html">Music</a>
+    <a href="social.html">Social</a>
+    <a href="about.html">About Us</a>
+  </nav>
 
+  <!-- Script -->
   <script>
     const enterBtn = document.getElementById('enter-btn');
     const cover = document.getElementById('cover');
     const nav = document.getElementById('top-nav');
+    const butterflySound = document.getElementById('butterfly-sound');
 
     enterBtn.addEventListener('click', () => {
-      // Fade out cover button
+      // Play sound
+      butterflySound.play();
+
+      // Fade out the button
       cover.classList.add('hidden');
 
-      // After fade, show nav bar
+      // Reveal nav after fade
       setTimeout(() => {
         nav.classList.add('visible');
-      }, 700);
+      }, 1200);
     });
   </script>
 </body>
