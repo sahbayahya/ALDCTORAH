@@ -1,16 +1,90 @@
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog — ALDCTORAH</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – ALDCTORAH</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-image: url('PNG image.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background: rgba(138, 43, 226, 0.3);
+      border-radius: 40px;
+      padding: 2rem;
+      width: 85%;
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .main-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: white;
+    }
+
+    .article-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .article-link {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .article-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+  </style>
 </head>
-<body class="page">
-  <div class="page-content">
-    <h1>📝 Blog</h1>
-    <p>Coming soon: reflections, essays, and updates on ALDCTORAH's journey.</p>
-    <a href="index.html" class="back-link">← Back</a>
+<body>
+  <a href="index.html" class="back-button">Menu</a>
+  <div class="overlay">
+    <div class="main-icon">Blog</div>
+    <div class="article-icons">
+      <a class="article-link" href="article1.html">Article 1: Sonic Futures</a>
+      <a class="article-link" href="article2.html">Article 2: Techno Rituals</a>
+      <a class="article-link" href="article3.html">Article 3: Sound & Identity</a>
+      <a class="article-link" href="article3.html">Article 3: 99% Spiritual </a>
+    </div>
   </div>
 </body>
 </html>
