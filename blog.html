@@ -1,13 +1,11 @@
-<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog – ALDCTORAH</title>
-   <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
-
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -31,7 +29,6 @@
       padding: 2rem;
     }
 
-    /* Container with translucent background and rounded corners */
     .overlay {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
@@ -50,39 +47,28 @@
       user-select: none;
     }
 
-    .social-links {
+    .article-icons {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      margin-top: 1rem;
     }
 
-    .social-link-container {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+    .article-link {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
       padding: 1rem 2rem;
       text-decoration: none;
       color: white;
       font-weight: 300;
-      font-size: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-size: 1.1rem;
+      display: block;
       transition: background-color 0.3s ease;
-      cursor: pointer;
-      user-select: none;
+      backdrop-filter: blur(4px);
     }
 
-    .social-link-container:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    .social-desc {
-      margin-top: 0.5rem;
-      font-weight: 300;
-      font-size: 0.9rem;
-      color: #ddd;
-      max-width: 90%;
-      line-height: 1.3;
+    .article-link:hover {
+      background-color: rgba(255, 255, 255, 0.25);
     }
 
     .back-button {
@@ -112,12 +98,28 @@
   <a href="index.html" class="back-button">Menu</a>
   <div class="overlay">
     <div class="main-icon">Blog</div>
-    <div class="article-icons">
-      <a class="article-link" href="article1.html">Article 1: Sonic Futures</a>
-      <a class="article-link" href="article2.html">Article 2: Techno Rituals</a>
-      <a class="article-link" href="article3.html">Article 3: Sound & Identity</a>
-      <a class="article-link" href="article3.html">Article 3: 99% Spiritual </a>
+    <div class="article-icons" id="blog-posts">
+      <!-- Dynamic blog posts will be loaded here -->
     </div>
   </div>
+
+  <script>
+    // Example blog post data
+    const posts = [
+      { title: "Sonic Futures", url: "article1.html" },
+      { title: "Techno Rituals", url: "article2.html" },
+      { title: "Sound & Identity", url: "article3.html" },
+      { title: "99% Spiritual", url: "article4.html" }
+    ];
+
+    const container = document.getElementById('blog-posts');
+    posts.forEach(post => {
+      const link = document.createElement('a');
+      link.href = post.url;
+      link.className = 'article-link';
+      link.textContent = `Article: ${post.title}`;
+      container.appendChild(link);
+    });
+  </script>
 </body>
 </html>
