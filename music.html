@@ -4,35 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ALDCTORAH – Music Archive</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
-      font-family: 'Helvetica Neue', sans-serif;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+    body {
       background-image: url('PNG image.png');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      color: white;
-      overflow-x: hidden;
+      transition: background 0.5s ease;
     }
 
-    .back-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.08);
-      color: white;
-      padding: 0.75rem 1.5rem;
+    /* Cover button */
+    #cover {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.3s ease;
+    }
+    #cover.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #enter-btn {
+      font-size: 1.6rem;
+      font-weight: 300;
+      background: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 1rem 3rem;
+      color: #fff;
       border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      z-index: 999;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    #enter-btn:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: #fff;
     }
 
+    /* Nav bar */
+    nav {
+      color: white;
+      font-weight: 300;
+      font-size: 1.4rem;
+      background: none;
+      border: 2px solid rgba(255,255,255,0.1);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+      display: flex;
+      gap: 2rem;
+      user-select: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      z-index: 3;
+      width: max-content;
+      text-align: center;
+    }
+    nav.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Overlay container for tracks */
     .overlay {
       border: 2px solid rgba(255, 255, 255, 0.3);
       padding: 2rem;
@@ -42,32 +100,26 @@
       text-align: center;
       margin: 5vh auto;
       max-width: 700px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
     }
 
+    /* Main icon (like the button style) */
     .main-icon {
-  color: white;
-  font-weight: 300;
-  font-size: 1.4rem;
-  background: none;
-  border: 2px solid rgba(255,255,255,0.1);
-  padding: 1rem 2rem;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.5s ease;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
+      font-weight: 300;
+      font-size: 1.6rem;
+      border: 2px solid rgba(255,255,255,0.1);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      display: inline-block;
     }
 
     details {
@@ -85,17 +137,14 @@
       margin-right: auto;
       transition: background 0.3s ease;
     }
-
     details[open] {
       background: rgba(138, 43, 226, 0.35);
     }
-
     summary {
       outline: none;
       list-style: none;
       cursor: pointer;
     }
-
     ul.track-list {
       margin-top: 1rem;
       padding-left: 1.2rem;
@@ -103,17 +152,14 @@
       font-weight: 300;
       font-size: 1rem;
     }
-
     ul.track-list li {
       margin: 0.5rem 0;
     }
-
     ul.track-list li a {
       color: #ddd;
       text-decoration: none;
       transition: color 0.2s ease;
     }
-
     ul.track-list li a:hover {
       color: #fff;
       text-decoration: underline;
@@ -124,7 +170,6 @@
         width: 90%;
         padding: 1.5rem;
       }
-
       details {
         max-width: 100%;
       }
@@ -133,32 +178,60 @@
 </head>
 <body>
 
-<a href="index.html" class="back-button">Menu</a>
+<!-- Cover with enter button -->
+<div id="cover">
+  <button id="enter-btn">Experience Our Music</button>
+</div>
 
-<div class="overlay">
+<!-- Nav menu -->
+<nav id="top-nav">
+  <a href="blog.html" class="section-icon">Blog</a>
+  <a href="music.html" class="section-icon">Music</a>
+  <a href="social.html" class="section-icon">Social</a>
+  <a href="about.html" class="section-icon">About Us</a>
+</nav>
+
+<!-- Overlay with music content, initially hidden -->
+<div class="overlay" id="music-content">
   <div class="main-icon">Experience Our Music</div>
 
   <details>
     <summary>DJ Sets</summary>
     <ul class="track-list">
-      <li><a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=fece57436e0140bb8dc00ca573b9cbdb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">House Mix</a></li>
+      <li><a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=fece57436e0140bb8dc00ca573b9cbdb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" rel="noopener noreferrer">House Mix</a></li>
     </ul>
   </details>
 
   <details>
     <summary>Remixes</summary>
     <ul class="track-list">
-      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/remixes?si=9e5dcd8bd66d41ccac09e01a25bf8d20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">Remixes Collection</a></li>
-    </ul>
-  </details>
-  <details>
-    <summary>Techno Rave Originals</summary>
-    <ul class="track-list">
-      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank">Techno Prayers</a></li>
+      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/remixes?si=9e5dcd8bd66d41ccac09e01a25bf8d20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" rel="noopener noreferrer">Remixes Collection</a></li>
     </ul>
   </details>
 
+  <details>
+    <summary>Techno Rave Originals</summary>
+    <ul class="track-list">
+      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank" rel="noopener noreferrer">Techno Prayers</a></li>
+    </ul>
+  </details>
 </div>
+
+<script>
+  const enterBtn = document.getElementById('enter-btn');
+  const cover = document.getElementById('cover');
+  const nav = document.getElementById('top-nav');
+  const musicContent = document.getElementById('music-content');
+
+  enterBtn.addEventListener('click', () => {
+    cover.classList.add('hidden');
+
+    setTimeout(() => {
+      nav.classList.add('visible');
+      musicContent.classList.add('visible');
+    }, 700);
+  });
+</script>
 
 </body>
 </html>
