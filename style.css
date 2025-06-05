@@ -87,3 +87,66 @@ html {
 .glow-click {
   animation: clickGlow 0.6s ease-out;
 }
+
+/* Cover button shown on load */
+#cover {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+#cover.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Enter button style */
+#enter-btn {
+  font-size: 1.4rem;
+  font-weight: 300;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 1rem 2rem;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#enter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* Nav initially hidden */
+nav#top-nav {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2rem;
+  background: transparent;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+  z-index: 3;
+  width: max-content;
+  scroll-margin-top: 100px;
+}
+
+/* Shown after click */
+nav#top-nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
