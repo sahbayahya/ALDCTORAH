@@ -137,6 +137,16 @@
   
   </style>
 </head>
+  <script>
+  // Add glow effect on click for all elements with class 'section-icon' or 'social-link-container'
+  document.querySelectorAll('a, .section-icon, .social-link-container').forEach(el => {
+    el.addEventListener('click', e => {
+      el.classList.add('glow-click');
+      setTimeout(() => el.classList.remove('glow-click'), 600); // Remove after animation
+    });
+  });
+</script>
+
 <body>
   <a href="index.html#menu" class="back-button">Menu</a>
 
