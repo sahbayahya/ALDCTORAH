@@ -175,6 +175,25 @@
       </ul>
     </details>
   </div>
+ <!-- Script -->
+  <script>
+    const enterBtn = document.getElementById('enter-btn');
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('menu');
+    const butterflySound = document.getElementById('butterfly-sound');
 
+    enterBtn.addEventListener('click', () => {
+      // Play sound
+      butterflySound.play();
+
+      // Fade out the button
+      cover.classList.add('hidden');
+
+      // Reveal nav after fade
+      setTimeout(() => {
+        nav.classList.add('visible');
+      }, 1200);
+    });
+  </script>
 </body>
 </html>
