@@ -67,3 +67,8 @@ summary:hover {
 .back-link:hover {
   color: white;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
