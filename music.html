@@ -7,32 +7,41 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
       background-image: url('PNG image.png');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       color: white;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 999;
     }
 
     .overlay {
-      border: 2px solid rgba(255,255,255,0.6);
-      padding: 1rem 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 2rem;
       color: #fff;
       border-radius: 50px;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      backdrop-filter: blur(5px);
+      text-align: center;
+      margin: 5vh auto;
+      max-width: 700px;
     }
 
     .main-icon {
@@ -44,21 +53,27 @@
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
+      font-weight: bold;
     }
 
     details {
-      background: rgba(138, 43, 226, 0.3);
+      background: rgba(138, 43, 226, 0.2);
       border-radius: 30px;
       padding: 1rem 2rem;
-      margin-bottom: 2rem;
+      margin: 1rem 0;
       cursor: pointer;
       color: white;
       text-align: left;
+      font-weight: 600;
+      font-size: 1.2rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      font-weight: 600;
-      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+
+    details[open] {
+      background: rgba(138, 43, 226, 0.35);
     }
 
     summary {
@@ -67,13 +82,9 @@
       cursor: pointer;
     }
 
-    details[open] {
-     background: rgba(138, 43, 226, 0.3);
-    }
-
     ul.track-list {
       margin-top: 1rem;
-      padding-left: 1rem;
+      padding-left: 1.2rem;
       list-style-type: disc;
       font-weight: 300;
       font-size: 1rem;
@@ -88,6 +99,7 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
+
     ul.track-list li a:hover {
       color: #fff;
       text-decoration: underline;
@@ -95,9 +107,10 @@
 
     @media (max-width: 600px) {
       .overlay {
-        padding: 2rem 1.5rem;
-        width: 95%;
+        width: 90%;
+        padding: 1.5rem;
       }
+
       details {
         max-width: 100%;
       }
@@ -105,35 +118,33 @@
   </style>
 </head>
 <body>
-<a href="index.html" class="back-button"> Menu</a>
-  <div class="overlay">
-    <div class="main-icon"> Experiece our Music </div>
 
-    <details>
-      <summary> DJ Sets </summary>
-      <ul class="track-list">
-        <li><a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=fece57436e0140bb8dc00ca573b9cbdb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">House Mix</a></li>
-        <!-- Add more DJ Set tracks here -->
-      </ul>
-    </details>
+<a href="index.html" class="back-button">Menu</a>
 
-    <details>
-      <summary> Remixes</summary>
-      <ul class="track-list">
-        <li><a href="https://soundcloud.com/user-683135207-458196881/sets/remixes?si=9e5dcd8bd66d41ccac09e01a25bf8d20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">Remixes Collection</a></li>
-        <!-- Add more remix tracks here -->
-      </ul>
-    </details>
+<div class="overlay">
+  <div class="main-icon">Experience Our Music</div>
 
-    <details>
-      <summary> Techno Rave Originals</summary>
-      <ul class="track-list">
-        <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank">Techno Prayers</a></li>
-        <!-- Add more Techno Rave tracks here -->
-      </ul>
-    </details>
+  <details>
+    <summary>DJ Sets</summary>
+    <ul class="track-list">
+      <li><a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=fece57436e0140bb8dc00ca573b9cbdb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">House Mix</a></li>
+    </ul>
+  </details>
 
-  </div>
+  <details>
+    <summary>Remixes</summary>
+    <ul class="track-list">
+      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/remixes?si=9e5dcd8bd66d41ccac09e01a25bf8d20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">Remixes Collection</a></li>
+    </ul>
+  </details>
+  <details>
+    <summary>Techno Rave Originals</summary>
+    <ul class="track-list">
+      <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank">Techno Prayers</a></li>
+    </ul>
+  </details>
+
+</div>
 
 </body>
 </html>
