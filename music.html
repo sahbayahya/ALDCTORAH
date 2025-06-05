@@ -148,12 +148,11 @@
 </script>
 
 <body>
+  
   <a href="index.html#menu"  id="enter-btn" class="back-button">Menu</a>
-
-
   <div class="overlay">
     <div class="main-icon"  id="enter-btn" >Music Archive</div>
-      
+      <nav id="summery">
     <details>
       <summary>DJ Sets</summary>
       <ul class="track-list">
@@ -174,12 +173,13 @@
         <li><a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank" rel="noopener noreferrer">Techno Prayers</a></li>
       </ul>
     </details>
+      </nav>
   </div>
  <!-- Script -->
   <script>
     const enterBtn = document.getElementById('enter-btn');
     const cover = document.getElementById('cover');
-    const nav = document.getElementById('menu');
+    const nav = document.getElementById('enter-btn');
     const butterflySound = document.getElementById('butterfly-sound');
 
     enterBtn.addEventListener('click', () => {
