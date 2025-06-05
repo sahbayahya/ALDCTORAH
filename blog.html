@@ -5,73 +5,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog – ALDCTORAH</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('PNG image.png');
-      background-size: cover;
-      background-position: center;
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      background: black;
       color: white;
-      overflow-x: hidden;
+      overflow: hidden;
+    }
+    body {
+      background-image: url('PNG image.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
     }
 
+    /* Container with translucent background and rounded corners */
     .overlay {
-      background: rgba(138, 43, 226, 0.3);
-      border-radius: 40px;
-      padding: 2rem;
-      width: 85%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem 3rem;
       max-width: 700px;
-      margin: 2rem auto;
+      width: 100%;
       text-align: center;
+      backdrop-filter: blur(6px);
     }
 
     .main-icon {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-weight: 300;
+      font-size: 1.8rem;
       margin-bottom: 2rem;
-      display: inline-block;
       color: white;
+      user-select: none;
     }
 
-    .article-icons {
+    .social-links {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      align-items: center;
-      margin-top: 2rem;
     }
 
-    .article-link {
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.08);
+    .social-link-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 500;
+      text-decoration: none;
       color: white;
-      transition: background 0.3s ease;
+      font-weight: 300;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      user-select: none;
     }
 
-    .article-link:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .social-link-container:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .social-desc {
+      margin-top: 0.5rem;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: #ddd;
+      max-width: 90%;
+      line-height: 1.3;
     }
 
     .back-button {
       position: fixed;
       top: 20px;
       right: 20px;
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.1);
       color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
+      border-radius: 20px;
+      font-weight: 300;
       font-size: 1rem;
       text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
     }
   </style>
 </head>
