@@ -2,80 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ALDCTORAH – About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us – ALDCTORAH</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #000000, #111111);
+      height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: white;
     }
 
-    .cover-container {
-      position: relative;
-      height: 100vh;
-      background-image: url("PNG image.png");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      border-radius: 40px;
+      padding: 3rem 4rem;
+      max-width: 900px;
+      width: 90%;
+      margin: 4rem auto;
+      box-sizing: border-box;
       text-align: center;
     }
 
-    .cover-text .main-icon {
+    .main-icon {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 50px;
       padding: 1rem 2rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: bold;
-      color: white;
       margin-bottom: 2rem;
       display: inline-block;
     }
 
-    .content-section {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      text-align: center;
-      line-height: 1.8;
+    .about-text {
+      text-align: left;
       font-size: 1.1rem;
+      line-height: 1.6;
+      color: #eee;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 999;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     @media (max-width: 600px) {
-      .cover-text .main-icon {
-        font-size: 1rem;
-        padding: 0.8rem 1.2rem;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      .content-section {
-        font-size: 1rem;
-        padding: 1.5rem;
+      .overlay {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
       }
     }
   </style>
 </head>
 <body>
-<a href="index.html" class="back-button">Menu</a>
-  <div class="cover-container">
-    <div class="cover-text">
+
+  <a href="index.html" class="back-button">Back to Menu</a>
+  <div class="overlay">
       <div class="main-icon"> About Us</div>
     </div>
   </div>
