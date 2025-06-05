@@ -40,7 +40,27 @@ body.page {
 }
 
 .back-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+summary {
+  background: rgba(138, 43, 226, 0.2);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  transition: background 0.3s ease;
+  list-style: none;
+}
+
+details[open] summary {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+summary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 
