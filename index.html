@@ -58,6 +58,12 @@
       transition: background-color 0.4s ease, border-color 0.4s ease;
       position: relative;
       animation: glow 2.5s infinite ease-in-out;
+      display: flex;                  /* Centering magic */
+      align-items: center;           /* Vertically center text */
+      justify-content: center;       /* Horizontally center text */
+      text-align: center;            /* Center text inside */
+      padding: 1.2rem 2.5rem;        /* Adjust padding for balance */
+      min-width: 250px;              /* Optional: makes it consistent shape */
     }
 
     #enter-btn:hover {
