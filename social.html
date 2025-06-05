@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
       font-family: 'Helvetica Neue', sans-serif;
       background-image: url('PNG image.png');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       color: white;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .overlay {
@@ -22,7 +26,7 @@
       border-radius: 40px;
       padding: 2rem;
       width: 85%;
-      max-width: 600px;
+      max-width: 700px;
       text-align: center;
     }
 
@@ -37,15 +41,22 @@
       color: white;
     }
 
-    .social-list {
+    .social-links {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 2rem;
       align-items: center;
     }
 
-    .social-link {
+    .social-link-container {
       text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .social-link {
       background: rgba(255, 255, 255, 0.08);
       padding: 0.8rem 2rem;
       border-radius: 50px;
@@ -54,10 +65,21 @@
       color: white;
       transition: background 0.3s ease;
       width: fit-content;
+      margin-bottom: 0.5rem;
     }
 
     .social-link:hover {
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    .social-desc {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 40px;
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem;
+      max-width: 90%;
+      line-height: 1.4;
+      color: #f0f0f0;
     }
 
     .back-button {
@@ -78,21 +100,26 @@
 <body>
 
   <a href="index.html" class="back-button">Menu</a>
-  <div class="main-icon">Connect With Me</div>
 
-  <div class="social-links">
-    <a href="https://www.instagram.com/aldctorah/" target="_blank" class="social-link-container">
-      <div class="social-link">Instagram</div>
-      <div class="social-desc">Discover my musical journey and beats that shape the future.</div>
-    </a>
-    <a href="https://www.linkedin.com/in/sahbayahya/" target="_blank" class="social-link-container">
-      <div class="social-link">LinkedIn</div>
-      <div class="social-desc">Explore another life — professional paths beyond the music realm.</div>
-    </a>
-    <a href="mailto:aldctorah@gmail.com" target="_blank" class="social-link-container">
-      <div class="social-link">Booking</div>
-      <div class="social-desc"> Let’s craft a sonic experience that echoes forever — contact us directly through this link and let the transformation begin.”.</div>
-    </a>
+  <div class="overlay">
+    <div class="main-icon">Connect With Me</div>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/aldctorah/" target="_blank" class="social-link-container">
+        <div class="social-link">Instagram</div>
+        <div class="social-desc"> Discover my musical journey and beats that shape the future.</div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/sahbayahya/" target="_blank" class="social-link-container">
+        <div class="social-link">LinkedIn</div>
+        <div class="social-desc">Explore another life — professional paths beyond the music realm.</div>
+      </a>
+
+      <a href="mailto:aldctorah@gmail.com" target="_blank" class="social-link-container">
+        <div class="social-link">Booking</div>
+        <div class="social-desc"> Let’s craft a sonic experience that echoes forever — contact me directly through this link and let the transformation begin.</div>
+      </a>
+    </div>
   </div>
 
 </body>
