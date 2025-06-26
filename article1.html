@@ -1,134 +1,98 @@
-<!-- article1.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Article 1 – Sonic Futures</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sonic Architect</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('PNG image.png');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      overflow-x: hidden;
+      background-color: #111;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-
-    .overlay {
-      background: rgba(138, 43, 226, 0.3);
-      border-radius: 40px;
-      padding: 2rem;
-      width: 90%;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #000;
+      border-bottom: 1px solid #333;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #e8d37b;
+    }
+    .back-btn {
+      color: #f4f4f4;
+      text-decoration: none;
+      border: 1px solid #f4f4f4;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    main {
       max-width: 800px;
       margin: 3rem auto;
-      position: relative;
-    }
-
-    .main-icon {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      display: inline-block;
-      color: white;
-    }
-
-    .content {
-      font-size: 1rem;
+      padding: 0 1.5rem;
       line-height: 1.7;
-      max-height: 400px;
-      overflow: hidden;
-      position: relative;
-      transition: max-height 0.5s ease;
     }
-
-    .arrow {
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-size: 1.5rem;
-      user-select: none;
+    p {
+      margin-bottom: 1.5rem;
     }
-
-    .nav-links {
-      margin-top: 2rem;
+    strong {
+      color: #e8d37b;
+      font-size: 1.4rem;
+    }
+    footer {
+      margin-top: auto;
+      padding: 2rem;
       text-align: center;
     }
-
-    .nav-links a {
-      margin: 0 1rem;
-      color: white;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      transition: background 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .back-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.08);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
+    .writer-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e8d37b;
     }
   </style>
-  <script>
-    let currentPage = 0;
-    const pages = [
-            `You’re a one-person wavefront — a musician, DJ, cosmologist, visual storyteller — blending stars and subs like it’s second nature.\nYou breathe in chaos and exhale techno.`,
-      `You don’t just make beats, you dissect them, rebuild them, sculpt them into weapons of dancefloor hypnosis. MIDI-bending, melody-hacking, complexity-tuning — you're crafting a vocal2techno engine like a cyberpunk sound alchemist.`,
-      `You move between worlds — from fashion sketches that whisper mystic tales to polished Suno vocals that shimmer with soul. You ask sharp questions, make sharp choices.`,
-      `Bluetooth problems? You’ll solve ‘em. Dreams, love, contempt? You’re not afraid to stare deep into the static and pull out signal. You're future-first, grounded in now, never content with the default settings — you tweak, tune, and transcend.`
-            `You’re a one-person wavefront — a musician, DJ, cosmologist, visual storyteller — blending stars and subs like it’s second nature.\nYou breathe in chaos and exhale techno.`,
-      `You don’t just make beats, you dissect them, rebuild them, sculpt them into weapons of dancefloor hypnosis. MIDI-bending, melody-hacking, complexity-tuning — you're crafting a vocal2techno engine like a cyberpunk sound alchemist.`,
-      `You move between worlds — from fashion sketches that whisper mystic tales to polished Suno vocals that shimmer with soul. You ask sharp questions, make sharp choices.`,
-      `Bluetooth problems? You’ll solve ‘em. Dreams, love, contempt? You’re not afraid to stare deep into the static and pull out signal. You're future-first, grounded in now, never content with the default settings — you tweak, tune, and transcend.`
-      `You’re a one-person wavefront — a musician, DJ, cosmologist, visual storyteller — blending stars and subs like it’s second nature.\nYou breathe in chaos and exhale techno.`,
-      `You don’t just make beats, you dissect them, rebuild them, sculpt them into weapons of dancefloor hypnosis. MIDI-bending, melody-hacking, complexity-tuning — you're crafting a vocal2techno engine like a cyberpunk sound alchemist.`,
-      `You move between worlds — from fashion sketches that whisper mystic tales to polished Suno vocals that shimmer with soul. You ask sharp questions, make sharp choices.`,
-      `Bluetooth problems? You’ll solve ‘em. Dreams, love, contempt? You’re not afraid to stare deep into the static and pull out signal. You're future-first, grounded in now, never content with the default settings — you tweak, tune, and transcend.`
-    ];
-
-    function nextPage() {
-      if (currentPage < pages.length - 1) {
-        currentPage++;
-        document.getElementById('page-content').innerText = pages[currentPage];
-      }
-    }
-  </script>
 </head>
 <body>
-  <a href="blog.html" class="back-button">Back</a>
-  <div class="overlay">
-    <div class="main-icon">Sonic Futures</div>
-    <div id="page-content" class="content">
-      You’re a one-person wavefront — a musician, DJ, cosmologist, visual storyteller — blending stars and subs like it’s second nature.\nYou breathe in chaos and exhale techno.
-    </div>
-    <div class="arrow" onclick="nextPage()">⟶</div>
-    <div class="nav-links">
-      <a href="article2.html">Techno Rituals</a>
-      <a href="article3.html">Sound & Identity</a>
-    </div>
-  </div>
+  <header>
+    <div class="logo">YourLogo</div>
+    <a href="/menu" class="back-btn">Back to Menu</a>
+  </header>
+  <main>
+    <p><strong>The Sonic Architect of Future Realms</strong></p>
+
+    <p>We are the Frequency Dancers — the Waveform Sculptors.</p>
+
+    <p>A cosmic butterfly inspires us to be many in one: musician, cosmologist, lighting artist, creative director, dancer, lover.<br>
+    Blending starlight and sub-bass as if it's second nature.</p>
+
+    <p>We breathe in the future and exhale the present. We only look back to learn — to admire what once was: divine echoes in creation that remind us to be fully here.</p>
+
+    <p>Every piece of art is an attempt to describe the Divine — a soundwave infused with intention, echoing the essence of Joy.<br>
+    The moving image of joy is the dancer: decoding frequencies, rewiring memory, forging each step into a hypnotic ritual on the dance floor.<br>
+    Each pulse is a ripple. Each ripple, a smile. Each smile, a transformation — a return to Joy.</p>
+
+    <p><strong>Experience the Butterfly Effect</strong></p>
+
+    <p>From noise to sound, from dreams to reality — we claim nothing. We simply stand, grateful to be witnesses.<br>
+    Every detail is designed to awaken the infinite — a chain reaction of movement, memory, and meaning.<br>
+    This is more than performance.<br>
+    It is sonic architecture.<br>
+    It is the cosmic butterfly effect.</p>
+
+    <p>Welcome to the future realm. Let’s transcend.</p>
+  </main>
+  <footer>
+    <img src="writer-photo.jpg" alt="Writer Photo" class="writer-photo">
+  </footer>
 </body>
 </html>
