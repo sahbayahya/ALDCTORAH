@@ -9,25 +9,28 @@
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #F0E3EF;
-      color: #470743;
+      background-color: #fff;
+      color: #333;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      align-items: center;
     }
     header {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      border-bottom: 1px solid #470743;
-      background-color: #F0E3EF;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      box-sizing: border-box;
     }
     .logo {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: #F0E3EF;
+      background-color: #9b111e;
       color: white;
       display: flex;
       align-items: center;
@@ -36,24 +39,24 @@
       font-size: 1rem;
     }
     .back-btn {
-      color: #F0E3EF;
+      color: #9b111e;
       text-decoration: none;
-      border: 1px solid #F0E3EF;
+      border: 1px solid #9b111e;
       padding: 0.5rem 1rem;
       border-radius: 5px;
       font-size: 0.9rem;
     }
-    main {
+    .container {
       max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-      line-height: 1.7;
+      width: 100%;
+      padding: 3rem 1.5rem;
+      box-sizing: border-box;
     }
     p {
       margin-bottom: 1.5rem;
     }
     strong {
-      color: #7E0B75;
+      color: #9b111e;
       font-size: 1.4rem;
     }
     footer {
@@ -66,16 +69,16 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #7E0B75;
+      border: 2px solid #9b111e;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">PNG image.png</div>
-    <a href="index.html#menu" class="back-btn">Back to Menu</a>
+    <div class="logo">🦋</div>
+    <a href="/menu" class="back-btn">Back to Menu</a>
   </header>
-  <main>
+  <main class="container">
     <p><strong>The Sonic Architect of Future Realms</strong></p>
 
     <p>We are the Frequency Dancers — the Waveform Sculptors.</p>
