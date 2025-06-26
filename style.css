@@ -150,3 +150,11 @@ nav#top-nav.visible {
   pointer-events: auto;
 }
 
+.arabic-word {
+  font-family: 'Scheherazade', serif; /* or another Arabic-supporting font */
+  font-size: 1.2em;
+  color: #e8d37b;
+  letter-spacing: 0.03em;
+}
+
+
