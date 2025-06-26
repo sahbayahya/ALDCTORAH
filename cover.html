@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmic Butterfly Collective</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    body {
+      background-image: url('IMG_0433.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background 0.5s ease;
+    }
+
+    /* Cover layer */
+    #cover {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 10;
+      background: rgba(0,0,0,0.3);
+      transition: opacity 1.2s ease;
+    }
+
+    #cover.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Butterfly Button */
+   #enter-btn {
+      font-size: 1.4rem;
+      font-weight: 300;
+      text-align: center;  
+      background: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 1rem 2.5rem;
+      color: #fff;
+      border-radius: 50px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+      position: relative;
+      animation: glow 2.5s infinite ease-in-out;
+    }
+
+    #enter-btn:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: #fff;
+    }
+
+    /* Glow animation */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Nav links */
+    nav {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.4s ease;
+      z-index: 5;
+    }
+
+    nav.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 300;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Butterfly Sound -->
+  <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
+
+  <!-- Cover Button -->
+
+
+  <div id="cover">
+    <button id="enter-btn">Experience the Butterfly Effect</button>
+  </div>
+  <!-- Script -->
+  <script>
+    const cover = document.getElementById('cover');
+    const enterBtn = document.getElementById('enter-btn');
+    const butterflySound = document.getElementById('butterfly-sound');
+
+    enterBtn.addEventListener('click', () => {
+      // Play sound
+      butterflySound.play();
+
+      // Fade out the button
+      cover.classList.add('hidden');
+
+      // Reveal nav after fade
+      setTimeout(() => {
+        nav.classList.add('visible');
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
