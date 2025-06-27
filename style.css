@@ -163,5 +163,18 @@ nav#top-nav.visible {
   transition: opacity 1s ease;
 }
 
+/* FADE-IN & FADE-OUT ANIMATION */
+#page-content {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#page-content.fade-in {
+  opacity: 1;
+}
+
+#page-content.fade-out {
+  opacity: 0;
+}
 
 
