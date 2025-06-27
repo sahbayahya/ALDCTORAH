@@ -141,6 +141,34 @@ It is the cosmic butterfly effect.</p>
   </div>
   </div>
 
+<script>
+  // FADE-IN ON LOAD
+  window.addEventListener('DOMContentLoaded', () => {
+    const page = document.getElementById('page-content');
+    page.classList.add('fade-in');
+  });
+
+  // FADE-OUT ON LINK CLICK
+  document.querySelectorAll('a').forEach(link => {
+    if (
+      link.target !== '_blank' &&  // Don't affect new tab links
+      link.href &&
+      link.href.indexOf(location.hostname) !== -1 && // Internal links only
+      !link.href.includes('#') // Avoid anchors
+    ) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        const page = document.getElementById('page-content');
+        page.classList.remove('fade-in');
+        page.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = target;
+        }, 1000); // Match the fade duration
+      });
+    }
+  });
+</script>
 
 
 </body>
