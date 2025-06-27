@@ -196,8 +196,21 @@
         nav.classList.add('visible');
       }, 1200);
     });
-  </script>
-        <!-- Your existing HTML: #cover, nav, etc. -->
+
+  document.querySelectorAll('a').forEach(link => {
+    // Only fade if the link is internal and not opening in a new tab
+    if (link.target !== '_blank' && link.href.indexOf(location.hostname) !== -1) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        document.getElementById('page-content').classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = target;
+        }, 1000); // Match this with your transition duration
+      });
+    }
+  });
+</script>
   </div>
 </body>
 </html>
