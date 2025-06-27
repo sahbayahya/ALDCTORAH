@@ -4,7 +4,7 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ALDCTORAH Interactive</title>
+  <title>Cosmic Butterfly Collective </title>
 
   <style>
   html {
@@ -12,6 +12,7 @@
   }
 </style>
 
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
 
@@ -52,7 +53,29 @@
       pointer-events: none;
     }
 
-    
+    .logo-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  padding: 0.3rem;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease;
+}
+
+.logo-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-icon img {
+  width: 50px; /* Adjust size */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 
     /* Butterfly Button */
    #enter-btn {
@@ -131,7 +154,14 @@
   </style>
 </head>
 <body>
+  <a href="index.html" class="logo-icon">
+    <img src="IMG_0392.jpeg" alt="Logo" />
+  </a>
 
+
+  <div id="butterfly-icon" class="fade-in">
+  🦋
+  </div>
   <!-- Butterfly Sound -->
   <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
 
@@ -141,12 +171,10 @@
     <button id="enter-btn"> Experience the Butterfly Effect</button>
   </div>
 
-
+  
+ 
   <!-- Navigation -->
   <!-- Butterfly icon fade-in -->
-<div id="butterfly-icon" class="fade-in">
-  🦋
-</div>
   <nav
   <nav id="top-nav">
   <a href="blog.html" id="enter-btn">Blog</a>
@@ -167,11 +195,7 @@ if (urlParams.get('nav') === '1') {
   document.getElementById('cover').classList.add('hidden');
   document.getElementById('top-nav').classList.add('visible');
 }
-
-
-  
-
-    enterBtn.addEventListener('click', () => {
+enterBtn.addEventListener('click', () => {
       // Play sound
       butterflySound.play();
 
