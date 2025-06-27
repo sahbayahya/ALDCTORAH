@@ -156,5 +156,10 @@ nav#top-nav.visible {
   color: #e8d37b;
   letter-spacing: 0.03em;
 }
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
 
