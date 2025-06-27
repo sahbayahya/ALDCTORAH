@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ALDCTORAH Interactive</title>
+
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
 
@@ -43,6 +51,8 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    
 
     /* Butterfly Button */
    #enter-btn {
@@ -131,21 +141,31 @@
     <button id="enter-btn"> Experience the Butterfly Effect</button>
   </div>
 
+
   <!-- Navigation -->
   <nav
-  <div id="menu">
+  <nav id="top-nav">
   <a href="blog.html" id="enter-btn">Blog</a>
   <a href="music.html" id="enter-btn">Music</a>
   <a href="social.html" id="enter-btn">Social</a>
   <a href="about.html" id="enter-btn">About</a>
 </nav>
-    </div>
 
   <!-- Script -->
   <script>
     const enterBtn = document.getElementById('enter-btn');
-    const nav = document.getElementById('menu');
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('top-nav');
     const butterflySound = document.getElementById('butterfly-sound');
+
+    const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('nav') === '1') {
+  document.getElementById('cover').classList.add('hidden');
+  document.getElementById('top-nav').classList.add('visible');
+}
+
+
+  
 
     enterBtn.addEventListener('click', () => {
       // Play sound
