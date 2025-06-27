@@ -75,6 +75,69 @@
 }
 
 
+   .artist-gallery {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInArtists 2s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+
+.artist-gallery img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  filter: grayscale(40%) contrast(1.1);
+}
+
+.artist-gallery img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.2);
+}
+
+@keyframes fadeInArtists {
+  to {
+    opacity: 1;
+  }
+}
+
+
+   /* TOPLIP STYLE */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+   
+
     /* Container with translucent background and rounded corners */
     .overlay {
       background: rgba(255, 255, 255, 0.1);
@@ -185,6 +248,20 @@ It is the cosmic butterfly effect.</p>
 
   <a href="https://your-payment-link.com" class="cta-button" target="_blank" rel="noopener noreferrer">Get a Seat</a>
 
+<div class="artist-gallery">
+  <a href="https://www.instagram.com/aldctorah/" target="_blank" class="tooltip" data-tooltip="Artist 1">
+    <img src="IMG_0392.jpeg" alt="Artist 1" />
+  </a>
+  <a href="https://www.instagram.com/aldctorah/" target="_blank" class="tooltip" data-tooltip="Artist 2">
+    <img src="IMG_0392.jpeg" alt="Artist 2" />
+  </a>
+  <a href="https://www.instagram.com/aldctorah/" target="_blank" class="tooltip" data-tooltip="Artist 3">
+    <img src="IMG_0392.jpeg" alt="Artist 3" />
+  </a>
+  <a href="https://www.instagram.com/aldctorah/" target="_blank" class="tooltip" data-tooltip="Artist 4">
+    <img src="IMG_0392.jpeg" alt="Artist 4" />
+  </a>
+</div>
 
        
 
