@@ -98,7 +98,8 @@ html {
   background: transparent;
   position: relative;
   z-index: 2;
-  transition: opacity 0.5s ease;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #cover.hidden {
@@ -142,6 +143,7 @@ nav#top-nav {
   z-index: 3;
   width: max-content;
   scroll-margin-top: 100px;
+  
 }
 
 /* Shown after click */
