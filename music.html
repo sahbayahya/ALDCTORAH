@@ -283,46 +283,42 @@
     <img src="IMG_0392.jpeg" alt="Logo" />
   </a>
   <a href="index.html?nav=1" class="back-button">Menu</a>
-
+  <section class="content-section" id="content-section">
      <h2> Music </h2>
+  </section>
       <nav id="summery">
         <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix" target="_blank" rel="noopener noreferrer">House Mix</a>
         <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes" target="_blank" rel="noopener noreferrer">Remixes Collection</a>
         <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers" target="_blank" rel="noopener noreferrer">Techno Prayers</a>
       </nav>
  <!-- Script -->
-  <script>
-    const menu = document.getElementById('menu');
-    const nav = document.getElementById('summery');
+ 
+    <script>
+    const enterBtn = document.getElementById('enter-btn');
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('top-nav');
+    const contentSection = document.getElementById('content-section');
     const butterflySound = document.getElementById('butterfly-sound');
 
-    enterBtn.addEventListener('click', () => {
-      // Play sound
-      butterflySound.play();
 
-      // Fade out the button
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('nav') === '1') {
       cover.classList.add('hidden');
+      nav.classList.add('visible');
+      contentSection.classList.add('visible');
+      contentSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
-      // Reveal nav after fade
+    enterBtn.addEventListener('click', () => {
+      butterflySound.play();
+      cover.classList.add('hidden');
       setTimeout(() => {
         nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
       }, 1200);
     });
-
-  document.querySelectorAll('a').forEach(link => {
-    // Only fade if the link is internal and not opening in a new tab
-    if (link.target !== '_blank' && link.href.indexOf(location.hostname) !== -1) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = this.getAttribute('href');
-        document.getElementById('page-content').classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = target;
-        }, 1000); // Match this with your transition duration
-      });
-    }
-  });
-</script>
-  </div>
+  </script>
 </body>
 </html>
