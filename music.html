@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title> Cosmic Butterfly – Music Archive</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     html, body {
       height: 100%;
       width: 100%;
@@ -17,60 +20,87 @@
       background: black;
       color: white;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
+
     body {
       background-image: url('IMG_0433.PNG');
-      background-position: center center;
-      background-repeat: no-repeat;
       background-size: cover;
-      animation: bgScroll 60s linear infinite;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
-    @keyframes bgScroll {
-      0% { background-position: center 0; }
-      100% { background-position: center 1000px; }
+    #cover {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      transition: opacity 1.2s ease;
+      padding: 2rem;
+      text-align: center;
     }
 
-    .logo-icon {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 999;
-      background-color: rgba(255, 255, 255, 0.08);
-      border-radius: 50%;
-      padding: 0.3rem;
-      backdrop-filter: blur(6px);
-      transition: background-color 0.3s ease;
+    #cover.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .logo-icon:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .logo-center {
+      margin-bottom: 1.5rem;
+      animation: fadeInLogo 2s ease forwards;
     }
 
-    .logo-icon img {
-      width: 50px;
-      height: 50px;
+    .logo-center img {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
-    .back-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 20px;
+    @keyframes fadeInLogo {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #enter-btn {
+      font-size: 1.1rem;
       font-weight: 300;
-      font-size: 1rem;
-      text-decoration: none;
+      text-align: center;
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      padding: 0.9rem 2rem;
+      color: white;
+      border-radius: 50px;
       cursor: pointer;
-      user-select: none;
-      backdrop-filter: blur(6px);
-      transition: background-color 0.3s ease;
-      z-index: 999;
+      backdrop-filter: blur(4px);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+      animation: glow 2.5s infinite ease-in-out;
+      margin-top: 1.5rem;
+    }
+
+    #enter-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      }
     }
 
     nav {
@@ -117,16 +147,13 @@
       padding-top: 160px;
       background: rgba(0, 0, 0, 0.0);
       text-align: center;
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .content-section.visible {
-      display: flex;
-    }
 
-    .content-section h2 {
+      .content-section h2 {
       color: white;
       font-weight: 300;
       font-size: 1.05rem;
@@ -148,9 +175,14 @@
     }
 
     @media (max-width: 600px) {
-      .logo-icon img {
-        width: 40px;
-        height: 40px;
+      .logo-center img {
+        width: 70px;
+        height: 70px;
+      }
+
+      #enter-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.8rem;
       }
 
       nav {
