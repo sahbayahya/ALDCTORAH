@@ -315,11 +315,11 @@
 
 
 .main-wrapper {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center;     /* Center vertically */
   flex-direction: column;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
