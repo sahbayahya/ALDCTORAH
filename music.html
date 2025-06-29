@@ -261,8 +261,8 @@
     }
 
 
-  .back-button2 {
-  position: fixed;
+.back-button2 {
+  position: absolute; /* or 'relative' depending on context */
   top: 20px;
   right: 20px;
   margin: 2rem auto;
@@ -277,8 +277,9 @@
   user-select: none;
   backdrop-filter: blur(6px);
   transition: background-color 0.3s ease;
-  z-index: 9999; /* ensure it's above everything */
+  z-index: 1; /* No need for a very high z-index */
 }
+
 
 
 .back-button {
