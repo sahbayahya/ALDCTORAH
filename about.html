@@ -4,69 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title> Our Events </title>
- <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+   
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     html, body {
       height: 100%;
       width: 100%;
       font-family: 'Inter', sans-serif;
       background: black;
       color: white;
-      overflow: auto;
+      overflow-x: hidden;
     }
+
     body {
       background-image: url('IMG_0433.PNG');
-      background-position: center center;
-      background-repeat: no-repeat;
       background-size: cover;
-      transition: background 0.5s ease;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #cover {
+      height: 100vh;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      position: absolute;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      transition: opacity 1.2s ease;
       padding: 2rem;
+      text-align: center;
     }
 
-   .logo-icon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  padding: 0.3rem;
-  backdrop-filter: blur(6px);
-  transition: background-color 0.3s ease;
-}
+    #cover.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-.logo-icon:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
+    .logo-center {
+      margin-bottom: 1.5rem;
+      animation: fadeInLogo 2s ease forwards;
+    }
 
-.logo-icon img {
-  width: 50px; /* Adjust size */
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    .logo-center img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
 
+    @keyframes fadeInLogo {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-   .cta-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.9rem 2rem;
-  font-size: 1rem;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50px;
-  text-decoration: none;
-  backdrop-filter: blur(4px);
-  transition: background-color 0.3s ease, transform 0.1s ease;
-}
 
 .cta-button:hover {
   background-color: rgba(255, 255, 255, 0.25);
@@ -113,8 +122,6 @@
   margin-top: 20px; /* optional */
 }
 
-   
-
    /* TOPLIP STYLE */
 
 .tooltip {
@@ -144,85 +151,136 @@
   opacity: 1;
 }
 
-   
 
-    /* Container with translucent background and rounded corners */
-    .overlay {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem 3rem;
-      max-width: 600px;
-      width: 100%;
+    #enter-btn {
+      font-size: 1.1rem;
+      font-weight: 300;
       text-align: center;
-      backdrop-filter: blur(6px);
-      margin: auto;
-      display: flex;
-      min-height: 100vh;
-    }
-
-    .main-icon {
-      font-weight: 200;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      padding: 0.9rem 2rem;
       color: white;
-      user-select: none;
-    }
-
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .social-link-container {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      color: white;
-      font-weight: 200;
-      font-size: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: background-color 0.3s ease;
+      border-radius: 50px;
       cursor: pointer;
-      user-select: none;
+      backdrop-filter: blur(4px);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+      animation: glow 2.5s infinite ease-in-out;
+      margin-top: 1.5rem;
     }
 
-    .social-link-container:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    .social-desc {
-      margin-top: 0.5rem;
-      font-weight: 300;
-      font-size: 0.9rem;
-      color: #ddd;
-      max-width: 90%;
-      line-height: 1.3;
-    }
-
-    .back-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
+    #enter-btn:hover {
       background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 20px;
-      font-weight: 300;
-      font-size: 1rem;
-      text-decoration: none;
-      cursor: pointer;
-      user-select: none;
-      backdrop-filter: blur(6px);
-      transition: background-color 0.3s ease;
-      z-index: 999;
+      border-color: white;
     }
 
-    .back-button:hover {
-      background-color: rgba(255, 255, 255, 0.25);
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    nav {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.4s ease;
+      z-index: 5;
+    }
+
+    nav.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 300;
+      font-size: 1.05rem;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.9rem 1.3rem;
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #eee;
+    }
+
+    .content-section {
+      min-height: 120vh;
+      padding: 5rem 2rem;
+      padding-top: 160px;
+      background: rgba(0, 0, 0, 0.0);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+      .content-section h2 {
+      color: white;
+      font-weight: 300;
+      font-size: 1.05rem;
+      margin-bottom: 4rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.9rem 1.3rem;
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+    }
+
+    .content-section p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #e0e0e0;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      .logo-center img {
+        width: 70px;
+        height: 70px;
+      }
+
+      #enter-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.4rem;
+      }
+
+      .content-section p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
