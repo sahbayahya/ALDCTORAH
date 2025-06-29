@@ -21,7 +21,6 @@
       background: black;
       color: white;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -29,12 +28,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      animation: bgScroll 60s linear infinite;
-    }
-
-    @keyframes bgScroll {
-      0% { background-position: center 0; }
-      100% { background-position: center 1000px; }
     }
 
     #cover {
@@ -180,29 +173,34 @@
       font-weight: 300;
     }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      color: white;
-      opacity: 0.6;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(5px); }
-    }
-
     @media (max-width: 600px) {
-      .logo-center img { width: 70px; height: 70px; }
-      #enter-btn { font-size: 0.95rem; padding: 0.7rem 1.8rem; }
-      nav { flex-direction: column; align-items: center; }
-      nav a { font-size: 0.95rem; padding: 0.8rem 1.2rem; }
-      .content-section h2 { font-size: 1.4rem; }
-      .content-section p { font-size: 0.95rem; }
+      .logo-center img {
+        width: 70px;
+        height: 70px;
+      }
+
+      #enter-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.4rem;
+      }
+
+      .content-section p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -213,7 +211,6 @@
       <img src="IMG_0392.jpeg" alt="ALDCTORAH Logo" />
     </div>
     <button id="enter-btn">Experience the Butterfly Effect</button>
-    <div class="scroll-indicator">Scroll to begin ↓</div>
   </div>
 
   <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
@@ -240,7 +237,6 @@
     if (urlParams.get('nav') === '1') {
       cover.classList.add('hidden');
       nav.classList.add('visible');
-      document.querySelector(".content-section").scrollIntoView({ behavior: 'smooth' });
     }
 
     enterBtn.addEventListener('click', () => {
@@ -248,7 +244,6 @@
       cover.classList.add('hidden');
       setTimeout(() => {
         nav.classList.add('visible');
-        document.querySelector(".content-section").scrollIntoView({ behavior: 'smooth' });
       }, 1200);
     });
   </script>
