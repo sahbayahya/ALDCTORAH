@@ -146,7 +146,8 @@
       z-index: 5;
     }
 
-    nav.visible {
+    nav.visible, 
+  #summary.visible {
       opacity: 1;
       pointer-events: auto;
     }
@@ -267,18 +268,19 @@
   <section class="content-section" id="content-section">
     <h2>Music</h2>
     <p>Explore sonic archives curated to move frequencies and memory.</p>
- 
-  <nav id="top-nav">
+  </section>
+  <nav id="summary">
     <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix">House Mix</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes">Remixes Collection</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers">Techno Prayers</a>
   </nav>
- </section>
+
   <script>
    
-    const contentSection = document.getElementById('content-section');
-    const nav = document.getElementById('top-nav');
+    
+    const nav = document.getElementById('summary');
     const butterflySound = document.getElementById('butterfly-sound');
+    const contentSection = document.getElementById('content-section');
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('nav') === '1') {
