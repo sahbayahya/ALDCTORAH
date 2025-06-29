@@ -65,6 +65,43 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
+     /* Logo Image placement and styling  */
+  
+    .logo-center {
+      margin-bottom: 1.5rem;
+      animation: fadeInLogo 2s ease forwards;
+    }
+
+    .logo-center img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+  .logo-icon:hover {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  padding: 0.3rem;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease;
+}
+
+
+.logo-icon img {
+  width: 50px; /* Adjust size */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+
     @keyframes fadeInLogo {
       from {
         opacity: 0;
