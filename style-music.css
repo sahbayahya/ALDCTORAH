@@ -134,6 +134,100 @@
       }
     }
 
+
+  @keyframes fadeInLogo {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+.cta-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  color: #fff;
+}
+
+
+   .artist-gallery {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInArtists 2s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+
+
+
+.artist-gallery img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.1s ease;
+  filter: grayscale(40%) contrast(1.1);
+}
+
+.artist-gallery img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.2);
+}
+
+@keyframes fadeInArtists {
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Add SPACE BETWEEN LINES */
+
+   .section-title {
+  margin-bottom: 10px;
+  margin-top: 20px; /* optional */
+}
+
+
+   /* TOPLIP STYLE */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+  z-index: 10;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+
+
+
     #enter-btn {
       font-size: 1.1rem;
       font-weight: 300;
@@ -149,6 +243,10 @@
       animation: glow 2.5s infinite ease-in-out;
       margin-top: 1.5rem;
     }
+
+
+
+    
 
     #enter-btn:hover {
       background-color: rgba(255, 255, 255, 0.1);
