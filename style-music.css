@@ -302,6 +302,12 @@
 }
 
 
-    .back-button:hover {
-      background-color: rgba(255, 255, 255, 0.25);
-    }
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+}
