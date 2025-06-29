@@ -224,8 +224,8 @@
      text-align: center;
      text-decoration: none;
       background: rgba(255, 255, 255, 0.1);
-      padding: 0.9rem 1.3rem;
-      border-radius: 18px;
+      padding: 0.9rem 0.9rem;
+      border-radius: 12px;
       backdrop-filter: blur(6px);
       transition: background-color 0.3s ease;
     }
