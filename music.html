@@ -50,6 +50,37 @@
     }
 
 
+  /*  this is to mKe sure the secion summery appear */
+
+  #summary {
+  display: none;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+#summary.visible {
+  display: flex;
+}
+
+#summary a {
+  color: white;
+  font-weight: 300;
+  font-size: 1.05rem;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.9rem 1.3rem;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease;
+}
+
+#summary a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #eee;
+}
 
 
  /* Logo Image placement and styling  */
@@ -265,15 +296,17 @@
 
   </div>
   
-  <section class="content-section" id="content-section">
-    <h2>Music</h2>
-    <p>Explore sonic archives curated to move frequencies and memory.</p>
-  </section>
-  <nav id="summary">
+<section class="content-section" id="content-section">
+  <h2>Music</h2>
+  <p>Explore sonic archives curated to move frequencies and memory.</p>
+
+  <div id="summary" class="summary-links">
     <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix">House Mix</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes">Remixes Collection</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers">Techno Prayers</a>
-  </nav>
+  </div>
+</section>
+
 
   <script>
    
