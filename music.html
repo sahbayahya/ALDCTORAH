@@ -184,22 +184,34 @@
     <p>Explore sonic archives curated to move frequencies and memory.</p>
   </section>
 
-  <nav id="summary">
+  <nav id="top-nav">
     <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix">House Mix</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes">Remixes Collection</a>
     <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers">Techno Prayers</a>
   </nav>
 
   <script>
-    const nav = document.getElementById('summary');
+    const nav = document.getElementById('top-nav');
     const contentSection = document.getElementById('content-section');
+    const butterflySound = document.getElementById('butterfly-sound');
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('nav') === '1') {
+      cover.classList.add('hidden');
       nav.classList.add('visible');
       contentSection.classList.add('visible');
       contentSection.scrollIntoView({ behavior: 'smooth' });
     }
+
+    enterBtn.addEventListener('click', () => {
+      butterflySound.play();
+      cover.classList.add('hidden');
+      setTimeout(() => {
+        nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
+      }, 1200);
+    });   
   </script>
 </body>
 </html>
