@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Cosmic Butterfly – Music Archive</title>
+   <!-- External stylesheet -->
+  <link rel="stylesheet" href="style-music.css" />
+</head>
+<body>
+
+<body>
+
+      <a href="index.html" class="logo-icon">
+      <img src="IMG_0392.jpeg" alt="Logo" />
+    </a>
+    <a href="index.html?nav=1" class="back-button2">Menu</a>
+  <div class="main-wrapper">
+  <a href="index.html" class="logo-icon">
+    <img src="IMG_0392.jpeg" alt="Logo" />
+  </a>
+
+  <a href="index.html?nav=1" class="back-button">Menu</a>
+  <div class="main-icon">Connect With Our Host </div>
+
+<section class="content-section" id="content-section">
+  <h2>Social </h2>
+
+  <div id="summary" class="summary-links">
+    <p>Discover the social side of Al-DCTORAH’s musical journey — the spaces they love, the communities they move with, and the rhythms they share. </p>
+    <a  href="https://www.instagram.com/aldctorah/" > Instagram </a>
+    <p> Journey through how Al-DCTORAH’s past informs Their artistry — weaving cosmic insight into every musical expression. </p>
+    <a  href="https://www.linkedin.com/in/sahbayahya/" >LinkedIn </a>
+    <p> Let’s craft a sonic experience that echoes forever — contact us directly through this link and let the transformation begin.</p>
+    <a  href="mailto:aldctorah@gmail.com" > Direct Email </a>
+  </div>
+</section>
+  </div>
+  
+
+
+
+  <script>
+   
+    
+    const nav = document.getElementById('summary');
+    const butterflySound = document.getElementById('butterfly-sound');
+    const contentSection = document.getElementById('content-section');
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('nav') === '1') {
+      cover.classList.add('hidden');
+      nav.classList.add('visible');
+      contentSection.classList.add('visible');
+      contentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    enterBtn.addEventListener('click', () => {
+      butterflySound.play();
+      cover.classList.add('hidden');
+      setTimeout(() => {
+        nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
+      }, 1200);
+    });   
+  </script>
+
+</body>
+
+</html>
