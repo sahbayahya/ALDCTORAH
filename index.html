@@ -6,9 +6,13 @@
   <title>Cosmic Butterfly Collective</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
       height: 100%;
@@ -21,10 +25,9 @@
 
     body {
       background-image: url('IMG_0433.PNG');
-      background-position: center;
-      background-repeat: no-repeat;
       background-size: cover;
-      transition: background 0.5s ease;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     #cover {
@@ -33,10 +36,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       position: absolute;
       z-index: 10;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.4);
       transition: opacity 1.2s ease;
+      padding: 2rem;
+      text-align: center;
     }
 
     #cover.hidden {
@@ -45,53 +51,48 @@
     }
 
     .logo-center {
-      position: absolute;
-      top: 12%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      animation: fadeInLogo 2.5s ease forwards;
-      z-index: 10;
+      margin-bottom: 1.5rem;
+      animation: fadeInLogo 2s ease forwards;
     }
 
     .logo-center img {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     @keyframes fadeInLogo {
       from {
         opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
+        transform: translateY(-20px);
       }
       to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
       }
     }
 
     #enter-btn {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 300;
       text-align: center;
       background: none;
-      border: 2px solid rgba(255,255,255,0.6);
-      padding: 1rem 2.5rem;
-      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      padding: 0.9rem 2rem;
+      color: white;
       border-radius: 50px;
       cursor: pointer;
       backdrop-filter: blur(4px);
       transition: background-color 0.4s ease, border-color 0.4s ease;
-      position: relative;
       animation: glow 2.5s infinite ease-in-out;
+      margin-top: 1.5rem;
     }
 
     #enter-btn:hover {
-      background-color: rgba(255,255,255,0.1);
-      border-color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: white;
     }
 
     @keyframes glow {
@@ -127,46 +128,46 @@
     nav a {
       color: white;
       font-weight: 300;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(255,255,255,0.1);
-      padding: 1rem 1.5rem;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.9rem 1.3rem;
+      border-radius: 18px;
       backdrop-filter: blur(6px);
       transition: background-color 0.3s ease;
     }
 
     nav a:hover {
       background: rgba(255, 255, 255, 0.25);
-      color: #ddd;
+      color: #eee;
     }
 
-    /* Scrollable content below */
     .content-section {
       min-height: 120vh;
-      padding: 4rem 2rem;
-      background: rgba(0, 0, 0, 0.7);
+      padding: 5rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .content-section h2 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: #ff4da6;
+      font-weight: 400;
       margin-bottom: 1rem;
     }
 
     .content-section p {
-      max-width: 700px;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #e0e0e0;
+      max-width: 600px;
       margin: 0 auto;
-      line-height: 1.6;
-      font-size: 1.1rem;
-      color: #eee;
+      font-weight: 300;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       .logo-center img {
         width: 70px;
@@ -174,8 +175,8 @@
       }
 
       #enter-btn {
-        font-size: 1rem;
-        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+        padding: 0.7rem 1.8rem;
       }
 
       nav {
@@ -184,23 +185,30 @@
       }
 
       nav a {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 0.8rem 1.2rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.4rem;
+      }
+
+      .content-section p {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo-center">
-    <img src="IMG_0392.jpeg" alt="ALDCTORAH Logo" />
+  <div id="cover">
+    <div class="logo-center">
+      <img src="IMG_0392.jpeg" alt="ALDCTORAH Logo" />
+    </div>
+    <button id="enter-btn">Experience the Butterfly Effect</button>
   </div>
 
   <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
-
-  <div id="cover">
-    <button id="enter-btn">Experience the Butterfly Effect</button>
-  </div>
 
   <nav id="top-nav">
     <a href="blog.html">Blog</a>
@@ -210,9 +218,10 @@
   </nav>
 
   <section class="content-section">
-  <div id="cover">
-    <button id="enter-btn">Experience the Butterfly Effect</button>
-  </div>
+    <h2>Welcome to the Realm</h2>
+    <p>
+      Enter a dimension sculpted in frequency, rhythm, and light. The journey begins in stillness, unfolds in pulse, and flows as you breathe. Scroll to explore the movement.
+    </p>
   </section>
 
   <script>
@@ -235,5 +244,6 @@
       }, 1200);
     });
   </script>
+
 </body>
 </html>
