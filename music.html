@@ -265,7 +265,6 @@
   position: relative;
   top: 20px;
   right: 20px;
-  display: inline-block;
   margin: 2rem auto;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
@@ -278,6 +277,7 @@
   user-select: none;
   backdrop-filter: blur(6px);
   transition: background-color 0.3s ease;
+  z-index: 9999; /* ensure it's above everything */
 }
 
 
