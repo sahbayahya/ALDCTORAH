@@ -219,12 +219,12 @@
     }
 
     .content-section p {
-      font-size: 1rem;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      line-height: 1.2;
       color: #e0e0e0;
       max-width: 600px;
       margin: 0 auto;
-      font-weight: 300;
+      font-weight: 200;
     }
 
     @media (max-width: 600px) {
