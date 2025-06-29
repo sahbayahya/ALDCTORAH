@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,130 +16,43 @@
       font-family: 'Inter', sans-serif;
       background: black;
       color: white;
-      overflow: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     body {
       background-image: url('IMG_0433.PNG');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      transition: background 0.5s ease;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      animation: bgScroll 60s linear infinite;
     }
 
- /* Logo Image placement and styling  */
+    @keyframes bgScroll {
+      0% { background-position: center 0; }
+      100% { background-position: center 1000px; }
+    }
+
     .logo-icon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  padding: 0.3rem;
-  backdrop-filter: blur(6px);
-  transition: background-color 0.3s ease;
-}
-
-.logo-icon:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.logo-icon img {
-  width: 50px; /* Adjust size */
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-    /* Butterfly Effect Icon */
-    .butterfly-effect {
-      font-size: 3rem;
-      color: white;
       position: fixed;
       top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      animation: fadeInSlide 2s ease forwards 0.6s, glow 3s infinite ease-in-out;
-      pointer-events: none;
+      left: 20px;
       z-index: 999;
-    }
-
-    @keyframes fadeInSlide {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-    }
-
-    @keyframes glow {
-      0%, 100% {
-        text-shadow: 0 0 5px rgba(255,255,255,0.3);
-      }
-      50% {
-        text-shadow: 0 0 20px rgba(255,255,255,0.6);
-      }
-    }
-
-    .overlay {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem 3rem;
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      padding: 0.3rem;
       backdrop-filter: blur(6px);
-    }
-
-    .main-icon {
-      font-weight: 300;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      color: white;
-      user-select: none;
-    }
-
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .social-link-container {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      color: white;
-      font-weight: 300;
-      font-size: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       transition: background-color 0.3s ease;
-      cursor: pointer;
-      user-select: none;
     }
 
-    .social-link-container:hover {
-      background: rgba(255, 255, 255, 0.25);
+    .logo-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
-    .social-desc {
-      margin-top: 0.5rem;
-      font-weight: 300;
-      font-size: 0.9rem;
-      color: #ddd;
-      max-width: 90%;
-      line-height: 1.3;
+    .logo-icon img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .back-button {
@@ -162,8 +73,6 @@
       z-index: 999;
     }
 
-
-    
     nav {
       position: fixed;
       top: 50%;
@@ -208,13 +117,16 @@
       padding-top: 160px;
       background: rgba(0, 0, 0, 0.0);
       text-align: center;
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: center;
     }
 
+    .content-section.visible {
+      display: flex;
+    }
 
-      .content-section h2 {
+    .content-section h2 {
       color: white;
       font-weight: 300;
       font-size: 1.05rem;
@@ -236,14 +148,9 @@
     }
 
     @media (max-width: 600px) {
-      .logo-center img {
-        width: 70px;
-        height: 70px;
-      }
-
-      #enter-btn {
-        font-size: 0.95rem;
-        padding: 0.7rem 1.8rem;
+      .logo-icon img {
+        width: 40px;
+        height: 40px;
       }
 
       nav {
@@ -264,50 +171,35 @@
         font-size: 0.95rem;
       }
     }
-  
   </style>
 </head>
 <body>
-  <div id="page-content">
-    <a href="index.html" class="logo-icon">
+  <a href="index.html" class="logo-icon">
     <img src="IMG_0392.jpeg" alt="Logo" />
   </a>
   <a href="index.html?nav=1" class="back-button">Menu</a>
+
   <section class="content-section" id="content-section">
-     <h2> Music </h2>
+    <h2>Music</h2>
+    <p>Explore sonic archives curated to move frequencies and memory.</p>
   </section>
+
   <nav id="summary">
-        <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix" >House Mix</a>
-        <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes" >Remixes Collection</a>
-        <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers">Techno Prayers</a>
-      </nav>
- <!-- Script -->
-  </div>
-    <script>
-    const enterBtn = document.getElementById('enter-btn');
+    <a href="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix">House Mix</a>
+    <a href="https://soundcloud.com/user-683135207-458196881/sets/remixes">Remixes Collection</a>
+    <a href="https://soundcloud.com/user-683135207-458196881/sets/techno-prayers">Techno Prayers</a>
+  </nav>
+
+  <script>
     const nav = document.getElementById('summary');
     const contentSection = document.getElementById('content-section');
-    const butterflySound = document.getElementById('butterfly-sound');
-
-
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('nav') === '1') {
-      cover.classList.add('hidden');
       nav.classList.add('visible');
       contentSection.classList.add('visible');
       contentSection.scrollIntoView({ behavior: 'smooth' });
     }
-
-    enterBtn.addEventListener('click', () => {
-      butterflySound.play();
-      cover.classList.add('hidden');
-      setTimeout(() => {
-        nav.classList.add('visible');
-        contentSection.classList.add('visible');
-        contentSection.scrollIntoView({ behavior: 'smooth' });
-      }, 1200);
-    });
   </script>
 </body>
 </html>
