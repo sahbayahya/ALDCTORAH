@@ -230,6 +230,29 @@
         font-size: 0.95rem;
       }
     }
+
+  .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 300;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  
   </style>
 </head>
 <body>
