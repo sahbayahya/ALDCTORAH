@@ -232,12 +232,17 @@
     const enterBtn = document.getElementById('enter-btn');
     const cover = document.getElementById('cover');
     const nav = document.getElementById('top-nav');
+    const contentSection = document.getElementById('content-section');
     const butterflySound = document.getElementById('butterfly-sound');
+
+
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('nav') === '1') {
       cover.classList.add('hidden');
       nav.classList.add('visible');
+      contentSection.classList.add('visible');
+      contentSection.scrollIntoView({ behavior: 'smooth' });
     }
 
     enterBtn.addEventListener('click', () => {
@@ -245,6 +250,8 @@
       cover.classList.add('hidden');
       setTimeout(() => {
         nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
       }, 1200);
     });
   </script>
