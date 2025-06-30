@@ -44,6 +44,32 @@
     }
 
 
+
+    .logo-center {
+      margin-bottom: 1.5rem;
+      animation: fadeInLogo 2s ease forwards;
+    }
+
+    .logo-center img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes fadeInLogo {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
   /*  this is to mKe sure the secion summery appear */
 
   #summary {
