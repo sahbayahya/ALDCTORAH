@@ -19,20 +19,29 @@
   <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
 
 
-    
-  <nav id="top-nav">
-    <a href="music.html">Music</a>
+ <div class="main-wrapper">
+
+<section class="content-section" id="content-section">
+  <h2>Music</h2>
+  <p>Explore sonic archives on SoundCloud.</p>
+
+  <div id="summary" class="summary-links">
+
+        <a href="music.html">Music</a>
     <a href="socials.html">Social</a>
     <a href="about.html">About</a>
     <a href="events.html">Events</a>
-  </nav>
+  </div>
+</section>
+  </div>
+
 
 
   
   <script>
     const enterBtn = document.getElementById('enter-btn');
     const cover = document.getElementById('cover');
-    const nav = document.getElementById('top-nav');
+    const nav = document.getElementById('summary');
     const contentSection = document.getElementById('content-section');
     const butterflySound = document.getElementById('butterfly-sound');
 
