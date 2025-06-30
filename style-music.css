@@ -134,6 +134,10 @@
   backdrop-filter: blur(6px);
   transition: background-color 0.3s ease;
 }
+    logo-icon.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
 .logo-icon:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -309,6 +313,8 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+
 
     nav a {
       color: white;
