@@ -18,10 +18,6 @@
   </div> 
   <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
 
-  
-  <a href="index.html" class="logo-icon">
-  <img src="IMG_0392.jpeg" alt="Logo" />
-  </a>
 
     
   <nav id="top-nav">
@@ -46,7 +42,6 @@
     if (urlParams.get('nav') === '1') {
       cover.classList.add('hidden');
       nav.classList.add('visible');
-      logo-icon.classList.add('visible');
       contentSection.classList.add('visible');
       contentSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -56,7 +51,6 @@
       cover.classList.add('hidden');
       setTimeout(() => {
         nav.classList.add('visible');
-        logo-icon.classList.add('visible');
         contentSection.classList.add('visible');
         contentSection.scrollIntoView({ behavior: 'smooth' });
       }, 1200);
