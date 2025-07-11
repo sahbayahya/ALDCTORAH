@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>God is My Personal Teacher</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background: #0a0a23;
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .image {
+      width: 100%;
+      height: auto;
+      margin: 2rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .calligraphy {
+      display: block;
+      margin: 3rem auto;
+      width: 100px;
+      height: auto;
+    }
+    .link-box {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-left: 5px solid #2196f3;
+      font-weight: bold;
+      text-align: center;
+    }
+    h1, h2 {
+      color: #0a0a23;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>God Is My Personal Teacher</h1>
+  </header>
+  <div class="container">
+    <img src="image1.jpg" alt="Cosmos Galaxy" class="image">
+
+    <p>When I started reading the Qur’an again—after years of keeping it closed—I was surprised by how much freedom it held. It’s a book of questions, of requests, of needs, even demands. It’s a dialogue. And God clearly states that answers are given through learning the <em>rules</em> of what you want and need.</p>
+
+    <p>For the longest time, I wondered why God insists—almost in every illustrative Surah—to mention the creation of the heavens and the earth and everything in between. But through experience, I began to see: every time I took an interest in one of God's names, or a phrase from the Qur’an, it led me to knowledge. Knowledge of myself, mostly. And most times, I’d end up forgetting what I was originally looking for, lost in awe at the layers of truth I’d uncovered.</p>
+
+    <img src="image2.jpg" alt="Morning Recitation" class="image">
+
+    <p>I was trained in the Western style of education. In Sudan, we followed the top-down British system—starting with theory, and maybe applying it later. Later, I encountered the bottom-up approach—the American way—where students begin with doing, and theory follows. That felt more alive to me.</p>
+
+    <p>But the Qur’an… the Qur’an is a different kind of teacher altogether. “<strong>الرحمن علم القرآن</strong>” — <em>The Most Merciful taught the Qur’an</em>. It invites you to follow your interests. To move through curiosity. And I must admit—my love for learning had dimmed when school stopped being useful to my real life. Where did those equations live beyond the exam papers?</p>
+
+    <img src="waw-calligraphy.jpg" alt="Arabic letter و calligraphy" class="calligraphy">
+
+    <p>And yet… my mind expanded. I stopped “learning” in the traditional sense and started recognizing patterns—<strong>living</strong> patterns.</p>
+
+    <p>I left my office as a cosmologist because I wanted to live. I didn’t expect that the equations I’d studied for most of my life would begin to <em>breathe</em> with me. That they’d show up in the rhythm of things, in real time.</p>
+
+    <p>Then I found this beautiful book, <em>The Jazz of Physics</em>, and I realized I wasn’t alone. So many cosmologists before me walked these winding paths—studying the universe and finding it in music, in jam sessions, in 3:00 a.m. wine-sipped conversations in Manhattan bars.</p>
+
+    <img src="image3.jpg" alt="Jazz of Physics Book" class="image">
+
+    <div class="link-box">
+      📘 Read <a href="https://www.basicbooks.com/titles/stephon-alexander/the-jazz-of-physics/9780465034994/" target="_blank">The Jazz of Physics</a> by Stephon Alexander
+    </div>
+
+    <p>Who would’ve thought that the book my family revered—the one my mother made sure I always packed in my travel bag—would become the portal to my real education? For years I kept the Qur’an out of love for her, as a souvenir. But the day I finally opened it… that’s when my true learning began.</p>
+
+    <p>Now, five years into this journey—through yoga, dream spells, quantum techniques, and the mystic path of the Qur’an—I’ve made many mistakes, like any student. But what continues to <em>blow my mind</em> is that every single time I fall, forgiveness is already standing in front of me: <strong>غفور رحيم</strong> — <em>Most Forgiving, Most Merciful.</em></p>
+
+    <p>My practice is simple. I wake up early and recite a Surah slowly, breathing with it, focusing on pronunciation, letting the words settle into my body before the world gets loud. Over time, I started waking with phrases floating into my mind—like “<strong>لنهدينهم سبلنا…</strong>” (<em>We will surely guide them to Our paths</em>). I’d look it up—Al-Ankabut—and that Surah would lead me to another, like a breadcrumb trail of meaning.</p>
+
+    <p>On one Tuesday, for example, I started with Surah Ar-Rahman. Then it led me to Al-Ankabut. That led me to Al-Qalam. That day was already patterned—coded for learning. A day of solitude and knowledge unraveling itself. And I probably wouldn’t see anyone.</p>
+
+    <img src="image4.jpg" alt="Solitude and Knowledge Day" class="image">
+  </div>
+</body>
+</html>
