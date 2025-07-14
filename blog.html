@@ -12,21 +12,20 @@
     <img src="IMG_0392.jpeg" alt="Logo" />
   </a>
   <a href="index.html?nav=1" class="back-button">Menu</a>
-  <div class="overlay">
-    <div class="main-icon">Blog</div>
-    <div class="article-icons" id="blog-posts">
+
+  
+  <section class="content-section" id="content-section">
+    <div class="main-icon"> Blog</div>
+    <section class="content-section" id="content-section">
+ <div id="summary" class="summary-links">
+      <a href="god is my teacher.html" > Mystical Teacher </a>
+       <a href="Cosmic Throne Map.html"> Vikings and The Thrones in Quran </a>
+  
+
       <!-- Dynamic blog posts will be loaded here -->
-    </div>
   </div>
 
   <script>
-    // Example blog post data
-    const posts = [
-      { title: "Mystical Teacher", url: "god is my teacher.html" },
-      { title: "Vikings and The Thrones in Quran", url: "Cosmic Throne Map.html" },
-      { title: "Sound & Identity", url: "article3.html" },
-      { title: "99% Spiritual", url: "article4.html" }
-    ];
 
     const container = document.getElementById('blog-posts');
     posts.forEach(post => {
@@ -37,5 +36,7 @@
       container.appendChild(link);
     });
   </script>
+
+     </section>
 </body>
 </html>
