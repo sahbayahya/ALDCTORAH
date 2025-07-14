@@ -334,8 +334,8 @@
     }
 
     .content-section {
-      min-height: 100vh;
-      padding: 3rem 2rem;
+      min-height: 120vh;
+      padding: 5rem 2rem;
       padding-top: 160px;
       background: rgba(0, 0, 0, 0.55);
       text-align: center;
