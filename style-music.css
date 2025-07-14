@@ -470,6 +470,19 @@
 }
 
 
+.article-wrapper {
+  max-width: 700px;         /* Adjust width as needed */
+  margin: 0 auto;           /* Center the article horizontally */
+  padding: 2rem 1rem;       /* Some breathing room */
+  text-align: left;         /* Align text to the left */
+  line-height: 1.6;         /* Better readability */
+  font-weight: 300;         /* Less bold */
+  font-size: 1rem;
+  color: #e0e0e0;           /* Optional: softer white for dark backgrounds */
+}
+
+
+
 .article-image {
   max-width: 300px;        /* or use 100% for responsive */
   width: 100%;
