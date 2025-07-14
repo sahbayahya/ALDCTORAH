@@ -461,11 +461,11 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.25); /* darker background */
+  padding: 1.0rem;
+  background: rgba(0, 0, 0, 0.1); /* darker background */
   border-radius: 20px;
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.09);
   transition: background 0.5s ease;
 }
 
