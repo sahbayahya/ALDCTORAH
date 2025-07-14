@@ -334,7 +334,7 @@
     }
 
     .content-section {
-      min-height: 120vh;
+      min-height: 100vh;
       padding: 3rem 2rem;
       padding-top: 160px;
       background: rgba(0, 0, 0, 0.55);
@@ -462,10 +462,10 @@
   flex-direction: column;
   text-align: center;
   padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.4); /* darker background */
+  background: rgba(0, 0, 0, 0.25); /* darker background */
   border-radius: 20px;
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   transition: background 0.5s ease;
 }
 
