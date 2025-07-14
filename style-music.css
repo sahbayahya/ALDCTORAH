@@ -491,6 +491,33 @@
 
 
 .article-wrapper {
+  max-width: 700px;
+  margin: 0 auto;                  /* Center the wrapper horizontally */
+  padding: 2rem;                   /* Space inside the wrapper */
+  background: rgba(255, 255, 255, 0.05); /* Optional soft background */
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  text-align: left;                /* Align the text to the left */
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.article-wrapper h1,
+.article-wrapper h2,
+.article-wrapper h3 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.article-wrapper p {
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+
+.article-wrapper2 {
   max-width: 700px;         /* Adjust width as needed */
   margin: 0 auto;           /* Center the article horizontally */
   padding: 2rem 1rem;       /* Some breathing room */
@@ -500,9 +527,9 @@
   font-size: 1rem;
   color: #e0e0e0;           /* Optional: softer white for dark backgrounds */
 }
-.article-wrapper h1,
-.article-wrapper h2,
-.article-wrapper h3 {
+.article-wrapper2 h1,
+.article-wrapper2 h2,
+.article-wrappe2r h3 {
   font-weight: 400;
   margin-bottom: 1rem;
 }
