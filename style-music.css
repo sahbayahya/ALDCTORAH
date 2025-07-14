@@ -484,7 +484,7 @@
 
 
 .article-image {
-  max-width: 100%;        /* or use 100% for responsive */
+  max-width: 250px;        /* or use 100% for responsive */
   width: 100%;
   height: auto;
   border-radius: 12px;      /* optional: rounded corners */
