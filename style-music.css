@@ -567,3 +567,11 @@
       font-weight: bold;
       text-align: center;
     }
+
+.audio-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem; /* optional */
+}
+
