@@ -471,7 +471,7 @@
 
 
 .article-wrapper {
-  max-width: 500px;         /* Adjust width as needed */
+  max-width: 600px;         /* Adjust width as needed */
   margin: 0 auto;           /* Center the article horizontally */
   padding: 2rem 1rem;       /* Some breathing room */
   text-align: left;         /* Align text to the left */
