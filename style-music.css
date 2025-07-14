@@ -470,20 +470,16 @@
 }
 
 
-    body-article {
-      font-family: 'Helvetica Neue', sans-serif;
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #222;
-    }
-    header-article {
-      background: #0a0a23;
-      color: #fff;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
+.article-image {
+  max-width: 300px;        /* or use 100% for responsive */
+  width: 100%;
+  height: auto;
+  border-radius: 12px;      /* optional: rounded corners */
+  margin: 1rem auto;
+  display: block;           /* center the image */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); /* optional shadow */
+}
+
 
     .calligraphy {
       display: block;
