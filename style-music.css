@@ -356,7 +356,7 @@
     .content-section {
       min-height: 120vh;
       padding: 5rem 2rem;
-      padding-top: 120px;
+      padding-top: 50px;
       background: rgba(0, 0, 0, 0.2);
       text-align: center;
       display: flex;
