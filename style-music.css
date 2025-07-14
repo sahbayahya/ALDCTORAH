@@ -453,3 +453,35 @@
   text-align: center;
   padding: 1.5rem;
 }
+
+
+
+    body-article {
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    header-article {
+      background: #0a0a23;
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .calligraphy {
+      display: block;
+      margin: 3rem auto;
+      width: 100px;
+      height: auto;
+    }
+    .link-box {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-left: 5px solid #2196f3;
+      font-weight: bold;
+      text-align: center;
+    }
