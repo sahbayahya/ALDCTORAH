@@ -480,6 +480,12 @@
   font-size: 1rem;
   color: #e0e0e0;           /* Optional: softer white for dark backgrounds */
 }
+.article-wrapper h1,
+.article-wrapper h2,
+.article-wrapper h3 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
 
 
 
