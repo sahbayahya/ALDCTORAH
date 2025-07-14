@@ -471,7 +471,7 @@
   align-items: center;     /* Center vertically */
   flex-direction: column;
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.0rem;
 }
 
 .main-wrapper {
