@@ -357,7 +357,7 @@
       min-height: 120vh;
       padding: 5rem 2rem;
       padding-top: 0.5rem;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.55);
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -382,7 +382,7 @@
 
     .content-section p {
       font-size: 0.9rem;
-      line-height: 1.2;
+      line-height: 1.6;
       color: #e0e0e0;
       max-width: 500px;
       margin: 0 auto;
