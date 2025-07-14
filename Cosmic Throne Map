@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Thrones of the Cosmos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: radial-gradient(#000000, #111111);
+      color: #f4f4f4;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #e0c57d;
+    }
+    .throne {
+      border: 2px solid #e0c57d;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 0 30px rgba(224, 197, 125, 0.1);
+    }
+    .throne h2 {
+      margin-top: 0;
+    }
+    .audio-wrapper {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    audio {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪐 The Three Thrones of the Cosmos 🪐</h1>
+  <p style="text-align:center; max-width: 700px; margin: 0 auto;">
+    Across sacred verses and stardust echoes, the soul is called to walk three paths. Each throne — al-‘Aẓīm, al-Karīm, al-Majīd — is a gateway to the Divine, a map etched in both myth and mercy.
+  </p>
+
+  <div class="throne">
+    <h2>🪓 ‘Arsh al-‘Aẓīm – The Magnificent Throne</h2>
+    <p>
+      This is the Throne of Power and Liberation. The realm of Musa, the sea-splitter, the exile who returned with law and lightning. Those who walk this path are freedom-bearers, justice-forgers. It demands strength, trust, and a heart steady in the face of Pharaohs.
+    </p>
+    <div class="audio-wrapper">
+      <p><strong>Frequency:</strong> Liberation Pulse – 396Hz</p>
+      <audio controls>
+        <source src="audio/arsh_al_azim.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <div class="throne">
+    <h2>💎 ‘Arsh al-Karīm – The Generous Throne</h2>
+    <p>
+      The throne of provision, healing, and hidden treasures. Like Yusuf, those on this path transmute betrayal into beauty. Generosity flows through wounds made holy. Patience, resilience, and quiet strength are your allies.
+    </p>
+    <div class="audio-wrapper">
+      <p><strong>Frequency:</strong> Abundance Flow – 528Hz</p>
+      <audio controls>
+        <source src="audio/arsh_al_karim.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <div class="throne">
+    <h2>🌌 ‘Arsh al-Majīd – The Glorious Throne</h2>
+    <p>
+      This is the throne of light, revelation, and divine intimacy. Walked by Muhammad ﷺ and all mystics, this path unveils the majesty of God in beauty, silence, and presence. You become a mirror of the Real.
+    </p>
+    <div class="audio-wrapper">
+      <p><strong>Frequency:</strong> Divine Light – 963Hz</p>
+      <audio controls>
+        <source src="audio/arsh_al_majid.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <div class="footer">
+    Inspired by ancient myths, Qur'anic wisdom, and the heart's yearning. Created by Sa’hbaa.<br>
+    Cosmic maps composed with love and frequency.
+  </div>
+</body>
+</html>
