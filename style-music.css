@@ -444,7 +444,7 @@
 }
 
 
-.main-wrapper {
+.main-wrapper2 {
   min-height: 80vh;
   display: flex;
   justify-content: center; /* Center horizontally */
@@ -454,6 +454,20 @@
   padding: 1.5rem;
 }
 
+.main-wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.55); /* darker background */
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  transition: background 0.5s ease;
+}
 
 
     body-article {
