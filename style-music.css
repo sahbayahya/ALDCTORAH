@@ -471,7 +471,7 @@
 
 
 .article-wrapper {
-  max-width: 700px;         /* Adjust width as needed */
+  max-width: 200px;         /* Adjust width as needed */
   margin: 0 auto;           /* Center the article horizontally */
   padding: 2rem 1rem;       /* Some breathing room */
   text-align: left;         /* Align text to the left */
@@ -484,7 +484,7 @@
 
 
 .article-image {
-  max-width: 300px;        /* or use 100% for responsive */
+  max-width: 100%;        /* or use 100% for responsive */
   width: 100%;
   height: auto;
   border-radius: 12px;      /* optional: rounded corners */
