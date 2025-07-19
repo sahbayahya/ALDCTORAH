@@ -497,7 +497,7 @@
   background: rgba(255, 255, 255, 0.05); /* Optional soft background */
   border-radius: 16px;
   backdrop-filter: blur(6px);
-  text-align: left;                /* Align the text to the left */
+  text-align: center;                /* Align the text to the left */
   line-height: 1.6;
   color: #e0e0e0;
 }
