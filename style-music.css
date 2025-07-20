@@ -355,9 +355,9 @@
 
     .content-section {
       min-height: 120vh;
-      padding: 5rem 2rem;
+      padding: 3rem 2rem;
       padding-top: 0.5rem;
-      background: rgba(0, 0, 0, 0.666);
+      background: rgba(0, 0, 0, 0.555);
       text-align: center;
       display: flex;
       flex-direction: column;
