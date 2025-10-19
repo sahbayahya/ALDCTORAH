@@ -602,3 +602,28 @@
   margin-top: 1.5rem; /* optional */
 }
 
+
+
+<style>
+.music-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;   /* space between icons */
+  margin: 30px 0;
+}
+
+.music-links a {
+  font-size: 55px;   /* 🔥 bigger icon size */
+  color: #555;       
+  transition: color 0.3s ease;
+}
+
+.music-links a:hover .fa-spotify { color: #1DB954; }
+.music-links a:hover .fa-apple { color: #000; }
+.music-links a:hover .fa-soundcloud { color: #FF5500; }
+.music-links a:hover .fa-bandcamp { color: #629aa9; }
+.music-links a:hover .fa-youtube { color: #FF0000; }
+</style>
+
+
