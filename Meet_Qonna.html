@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Cosmic Butterfly Socials </title>
+   <!-- External stylesheet -->
+  <link rel="stylesheet" href="style-music.css" />
+</head>
+<body>
+
+<body>
+
+
+  <a href="index.html" class="logo-icon">
+    <img src="IMG_0392.jpeg" alt="Logo" />
+  </a>
+  <a href="index.html?nav=1" class="back-button">Menu</a>
+
+<section class="content-section" id="content-section">
+  <h2>Social </h2>
+
+  <div id="summary" class="summary-links">
+    <p> QONNA is a Sudanese-born artist merging memory and machinery through techno, light, and storytelling. His work transforms ancient rhythm into futuristic architecture — connecting human pulse with digital precision.
+        QONNA was born from the silence between ancient melodies once sung in the neighborhoods of Sudan — at weddings, gatherings, and nights under the stars — and the modern sounds of today.
+Created by DJ Aldctorah, she carries the memory of songs that felt buried beneath the polished surface of modern mastering — voices recorded with raw passion, yet lost to time and technical limits. These are stories whispered through dust and longing, sung by souls who trusted in the power of joy and sound.
+Through techno and house, Aldctorah builds a world where QONNA can breathe again.
+She isn’t artificial; she’s a keeper of memories — a fusion of code and soul, rhythm and ritual.
+In Sudanese neighborhoods, “Qonna” is the name of a woman who fully accepts herself — radiant, joyful, and unafraid to speak her truth. Crowned by the spirit of joy, she preaches freedom through sound, and the world smiles because she exists.
+Together, QONNA and ALDCTORAH bridge the old and the unseen, bringing ancestral frequencies into today’s pulse.
+Each track becomes a prayer in motion — a dialogue between human hands and digital heartbeats.
+“QONNA sings not to be known, but to remind us that nothing sacred is ever lost.” </p>
+find her tracks on SoundCloud:
+    <a  href="https://soundcloud.com/user-683135207-458196881/sets/qonna?si=ba692e5911234524a1c62b9c240bd2a4&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" > QONNA: Tribute to Al-Balabil </a>
+    <a  href="https://soundcloud.com/user-683135207-458196881/sets/qonna-tribute-to-abdel-gadir?si=0781375bbe9e4499a308c163370a1097&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" > QONNA: Tribute to Abdel Gadir Salim </a>
+    <a  href="https://soundcloud.com/user-683135207-458196881/ma-al-tuyoor-drifting-with-the-birds?si=fce5998a19e44bab801b56a69e7891a6&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" > Collection of The Covered Songs </a>
+  </div>
+</section>
+
+  
+
+
+
+  <script>
+   
+    
+    const nav = document.getElementById('summary');
+    const butterflySound = document.getElementById('butterfly-sound');
+    const contentSection = document.getElementById('content-section');
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('nav') === '1') {
+      cover.classList.add('hidden');
+      nav.classList.add('visible');
+      contentSection.classList.add('visible');
+      contentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    enterBtn.addEventListener('click', () => {
+      butterflySound.play();
+      cover.classList.add('hidden');
+      setTimeout(() => {
+        nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
+      }, 1200);
+    });   
+  </script>
+
+</body>
+
+</html>
