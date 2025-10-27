@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Cosmic Butterfly Collective</title>
+   <!-- External stylesheet -->
+  <link rel="stylesheet" href="style-music.css" />
+</head>
+<body>
+
+     <a href="index.html" class="logo-icon">
+      <img src="IMG_0392.jpeg" alt="Logo" />
+    </a>
+  <div id="cover">
+   <!--*<div class="logo-center">
+      <img src="IMG_0392.jpeg" alt="ALDCTORAH Logo" />
+  </div>
+    -->
+    <button id="enter-btn">Experience the Butterfly Effect</button>
+  </div> 
+  <audio id="butterfly-sound" src="sounds/butterfly.mp3" preload="auto"></audio>
+
+
+   <section class="content-section" id="content-section">
+    <nav id="summary" class="summary-links">  <a href="MBC_main.html" class="logo-icon"></a> </nav>
+  
+
+<!--  <nav id="summary" class="summary-links">
+
+    <a href="music.html">Music</a>
+    <a href="socials.html">Social</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    
+  </nav>>
+   -->
+   </section>
+
+
+
+  
+  <script>
+    const enterBtn = document.getElementById('enter-btn');
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('summary');
+    const contentSection = document.getElementById('content-section');
+    const butterflySound = document.getElementById('butterfly-sound');
+
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('nav') === '1') {
+      cover.classList.add('hidden');
+      nav.classList.add('visible');
+      logo-icon.classList.add('visible');
+      contentSection.classList.add('visible');
+      contentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    enterBtn.addEventListener('click', () => {
+      butterflySound.play();
+      cover.classList.add('hidden');
+      setTimeout(() => {
+        nav.classList.add('visible');
+        contentSection.classList.add('visible');
+        contentSection.scrollIntoView({ behavior: 'smooth' });
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

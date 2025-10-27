@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monarch Butterfly Collective</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      font-family: "Times New Roman", serif;
+      color: white;
+    }
+
+    /* 🌌 Fullscreen video intro */
+    #introVideo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+
+    /* 🌠 Static background image (final frame) */
+    #finalFrame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/final-frame.jpg'); /* 👈 replace with your still image */
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      z-index: 5;
+      transition: opacity 2s ease;
+    }
+
+    /* 🦋 Skip Intro button */
+    #skipButton {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 12px 24px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 20;
+      opacity: 0;
+      transition: opacity 1s ease, background 0.3s ease;
+    }
+
+    #skipButton:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* 🏠 Homepage */
+    #homepage {
+      display: none;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      text-align: center;
+      background-image: url('assets/final-frame.jpg'); /* same as final frame for smooth merge */
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Butterfly video intro -->
+  <div class="video-container">
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="assets/COSMIC BUTTERFLY FLYING v1.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+  </div>
+
+  <!-- 🌠 Final frame background -->
+  <div id="finalFrame"></div>
+
+  <!-- 🦋 Skip Intro -->
+  <button id="skipButton">Skip Intro</button>
+
+  <!-- 🪐 Homepage -->
+  <div id="homepage">
+    <h1>Monarch Butterfly Collective</h1>
+    <p>Where mysticism meets music, fashion, and craft.</p>
+    <nav>
+      <a href="music.html">Music</a> |
+      <a href="fashion.html">Fashion</a> |
+      <a href="wood.html">Woodcraft</a> |
+      <a href="blog.html">Blog</a>
+    </nav>
+  </div>
+
+  <script>
+    const video = document.getElementById('introVideo');
+    const skipButton = document.getElementById('skipButton');
+    const finalFrame = document.getElementById('finalFrame');
+    const homepage = document.getElementById('homepage');
+
+    // Show skip button after a few seconds
+    setTimeout(() => {
+      skipButton.style.opacity = 1;
+    }, 2500);
+
+    // Fade out video and show final frame, then homepage
+    function endIntro() {
+      video.style.opacity = 0;
+      skipButton.style.opacity = 0;
+      finalFrame.style.opacity = 1;
+
+      setTimeout(() => {
+        video.style.display = 'none';
+        skipButton.style.display = 'none';
+        homepage.style.display = 'block';
+      }, 2000);
+    }
+
+    // Event: video finishes or skip pressed
+    video.addEventListener('ended', endIntro);
+    skipButton.addEventListener('click', endIntro);
+  </script>
+</body>
+</html>
