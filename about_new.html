@@ -1,41 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> About Us </title>
-     <!-- External stylesheet -->
-  <link rel="stylesheet" href="style-music.css" />
+  <title>Article — Monarch Butterfly Collective</title>
+  <meta name="description" content="Article template for Monarch Butterfly Collective — cosmic, mystic, modern." />
+
+  <!-- Fonts to match homepage -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#02020a;      /* deep space */
+      --card:#081023;    /* glass card */
+      --muted:#cfd6e8;   /* soft text */
+      --ink:#ffffff;     /* primary text */
+      --violet:#7d5cff;  /* accent 1 */
+      --teal:#4ef0f0;    /* accent 2 */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:radial-gradient(circle at 60% 20%, rgba(125,92,255,.08), transparent 35%),
+                                   radial-gradient(circle at 20% 80%, rgba(78,240,240,.06), transparent 40%),
+                                   var(--bg);
+      color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    /* Nebula video texture */
+    .bg-video{position:fixed; inset:0; width:100%; height:100%; object-fit:cover; opacity:.22; z-index:-2; filter:contrast(1.05) saturate(1.05) brightness(.8)}
+    .bg-vignette{position:fixed; inset:0; z-index:-1; background:radial-gradient(1200px 600px at 50% 20%, transparent 0, rgba(0,0,0,.4) 60%, rgba(0,0,0,.7) 100%)}
+
+    /* Top nav (optional, matches homepage style) */
+    .nav{position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:50; display:flex; gap:16px; align-items:center; padding:6px 14px; border-radius:999px; background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.06)}
+    .nav .brand{font-family:'Cormorant Garamond',serif; font-weight:600; color:#fff; letter-spacing:.6px}
+    .nav a{color:#b8c7e7; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px}
+    .nav a:hover{color:#fff; background:linear-gradient(90deg, rgba(125,92,255,.12), rgba(78,240,240,.06))}
+
+    /* Article header */
+    header.article{max-width:920px; margin:120px auto 16px; padding:0 20px}
+    .eyebrow{color:var(--teal); font-weight:700; letter-spacing:1.5px; font-size:12px; text-transform:uppercase}
+    h1.title{font-family:'Cormorant Garamond',serif; font-size:44px; line-height:1.08; margin:.35em 0 .2em; text-shadow:0 10px 40px rgba(124,91,255,.14)}
+    .meta{color:#a9b7d7; font-size:14px}
+
+    /* Article body */
+    .prose{max-width:900px; margin:18px auto 60px; padding:0 20px}
+    .lead{font-size:20px; color:#e6eef8; margin:10px 0 18px}
+    .prose p{color:var(--muted); margin:14px 0}
+    .prose h2, .prose h3{font-family:'Cormorant Garamond',serif; margin:28px 0 10px}
+    .prose h2{font-size:28px}
+    .prose h3{font-size:22px}
+    .prose a{color:var(--teal); text-decoration:none}
+    .prose a:hover{color:#a7f7f7; text-shadow:0 0 12px rgba(78,240,240,.35)}
+
+    /* Quote card */
+    .quote{position:relative; padding:18px 18px 18px 22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); margin:22px 0}
+    .quote:before{content:'\201C'; position:absolute; left:10px; top:-18px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(125,92,255,.35)}
+
+    /* Figure */
+    figure{margin:28px 0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{padding:10px 14px; color:#bcd0ef; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
+
+    /* Code block (if needed for tech posts) */
+    pre{background:#0c152b; color:#d9e4ff; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06)}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace}
+
+    /* Footer nav */
+    .post-nav{max-width:900px; margin:10px auto 80px; padding:0 20px; display:flex; justify-content:space-between; gap:10px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
+    .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
+
+    /* Responsive */
+    @media (max-width:640px){
+      h1.title{font-size:32px}
+      .nav{left:12px; transform:none}
+    }
+  </style>
 </head>
 <body>
-  
-  <a href="index.html" class="logo-icon">
-    <img src="IMG_0392.jpeg" alt="Logo" />
-  </a>
-<a href="index.html?nav=1" class="back-button">Menu</a>
- <section class="content-section" id="content-section">
-    <h2 class="section-title">  Cosmic Butterfly Collective  </h2>
 
+  <!-- Background texture video (same as homepage) -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/" type="video/mp4" />
+  </video>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <!-- Optional nav -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="brand">Monarch Butterfly Collective</div>
+    <a href="index.html">Home</a>
+    <a href="blog_v2.html">Blog</a>
+    <a href="music_v2.html">Music</a>
+    <a href="gallery.html">Fashion</a>
+  </nav>
+
+  <!-- Article header -->
+  <header class="article">
+    <header class="title">  Cosmic Butterfly Collective </header>
+    <div class="meta">By Aldctorah • <time datetime="2025-11-11">November 11, 2025</time> • 7 min read</div>
+  </header>
+
+
+  <!-- Article body -->
+   <main class="prose">
+    <p class="lead">
+  
 <p>
 
-Monarch Butterfly Collective is an evolving creative universe that brings together music, fashion, design, and spiritual storytelling — all guided by the belief that creativity is a sacred act of transformation.
-Founded by Aldctorah Sahbaa Yahia, the collective embodies the spirit of the modern mystic — one who bridges art, technology, and spirituality to awaken beauty in everyday life.
-  
+Cosmic Butterfly Collective, Inc. emerged as a natural evolution of Monarch Butterfly Collective LLC, founded in 2022 in New York City. What began as an independent creative studio producing multidisciplinary art, performances, and sound-based installations has transformed into a nonprofit collective devoted to education, cultural exchange, and spiritual creativity.
+Rooted in the same vision that inspired its early days, the Collective now seeks to expand its mission beyond individual projects — nurturing artistic transformation as a communal, educational process. This transition represents both continuity and growth: the same heart, now supported by a nonprofit structure that allows deeper public impact, partnerships, and grant-supported programming.
+Today, Cosmic Butterfly Collective continues the legacy of the Monarch Butterfly spirit — celebrating transformation, beauty, and the power of art to heal, connect, and enlighten.
 </p>
 
-<h2> <a href="music.html">Music & Sound</a> </h2>
+<h3> <a href="music_v2.html">Music & Sound</a> </h3>
 
 
 <p>Through the AI persona <a href="Meet_Qonna.html"> Qonna (قونه)</a>, we revive old Sudanese songs and infuse them with modern sounds — techno, amapiano, and house — creating a bridge between ancestral memory and future rhythm. As a DJ and producer, Aldctorah carries these sounds into the world, connecting past and present through hypnotic, soulful sets.
    </p>
 
 
-<h2> <a href="gallery.html">Fashion & Design</a> </h2>
+<h3> <a href="gallery.html">Fashion & Design</a> </h3>
 
 
 <p>Our fashion arm reimagines mystic streetwear — clothing and runway experiences that merge spiritual symbolism with contemporary design. Each piece expresses how mysticism can live within daily life, transforming solitude into style and ritual into rhythm.
 </p>
-<h2> <a href="#">Wood & Craft</a></h2>
+<h3> <a href="#">Wood & Craft</a></h3>
 
 
 
@@ -43,7 +136,7 @@ Founded by Aldctorah Sahbaa Yahia, the collective embodies the spirit of the mod
 </p>
 
 
-<h2> <a href="blog.html"> The Blog  </a> </h2>
+<h3> <a href="blog_v2.html"> The Blog  </a> </h3>
 
 
 
