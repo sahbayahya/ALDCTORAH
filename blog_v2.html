@@ -3,111 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cosmic Butterfly Collective - Gallery</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Monarch Butterfly Collective - Blog</title>
   <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at center, #0a0020, #000);
-      color: #f5f5f5;
-      font-family: 'Cinzel', serif;
-      overflow-x: hidden;
-    }
-
-    .background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.4;
-    }
-
-    header {
-      text-align: center;
-      padding: 5rem 1rem 2rem;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      text-shadow: 0 0 25px #b394ff;
-      animation: fadeIn 3s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 3rem;
-      animation: fadeIn 4s ease forwards;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.85);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: #e0d5ff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #bfaeff;
-    }
-
-    .floating-butterfly {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background: url('assets/butterfly-glow.png') no-repeat center/contain;
-      animation: float 12s ease-in-out infinite;
-      opacity: 0.7;
-      z-index: 0;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(100px, -100px) rotate(10deg); }
-    }
-
     body {
       margin: 0;
       background: radial-gradient(circle at center, #0a0020, #000);
@@ -267,96 +164,72 @@
       .nav{left:12px; transform:none}
     }
 
-
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="background-video">
-    <source src="assets/nebula-loop.mp4" type="video/mp4" />
+
+ <!-- Background texture video (same as homepage) -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/" type="video/mp4" />
   </video>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
   <!-- Optional nav -->
   <nav class="nav" aria-label="Main navigation">
-   <div class="brand">Monarch Butterfly Collective</div>
+    <div class="brand">Monarch Butterfly Collective</div>
     <a href="index.html">Home</a>
     <a href="blog_v2.html">Blog</a>
     <a href="music.html">Music</a>
     <a href="gallery.html">Fashion</a>
-  </nav> 
-  
+  </nav>
+
+  <video autoplay muted loop class="background-video">
+    <source src="assets/nebula-loop.mp4" type="video/mp4" />
+  </video>
 
 
 
 
- <nav class="nav" aria-label="">
-   <div class="brand">Gallery: Coming Soon </div>
-  </nav> 
-  
 
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="assets/IMG_0464.PNG" alt="AI Persona Gonna – Rebirth">
-      <div class="caption">AI Persona Gonna – Rebirth</div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/IMG_8320.jpeg" alt="Mystic Streetwear – Series I">
-      <div class="caption">Mystic Streetwear – Series I</div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/woodwork.jpg" alt="Woodcraft & Spirit – The Carved Dream">
-      <div class="caption">Woodcraft & Spirit – The Carved Dream</div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/IMG_8258.PNG" alt="Festival of Light – Aldctorah Set">
-      <div class="caption">Festival of Light – Aldctorah Set</div>
-    </div>
-  </div>
+
+
+
+
+
+  <header>Stories from the Collective</header>
+
+  <section class="blog-list">
+    <article class="blog-item">
+      <h2>The Birth of Gonna — Reviving Ancestral Voices</h2>
+      <p>Discover how our AI persona Gonna was created to reimagine old Sudanese melodies through modern rhythms. A story about remembrance, rhythm, and rebirth.</p>
+      <a href="articles/meet_gonna.html">Read More →</a>
+    </article>
+
+    <article class="blog-item">
+      <h2>Cosmic Thrones</h2>
+      <p>From stars to manifestation — the way Vikings connect with their mystical 
+        nature is deeply inspiring, resonating with our own spiritual understanding 
+        of the Thrones of God in the Qur’an. This is how we view the ancient in the Monarch Butterfly Studio every episode,
+         a prayer in motion.</p>
+      <a href="/articles/cosmicTroneMap.html">Read More →</a>
+    </article>
+
+    <article class="blog-item">
+      <h2>Mystic Streetwear: Dressing the Modern Mystic</h2>
+      <p>Fashion becomes ritual. Our Mystic Streetwear collection blends spiritual symbolism with everyday wear, inviting the sacred into the streets.</p>
+      <a href="articles/mystic-streetwear.html">Read More →</a>
+    </article>
+
+    <article class="blog-item">
+      <h2>Mystical Teacher: Trust in the Process</h2>
+      <p>We work intuitively — sketching, sampling, carving the dream —
+         allowing it to manifest through the chosen medium. The mystery is our method.</p>
+      <a href="articles/god_is_my_teacher.html">Read More →</a>
+    </article>
+  </section>
 
   <footer>
     “For there is nothing in this world more beautiful than the movement of this butterfly.”
   </footer>
-
-  <div class="floating-butterfly" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-  <div class="floating-butterfly" style="top: 60%; left: 80%; animation-delay: 6s;"></div>
-  <div class="floating-butterfly" style="top: 40%; left: 50%; animation-delay: 3s;"></div>
-</body>
-</html>
-<!--
-<h1>Cosmic Streetwear Collection</h1>
-
-<section class="gallery">
-
-  <div class="look">
-    <div class="main">
-      <img src="assets/IMG_8333.jpeg" alt="Look 1">
-      <div class="label">Look 1</div>
-    </div>
-    <div class="extras">
-      <img src="assets/IMG_8332.jpeg" alt="Look 1 Side">
-      <img src="assets/IMG_8323.jpeg " alt="Look 1 Back">
-      <img src="assets/IMG_8319.jpeg" alt="Look 1 Detail">
-    </div>
-  </div>
-
-  <div class="look">
-    <div class="main">
-      <img src="assets/IMG_0678.JPG" alt="Look 2">
-      <div class="label">Look 2</div>
-    </div>
-    <div class="extras">
-      <img src="assets/look2/side.jpg" alt="Look 2 Side">
-      <img src="assets/look2/back.jpg" alt="Look 2 Back">
-    </div>
-  </div>
-
-</section>
- -->
-<script>
-  document.querySelectorAll('.look .main').forEach(main => {
-    main.addEventListener('click', () => {
-      main.parentElement.classList.toggle('open');
-    });
-  });
-</script>
-
 </body>
 </html>

@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article — Monarch Butterfly Collective</title>
+  <meta name="description" content="Article template for Monarch Butterfly Collective — cosmic, mystic, modern." />
+
+  <!-- Fonts to match homepage -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#02020a;      /* deep space */
+      --card:#081023;    /* glass card */
+      --muted:#cfd6e8;   /* soft text */
+      --ink:#ffffff;     /* primary text */
+      --violet:#7d5cff;  /* accent 1 */
+      --teal:#4ef0f0;    /* accent 2 */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:radial-gradient(circle at 60% 20%, rgba(125,92,255,.08), transparent 35%),
+                                   radial-gradient(circle at 20% 80%, rgba(78,240,240,.06), transparent 40%),
+                                   var(--bg);
+      color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    /* Nebula video texture */
+    .bg-video{position:fixed; inset:0; width:100%; height:100%; object-fit:cover; opacity:.22; z-index:-2; filter:contrast(1.05) saturate(1.05) brightness(.8)}
+    .bg-vignette{position:fixed; inset:0; z-index:-1; background:radial-gradient(1200px 600px at 50% 20%, transparent 0, rgba(0,0,0,.4) 60%, rgba(0,0,0,.7) 100%)}
+
+    /* Top nav (optional, matches homepage style) */
+    .nav{position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:50; display:flex; gap:16px; align-items:center; padding:6px 14px; border-radius:999px; background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.06)}
+    .nav .brand{font-family:'Cormorant Garamond',serif; font-weight:600; color:#fff; letter-spacing:.6px}
+    .nav a{color:#b8c7e7; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px}
+    .nav a:hover{color:#fff; background:linear-gradient(90deg, rgba(125,92,255,.12), rgba(78,240,240,.06))}
+
+    /* Article header */
+    header.article{max-width:920px; margin:120px auto 16px; padding:0 20px}
+    .eyebrow{color:var(--teal); font-weight:700; letter-spacing:1.5px; font-size:12px; text-transform:uppercase}
+    h1.title{font-family:'Cormorant Garamond',serif; font-size:44px; line-height:1.08; margin:.35em 0 .2em; text-shadow:0 10px 40px rgba(124,91,255,.14)}
+    .meta{color:#a9b7d7; font-size:14px}
+
+    /* Article body */
+    .prose{max-width:900px; margin:18px auto 60px; padding:0 20px}
+    .lead{font-size:20px; color:#e6eef8; margin:10px 0 18px}
+    .prose p{color:var(--muted); margin:14px 0}
+    .prose h2, .prose h3{font-family:'Cormorant Garamond',serif; margin:28px 0 10px}
+    .prose h2{font-size:28px}
+    .prose h3{font-size:22px}
+    .prose a{color:var(--teal); text-decoration:none}
+    .prose a:hover{color:#a7f7f7; text-shadow:0 0 12px rgba(78,240,240,.35)}
+
+    /* Quote card */
+    .quote{position:relative; padding:18px 18px 18px 22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); margin:22px 0}
+    .quote:before{content:'\201C'; position:absolute; left:10px; top:-18px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(125,92,255,.35)}
+
+    /* Figure */
+    figure{margin:28px 0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{padding:10px 14px; color:#bcd0ef; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
+
+    /* Code block (if needed for tech posts) */
+    pre{background:#0c152b; color:#d9e4ff; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06)}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace}
+
+    /* Footer nav */
+    .post-nav{max-width:900px; margin:10px auto 80px; padding:0 20px; display:flex; justify-content:space-between; gap:10px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
+    .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
+
+    /* Responsive */
+    @media (max-width:640px){
+      h1.title{font-size:32px}
+      .nav{left:12px; transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background texture video (same as homepage) -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/" type="video/mp4" />
+  </video>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <!-- Optional nav -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="brand">Monarch Butterfly Collective</div>
+    <a href="/index.html">Home</a>
+    <a href="/blog_v2.html">Blog</a>
+    <a href="/music.html">Music</a>
+    <a href="/gallery.html">Fashion</a>
+  </nav>
+
+  <!-- Article header -->
+  <header class="article">
+    <div class="eyebrow">Reflections • Manifestations</div>
+    <h1 class="title">Cosmic Thrones - The Vikings Thrones in Qur’an</h1>
+    <div class="meta">By Aldctorah • <time datetime="2025-11-11">November 11, 2025</time> • 7 min read</div>
+  </header>
+
+  <!-- Article body -->
+   <main class="prose">
+    <p class="lead">
+
+  
+ 
+  <p>When I was watching <em>The Vikings</em>, the series stirred up something multidimensional in me — which means "the Collective" was activated. We were all watching, across timelines. I binged four seasons in about three weeks, maybe two to three episodes a day. I would've finished faster, but I was also deep in other projects.</p>
+  <p>One of my favorite things to do is to recite Qur’an and then watch mythical TV shows. The pairing stirs something deep in me — the sacred meets the symbolic, the eternal meets the imagined. It’s a way to trace divine archetypes across cultures, to see how different traditions hold reflections of one another. This practice makes the unseen feel visible, and the mystical more relatable. I love how those stories echo each other. I love how they color my world and create bridges across cultures. Every culture has gods and goddesses — what we, in Islam, might refer to as mythical messengers. Beyond the names and labels, the essence is often the same. Learning about other mystical systems only deepened my love for mine.</p>
+
+  <h2>  Vikings & The Magnificent Thrones </h2>
+  <p>The Vikings and the Qur’an hit a collective nerve. What we often miss is how the Qur’an offers pathways to God through the concept of the Throne — <em>Al-‘Arsh</em>. It’s not a metaphor. It’s a destination, a force, a cosmic seat of mercy and balance. In <em>The Vikings</em>, the characters speak of purpose long before they understand it. The hero, Ragnar, says, “I’m not meant to be a king, I’m meant to roam the earth and sail the seas.” That hit me hard. His yearning wasn’t just wanderlust — it became the path to saving his people. He had no idea that this calling would be the reason they find new land, a new future.</p>
+
+  <p>The Vikings built their thrones not with velvet, but with blood sacrifice, vision, and lineage. Their gods ruled from Asgard, sitting atop Yggdrasil, the great world tree. Odin, the All-Father, sat on <em>Hliðskjálf</em>, his cosmic chair of vision and foresight.</p>
+
+  <p>Ragnar — he was like a man floating in the cosmos. He judged everything around him by how it served his dream. He wasn’t hasty. He invested everything into building a ship — crafted by Floki, the Noah of the show. Floki, misunderstood genius, the mad architect working through divine inspiration. His creations changed Viking history.</p>
+
+  <p>And Ragnar’s death? Glorious — he spoke of joy at last, to meet his god, the All-Father — <em>Rabb al-‘Ālamīn</em> — in Valhalla, in Heaven.</p>
+  <p>Angels in the sky announced his passing to his sons; a death sacred by all standards of myth.</p>
+  
+
+  <p>Rollo, Ragnar’s brother, and Harald Fairhair — I could write a whole separate article on them. Their mysticism lies in how they evolve: Rollo, the warrior torn between loyalty and power, transforms into a political force; Harald, the dreamer turned king, carries the echoes of prophecy. Both embody the archetype of sacred struggle, constantly shifting through realms of fate, ambition, and redemption. Mystical. Evolving. Still living in my neural spirals, weaving their own stories in my mind.</p>
+
+  
+  <p>In <em>Vikings: Valhalla</em>, two new warriors — Leif Erikson and Harald Sigurdsson — chase glory like it’s in their DNA. They move through chaos, driven by faith and intuition, changing everything they touch. You keep asking: <em>How are they still alive?</em> Their story even overlaps with the rise of the Ottoman Empire. The Viking voyages and settlements influenced trade routes, navigation, and cultural exchanges that later impacted regions central to the Ottoman legacy. The seafaring spirit and exploration of new territories by figures like Leif Erikson symbolically echo the expansive ambition that shaped empires centuries later.</p>
+
+  <p>Their instincts guide them to a throne — but not the earthly kind. It's a throne of destiny, perception, and how others interpret your life. That distinction matters.</p>
+
+ 
+  <p>Here’s where Qur’anic vision realigns the concept:
+  The name: <strong>Al-‘Arsh al-ʿAẓīm</strong> (The Magnificent Throne). 
+  It represents mercy, balance, and divine authority. It feeds the soul’s journey.
+</p>
+  
+  <p>Also, two Viking heroines mirrored Qur’anic divine feminine energy. Rare, but when feminine figures rise in sacred texts or epics, it’s unforgettable.</p>
+
+  <p>Take <em>Queen Saba</em> in the Qur’an. Now take <em>Lagertha</em> in <em>Vikings</em> — warrior, wife, then queen. She begins as Ragnar’s partner but becomes sovereign in her own right. Her path is earned, not inherited. When she leaves Ragnar after being disrespected, that moment rewires how we see her. She's not just his counterpart — she's her own epic. She becomes Queen of Kattegat in Season 4 — not by bloodline, but by merit, grit, and grace. One powerful moment was when she stepped in to lead the defense of Kattegat — knowing the odds were against them, she rallies her people to defend their homes and live or die free. As a warrior-strategist, her unmatched intellect and decisions saved Kattegat. That battle solidified her role as more than just a shield-maiden — it crowned her with earned sovereignty.</p>
+
+  <p>Her journey can be mapped onto <em>Al-‘Arsh al-ʿAẓīm</em> — a throne earned by the path of physical strength, freedom, responsibility, and sacred power.</p>
+
+  <h2> The Feminine Thrones - The Throne </h2>
+     
+  <p>In <em>Valhalla Vikings</em>, they launch the full rise of a female hero. I appreciated the effort. The writers’ instincts were right, and the story had enough sacred weight to support Freyja.</p>
+
+  <p>At first, I thought this character was tied to the “Glorious Throne” archetype — <em>Al-‘Arsh al-Majīd</em> — like our mystical messengers Ibrahim and Muhammad. But the more I watched, I realized — she walks through many frequencies. She’s a dreamer, like Joseph, interpreting visions. She carries Moses’ burden as a savior of faith. And there’s a Marian energy to her — carrying truth through divine calling. She doesn't rise by might. She rises by vision — a throne <em>revealed</em>, not seized. A holy task given to one who carries the seed of faith. A “Jesus,” she brings restoration.</p>
+
+  <p>Now I’m losing track of my thoughts — or maybe the plot is losing me. The thrones don’t line up for me in Season 2 of <em>Valhalla Vikings</em>. That morning, this divine pattern echoed louder when I recited the verses of Surah Ghafir. There, for the first and only time, the name <strong>Al-Ḥayy</strong> — <em>The Ever-Living</em> — appears alone, defined clearly as the only God. How did I forget that?</p>
+
+  <p>The beauty of Surah Ghafir is beyond description. I encourage you: read it early in the morning, while thinking of something lost or deeply desired. Watch how it revives your spirit.</p>
+
+  <p><strong>Al-Ḥayy</strong> revives the knowledge already hidden in you — in dreams, in your DNA, in your neural pathways. The revival is a process. That process is under the domain of Allah — <strong>Ar-Raḥmān</strong>, who is <em>seated upon the Throne</em> ("<strong>Ar-Raḥmān ʿalā al-ʿArsh istawā</strong>").</p>
+
+  <p>That’s the same name Maryam used to describe God — <em>Ar-Raḥmān</em>. In Surah Maryam, when she is confronted and questioned about her miraculous pregnancy,
+    she responds not with logic, but with surrender to divine mercy, referring to God as <em>Ar-Raḥmān</em>. 
+    That Viking queen in the <em>Valhalla</em> mythical series walks a path to a throne that defies definition — 
+    one that can’t be captured by a single essence or all the thrones combined. <strong>Al-Ḥayy</strong> announces in that āyah all the names we might call
+    upon in times of need — to evolve, to restore, to survive. The throne: spacious with knowledge, surrounded only by mercy.</p>
+
+  <p>What started as a binge-watch became a revelation — that myths echo truth, and sacred texts carry the blueprint of all thrones: inner and outer, human and divine.</p>
+
+  <p><strong> Who else watched the <em>Vikings! </em>.</strong></p>
+
+</div>
+ </section> 
+  
+ 
+
+  <h2> The Three Thrones of the Cosmos </h2>
+  
+  <p >
+    Across sacred verses and stardust echoes, the soul is called to walk three paths. Each throne — al-‘Aẓīm, al-Karīm, al-Majīd — is a gateway to the Divine, a map etched in both myth and mercy.
+  </p>
+
+    <h2 class="section-title"> ‘Arsh al-‘Aẓīm – The Magnificent Throne</h2>
+
+    <p>This is the Throne of Power and Liberation.
+In alignment with the magnificent throne spoken of in Viking myth, the Qur’an also announces this throne to the true believers —
+those whose hearts hold no doubt in their mission.
+
+It appears in three Surahs: Surat At-Tawbah, Surat An-Naml, and Surat Al-Mu’minoon.
+There is no doubt they will reach God, so long as they surrender to Allah’s will — al-muttaqīn —
+and walk into the battles of freedom with hearts full of yaqīn. The Messengers walked this path:
+Moses, the sea-splitter, the exile who returned with law and lightning.
+Those who walk this path are bearers of freedom, forgers of justice.
+It demands strength, trust, and a heart steady in the face of Pharaohs.
+    </p>     
+   <p><strong>Frequency:</strong> Liberation Pulse – 396Hz</p>
+    <div class="audio-wrapper">
+
+      <audio controls>
+        <source src="audio/arsh_al_azim.mp3" type="audio/mpeg",  class="article-image-float">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+      <div  id="summary" class="summary-links">
+    <h2 class="section-title"> ‘Arsh al-Karīm – The Generous Throne</h2>
+      </div>
+    <p>
+    The Throne of Provision, Healing, and Hidden Treasures.
+Like Yusuf, those on this path transmute betrayal into beauty.
+This throne is mentioned once in the Qur'an — in Surat Al-Mu’minoon — alongside two of God's names: Al-Malik (The King) and Al-Haqq (The Truth).
+
+It promises its own treasures: the honoring of words and contracts, and forgiveness.
+Victory does not come through force — the path to this throne lies in mastering stability, the accumulation of wealth with purity of intent.
+
+Generosity flows through wounds made holy.
+Patience, resilience, and quiet strength are your companions.
+    </p>
+     <p><strong>Frequency:</strong> Abundance Flow – 528Hz</p>
+    <div class="audio-wrapper">
+      <audio controls>
+        <source src="audio/arsh_al_karim.mp3" type="audio/mpeg",  class="article-image-float">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+ 
+
+
+    <h2 class="section-title"> ‘Arsh al-Majīd – The Glorious Throne</h2>
+
+     <p><strong>Frequency:</strong> Divine Light – 963Hz</p>
+     <p>This is the Throne of Light, Revelation, and Divine Intimacy.
+First walked by our father Ibrahim, who called upon God with the mystical combination of names that birthed the Ummah, named in Surat Al-Baqara.
+When his people lost their way, Muhammad ﷺ was sent to restore that ancient prayer.
+
+This throne has its own path — not the straight one, but the spiral. 
+It is the path of Al-Hamid, guided by <strong>purity</strong>, and presence.
+Here, speed is immense, intention becomes manifestation, and the soul becomes a mirror of the Real.
+
+Two twin names must always be carried on this path: <strong>Al-Wadud</strong> <strong>Al-Ghafoor</strong>.
+They ensure your return is swift, your stumbles forgiven.
+Astaghfirullah is the key that holds this spiral steady. 
+
+This is the path where God's majesty is revealed through beauty.
+If God permits you to trace these names in the Qur'an, joy will overtake you —
+your destiny will be to kneel in surrender before the Glorious Throne.
+
+Yet, the walk will be steeped in heartache.
+t will demand constant reassurance,
+stories of those who walked before you,
+and inspiration to reimagine the path —
+
+But know this: <strong>Al-‘Aziz</strong> <strong>Al-Hamid</strong> will echo in every beat.
+Everything you need for this journey will come in abundance,
+for <strong>Al-Ghani</strong> aligns Himself with your path.
+
+In fact, Surat Hud carries the plot of your journey.
+The reward is immense because the resistance is vast.
+
+This is the only victory described as Kabīr —
+and its Day is promised to be witnessed by <strong>Allah</strong> — Jalla Jalāluh — and all of creation.
+    </p>
+    <div class="audio-wrapper">
+      <audio controls>
+        <source src="audio/arsh_al_majid.mp3" type="audio/mpeg",  class="article-image-float">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+ </section>
+  
+
+    <p>
+    Inspired by ancient myths, Qur'anic wisdom, and the heart's yearning. Created by The Collective
+      <p>
+  
+  </main>
+
+  <!-- Post nav -->
+  <section class="post-nav">
+    <a class="btn btn--ghost" href="/blog_v2.html">← Back to Blog</a>
+    <a class="btn" href="articles/mystic-streetwear.html">Next: Mystic Streetwear →</a>
+  </section>
+
+</body>
+</html>

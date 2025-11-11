@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article — Monarch Butterfly Collective</title>
+  <meta name="description" content="Article template for Monarch Butterfly Collective — cosmic, mystic, modern." />
+
+  <!-- Fonts to match homepage -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#02020a;      /* deep space */
+      --card:#081023;    /* glass card */
+      --muted:#cfd6e8;   /* soft text */
+      --ink:#ffffff;     /* primary text */
+      --violet:#7d5cff;  /* accent 1 */
+      --teal:#4ef0f0;    /* accent 2 */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:radial-gradient(circle at 60% 20%, rgba(125,92,255,.08), transparent 35%),
+                                   radial-gradient(circle at 20% 80%, rgba(78,240,240,.06), transparent 40%),
+                                   var(--bg);
+      color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    /* Nebula video texture */
+    .bg-video{position:fixed; inset:0; width:100%; height:100%; object-fit:cover; opacity:.22; z-index:-2; filter:contrast(1.05) saturate(1.05) brightness(.8)}
+    .bg-vignette{position:fixed; inset:0; z-index:-1; background:radial-gradient(1200px 600px at 50% 20%, transparent 0, rgba(0,0,0,.4) 60%, rgba(0,0,0,.7) 100%)}
+
+    /* Top nav (optional, matches homepage style) */
+    .nav{position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:50; display:flex; gap:16px; align-items:center; padding:6px 14px; border-radius:999px; background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.06)}
+    .nav .brand{font-family:'Cormorant Garamond',serif; font-weight:600; color:#fff; letter-spacing:.6px}
+    .nav a{color:#b8c7e7; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px}
+    .nav a:hover{color:#fff; background:linear-gradient(90deg, rgba(125,92,255,.12), rgba(78,240,240,.06))}
+
+    /* Article header */
+    header.article{max-width:920px; margin:120px auto 16px; padding:0 20px}
+    .eyebrow{color:var(--teal); font-weight:700; letter-spacing:1.5px; font-size:12px; text-transform:uppercase}
+    h1.title{font-family:'Cormorant Garamond',serif; font-size:44px; line-height:1.08; margin:.35em 0 .2em; text-shadow:0 10px 40px rgba(124,91,255,.14)}
+    .meta{color:#a9b7d7; font-size:14px}
+
+    /* Article body */
+    .prose{max-width:900px; margin:18px auto 60px; padding:0 20px}
+    .lead{font-size:20px; color:#e6eef8; margin:10px 0 18px}
+    .prose p{color:var(--muted); margin:14px 0}
+    .prose h2, .prose h3{font-family:'Cormorant Garamond',serif; margin:28px 0 10px}
+    .prose h2{font-size:28px}
+    .prose h3{font-size:22px}
+    .prose a{color:var(--teal); text-decoration:none}
+    .prose a:hover{color:#a7f7f7; text-shadow:0 0 12px rgba(78,240,240,.35)}
+
+    /* Quote card */
+    .quote{position:relative; padding:18px 18px 18px 22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); margin:22px 0}
+    .quote:before{content:'\201C'; position:absolute; left:10px; top:-18px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(125,92,255,.35)}
+
+    /* Figure */
+    figure{margin:28px 0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{padding:10px 14px; color:#bcd0ef; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
+
+    /* Code block (if needed for tech posts) */
+    pre{background:#0c152b; color:#d9e4ff; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06)}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace}
+
+    /* Footer nav */
+    .post-nav{max-width:900px; margin:10px auto 80px; padding:0 20px; display:flex; justify-content:space-between; gap:10px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
+    .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
+
+    /* Responsive */
+    @media (max-width:640px){
+      h1.title{font-size:32px}
+      .nav{left:12px; transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background texture video (same as homepage) -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/" type="video/mp4" />
+  </video>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <!-- Optional nav -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="brand">Monarch Butterfly Collective</div>
+    <a href="/index.html">Home</a>
+    <a href="/blog_v2.html">Blog</a>
+    <a href="/music.html">Music</a>
+    <a href="/gallery.html">Fashion</a>
+  </nav>
+
+  <!-- Article header -->
+  <header class="article">
+    <div class="eyebrow">Reflections • Manifestations</div>
+    <h1 class="title">  Mystical Teacher - Trust in the process </h1>
+    <div class="meta">By Aldctorah • <time datetime="2025-11-11">November 11, 2025</time> • 7 min read</div>
+  </header>
+
+  <!-- Article body -->
+
+
+    <img src="/assets/IMG_7900.JPG" alt="Cosmos Galaxy" class="article-image-float">
+   
+
+    <p>When I started reading the Qur’an again—after years of keeping it closed—I was surprised by how much freedom it held. It’s a book of questions, of requests, of needs, even demands. It’s a dialogue. And God clearly states that answers are given through learning the <em>rules</em> of what you want and need.</p>
+
+    <p>For the longest time, I wondered why God insists—almost in every illustrative Surah—to mention the creation of the heavens and the earth and everything in between. But through experience, I began to see: every time I took an interest in one of God's names, or a phrase from the Qur’an, it led me to knowledge. Knowledge of myself, mostly. And most times, I’d end up forgetting what I was originally looking for, lost in awe at the layers of truth I’d uncovered.</p>
+
+    <img src="/assets/horsehead_archangles.png" alt="Morning Recitation" class="article-image-float">
+
+    <p>I was trained in the Western style of education. In Sudan, we followed the top-down British system—starting with theory, and maybe applying it later. Later, I encountered the bottom-up approach—the American way—where students begin with doing, and theory follows. That felt more alive to me.</p>
+
+    <p>But the Qur’an… the Qur’an is a different kind of teacher altogether. “<strong>الرحمن علم القرآن</strong>” — <em>The Most Merciful taught the Qur’an</em>. It invites you to follow your interests. To move through curiosity. And I must admit—my love for learning had dimmed when school stopped being useful to my real life. Where did those equations live beyond the exam papers?</p>
+
+
+    <p>And yet… my mind expanded. I stopped “learning” in the traditional sense and started recognizing patterns—<strong>living</strong> patterns.</p>
+
+    <p>I left my office as a cosmologist because I wanted to live. I didn’t expect that the equations I’d studied for most of my life would begin to <em>breathe</em> with me. That they’d show up in the rhythm of things, in real time.</p>
+
+    <p>Then I found this beautiful book, <em>The Jazz of Physics</em>, and I realized I wasn’t alone. So many cosmologists before me walked these winding paths—studying the universe and finding it in music, in jam sessions, in 3:00 a.m. wine-sipped conversations in Manhattan bars.</p>
+
+    <img src= "/assets/jazzOfphsyics.PNG"  alt="Jazz of Physics Book" class="article-image-float">  <p> <a src="https://a.co/d/dOsk5TA" target="_blank"> The Jazz of Physics </a> by Stephon Alexander </p>
+
+
+
+    <p>Who would’ve thought that the book my family revered—the one my mother made sure I always packed in my travel bag—would become the portal to my real education? For years I kept the Qur’an out of love for her, as a souvenir. But the day I finally opened it… that’s when my true learning began.</p>
+
+    <p>Now, five years into this journey—through yoga, dream spells, quantum techniques, and the mystic path of the Qur’an—I’ve made many mistakes, like any student. But what continues to <em>blow my mind</em> is that every single time I fall, forgiveness is already standing in front of me: <strong>غفور رحيم</strong> — <em>Most Forgiving, Most Merciful.</em></p>
+
+    <p>My practice is simple. I wake up early and recite a Surah slowly, breathing with it, focusing on pronunciation, letting the words settle into my body before the world gets loud. Over time, I started waking with phrases floating into my mind—like “<strong>لنهدينهم سبلنا…</strong>” (<em>We will surely guide them to Our paths</em>). I’d look it up—Al-Ankabut—and that Surah would lead me to another, like a breadcrumb trail of meaning.</p>
+
+    <p>On one Tuesday, for example, I started with Surah Ar-Rahman. Then it led me to Al-Ankabut. That led me to Al-Qalam. That day was already patterned—coded for learning. A day of solitude and knowledge unraveling itself. And I probably wouldn’t see anyone.</p>
+
+
+  <main class="prose">
+  
+   
+    <p>Read more notes and audio sketches in our <a href="/blog_v2.html">Journal</a>, or explore <a href="/music.html">Releases</a>.</p>
+
+  </main>
+
+  <!-- Post nav -->
+  <section class="post-nav">
+    <a class="btn btn--ghost" href="/blog_v2.html">← Back to Blog</a>
+    <a class="btn" href="/Cosmic Throne Map.html">Next: Cosmic Thrones  →</a>
+  </section>
+
+</body>
+</html>
