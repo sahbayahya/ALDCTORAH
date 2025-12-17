@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monarch Butterfly Collective - Blog</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <meta name="description" content="Cosmic Butterfly Collective — music, mystic fashion, woodcraft and spiritual stories. QONNA | DJ Aldctorah." />
-
+  <title>Cosmic Butterfly Collective - Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+  
   <style>
     
  :root{
@@ -218,7 +214,8 @@
 <body>
 
 
- <header>
+
+  <header>
     <div class="nav container">
       <div class="brand">
         <div class="logo">M</div>
@@ -226,32 +223,17 @@
       </div>
   <!-- Optional nav -->
   <nav class="nav" aria-label="Main navigation">
-   <div class="brand"> </div>
+   <div class="brand">  </div>
     <a href="index.html">Home</a>
     <a href="blog_v2.html">Blog</a>
     <a href="music_v2.html">Music</a>
     <a href="gallery.html">Fashion</a>
   </nav> 
-  
-
-<!-- 
-      <nav>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">☰</button>
-        <ul>
-          <li><a href="music_v2.html">Music</a></li>
-          <li><a href="gallery.html">Fashion</a></li>
-
-          <li><a href="blog_v2.html">Blog</a></li>
-          <li><a href="about_new.html">About</a></li>
-        </ul>
-      </nav>
-    -->      
+    
     </div>
   </header>
 
-
-
-
+   
 
   <section class="hero" aria-label="Hero - Monarch Butterfly Collective">
     <video playsinline autoplay muted loop id="heroVideo">
@@ -269,11 +251,9 @@
     <div class="hero-inner container">
       <div class="eyebrow">Aldctorah — Modern Mystic.</div>
       <h2>Experience the Butterfly Effect</h2>
-      <p class="lead"> Monarch Butterfly Collective Reflections </p>
+      <p class="lead"> Monarch Butterfly Collective Reflections.</p>
 
-  </section>
-   <main class="container"> 
-
+   <main class="container">  </main>
   <section class="blog-list">
     <article class="blog-item">
       <h2>The Birth of Gonna — Reviving Ancestral Voices</h2>
@@ -307,6 +287,18 @@
   <footer>
     “For there is nothing in this world more beautiful than the movement of this butterfly.”
   </footer>
+
+    <div class="floating-butterfly" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+  <div class="floating-butterfly" style="top: 60%; left: 80%; animation-delay: 6s;"></div>
+  <div class="floating-butterfly" style="top: 40%; left: 50%; animation-delay: 3s;"></div>
 </body>
- </Main>
+</html>
+<script>
+  document.querySelectorAll('.look .main').forEach(main => {
+    main.addEventListener('click', () => {
+      main.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
 </html>
