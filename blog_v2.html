@@ -158,6 +158,87 @@
     nav a:hover{color:var(--accent1)}
 
     
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+ 
+ 
+
+    header {
+      text-align: center;
+      padding: 5rem 1rem 2rem;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 25px #b394ff;
+      animation: fadeIn 3s ease forwards;
+    }
+
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+      animation: fadeIn 4s ease forwards;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #e0d5ff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #bfaeff;
+    }
+
+  
+
+.label {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #fff;
+}
 
 
     /* Mobile nav */
@@ -250,8 +331,15 @@
 
     <div class="hero-inner container">
       <div class="eyebrow">Aldctorah — Modern Mystic.</div>
-      <h2>Experience the Butterfly Effect</h2>
-      <p class="lead"> Monarch Butterfly Collective Reflections.</p>
+      <h2>MBC Reflections</h2>
+      <p class="lead"> Social. spiritual. Reviews.</p>
+
+
+</section>
+
+
+
+
 
    <main class="container">  </main>
   <section class="blog-list">
