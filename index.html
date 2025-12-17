@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cosmic Butterfly Collective — Home</title>
+  <title>Monarch Butterfly Collective — Home</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Cosmic Butterfly Collective — music, mystic fashion, woodcraft and spiritual stories. QONNA | DJ Aldctorah." />
+  <meta name="description" content="Monarch Butterfly Collective — music, mystic fashion, woodcraft and spiritual stories. QONNA | DJ Aldctorah." />
 
   <style>
     :root{
@@ -78,6 +78,34 @@
   font-weight: 500;
   color: #fff;
 }
+  
+    /* Article body */
+    .prose{max-width:900px; margin:18px auto 60px; padding:0 20px}
+    .lead{font-size:20px; color:#e6eef8; margin:10px 0 18px}
+    .prose p{color:var(--muted); margin:14px 0}
+    .prose h2, .prose h3{font-family:'Cormorant Garamond',serif; margin:28px 0 10px}
+    .prose h2{font-size:28px}
+    .prose h3{font-size:22px}
+    .prose a{color:var(--teal); text-decoration:none}
+    .prose a:hover{color:#a7f7f7; text-shadow:0 0 12px rgba(78,240,240,.35)}
+
+    /* Quote card */
+    .quote{position:relative; padding:18px 18px 18px 22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); margin:22px 0}
+    .quote:before{content:'\201C'; position:absolute; left:10px; top:-18px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(125,92,255,.35)}
+
+    /* Figure */
+    figure{margin:28px 0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{padding:10px 14px; color:#bcd0ef; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
+
+    /* Code block (if needed for tech posts) */
+    pre{background:#0c152b; color:#d9e4ff; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06)}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace}
+
+    /* Footer nav */
+    .post-nav{max-width:900px; margin:10px auto 80px; padding:0 20px; display:flex; justify-content:space-between; gap:10px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
+    .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
 
     /* Layout */
     .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
@@ -148,11 +176,11 @@
     <div class="nav container">
       <div class="brand">
         <div class="logo">M</div>
-        <h1>Cosmic Butterfly Collective</h1>
+        <h1>Monarch Butterfly Collective</h1>
       </div>
   <!-- Optional nav -->
   <nav class="nav" aria-label="Main navigation">
-   <div class="brand"></div>
+   <div class="brand">  </div>
     <a href="index.html">Home</a>
     <a href="blog_v2.html">Blog</a>
     <a href="music_v2.html">Music</a>
