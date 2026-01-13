@@ -1,278 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cosmic Butterfly Collective</title>
   <link rel="stylesheet" href="styles.css" />
+
   <style>
-    
- :root{
+    :root{
       --bg:#05040a; /* deep space */
       --panel:#0f0b17; /* card background */
-      --accent1: #8b5cf6; /* violet */
-      --accent2: #6ee7b7; /* soft neon */
-      --muted: #bfc6d4;
-      --glass: rgba(255,255,255,0.04);
-      --max-width: 1200px;
-      --serif: 'Playfair Display', serif;
-      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --accent1:#8b5cf6; /* violet */
+      --accent2:#6ee7b7; /* soft neon */
+      --muted:#bfc6d4;
+      --glass:rgba(255,255,255,0.04);
+      --max-width:1200px;
+      --serif:'Playfair Display', serif;
+      --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
-    /* Reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 8%),
-                  radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.04), transparent 6%),
-                  linear-gradient(180deg, var(--bg), #07060b 60%);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 8%),
+        radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.04), transparent 6%),
+        linear-gradient(180deg, var(--bg), #07060b 60%);
       color:var(--muted);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       overflow-y:auto;
     }
-.section {
-  text-align: center;
-  padding: 60px 20px;
-  color: white;
-}
 
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.preview {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 250px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.preview:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-}
-
-.label {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  font-weight: 500;
-  color: #fff;
-}
-
-
-
-    .background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.25;
-    }
-    
-    .header{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:center}
-
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Featured release */
-    .featured{max-width:1100px; margin:20px auto 34px; padding:0 22px; display:grid; grid-template-columns: 1.2fr .8fr; gap:22px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:18px; overflow:hidden; backdrop-filter:blur(6px); box-shadow:0 10px 36px rgba(125,92,255,.12)}
-    .cover{aspect-ratio:16/9; width:100%; object-fit:cover; display:block}
-    .card__body{padding:16px 16px 18px }
-    .card__title{font-family:'Cormorant Garamond',serif; font-size:28px; margin:6px 0}
-    .meta{color:#a9b7d7; font-size:14px}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
-    .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
-
-    /* Releases grid */
-    .section{max-width:1100px; margin:14px auto 60px; padding:0 22px}
-    .section h2{font-family:'Cormorant Garamond',serif; font-size:28px; margin:12px 0 12px}
-    .grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:20px}
-    .tile{display:flex; flex-direction:column; background:linear-gradient(180deg, rgba(125,92,255,.06), rgba(78,240,240,.04)); border:1px solid rgba(255,255,255,.06); border-radius:16px; overflow:hidden}
-    .tile img{aspect-ratio:1/1; width:100%; object-fit:cover}
-    .tile .t-body{padding:12px 14px}
-    .tile .t-title{font-family:'Cormorant Garamond',serif; font-size:20px}
-    .tile .t-meta{color:#a9b7d7; font-size:13px; margin:6px 0 10px}
-    .tile .row{display:flex; gap:10px; flex-wrap:wrap}
-  /* Layout */
+    /* Layout */
     .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    header{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:center}
+
+    /* Fixed header */
+    header{
+      position:fixed;
+      top:18px;
+      left:0;right:0;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      padding:0 !important;         /* prevents click-blocking */
+      font-size:inherit !important;  /* prevents click-blocking */
+      text-align:initial !important; /* prevents click-blocking */
+    }
+
     .nav{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),#00d4ff);box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07060b;font-family:var(--serif);}
+    .brand .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent1),#00d4ff);
+      box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;color:#07060b;font-family:var(--serif);
+    }
     .brand h1{margin:0;font-family:var(--serif);font-size:15px;color:#fff;letter-spacing:0.6px}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
     nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
     nav a:hover{color:var(--accent1)}
 
-    /* Mobile nav */
-    .menu-toggle{display:none;background:none;border:0;color:var(--muted);font-size:18px}
-
     /* Hero */
     .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(105%) saturate(110%) hue-rotate(10deg);opacity:0.92}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(4,3,6,0.75), rgba(4,3,6,0.2));mix-blend-mode:overlay}
-
-    .hero-inner{position:relative;z-index:20;padding:120px 20px 80px;text-align:center;color:white}
-    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.7);margin-bottom:12px}
-    h2{font-family:var(--serif);font-size:48px;line-height:1.02;margin:0 0 18px;color:white;text-shadow:0 8px 40px rgba(139,92,246,0.12)}
-    p.lead{max-width:780px;margin:0 auto 22px;color:rgba(255,255,255,0.88);font-size:18px}
-    /* Nebula video texture */
-    .bg-video{position:fixed; inset:0; width:100%; height:100%; object-fit:cover; opacity:.22; z-index:-2; filter:contrast(1.05) saturate(1.05) brightness(.8)}
-    .bg-vignette{position:fixed; inset:0; z-index:-1; background:radial-gradient(1200px 600px at 50% 20%, transparent 0, rgba(0,0,0,.4) 60%, rgba(0,0,0,.7) 100%)}
-
-    /* Quote card */
-    .quote{position:relative; padding:18px 18px 18px 22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); margin:22px 0}
-    .quote:before{content:'\201C'; position:absolute; left:10px; top:-18px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(125,92,255,.35)}
-
-    /* Figure */
-    figure{margin:28px 0; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
-    figure img{display:block; width:100%; height:auto}
-    figcaption{padding:10px 14px; color:#bcd0ef; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
-
-    /* Code block (if needed for tech posts) */
-    pre{background:#0c152b; color:#d9e4ff; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06)}
-    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace}
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
- 
- 
-
-    header {
-      text-align: center;
-      padding: 5rem 1rem 2rem;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      text-shadow: 0 0 25px #b394ff;
-      animation: fadeIn 3s ease forwards;
-    }
-
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 3rem;
-      animation: fadeIn 4s ease forwards;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.85);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: #e0d5ff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #bfaeff;
-    }
-
-  
-
-.label {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  font-weight: 500;
-  color: #fff;
-}
-
-
-    /* Mobile nav */
-    .menu-toggle{display:none;background:none;border:0;color:var(--muted);font-size:18px}
-
-    /* Hero */
-    .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(105%) saturate(110%) hue-rotate(10deg);opacity:0.92}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(4,3,6,0.75), rgba(4,3,6,0.2));mix-blend-mode:overlay}
-
     .hero-inner{position:relative;z-index:20;padding:120px 20px 80px;text-align:center;color:white}
     .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.7);margin-bottom:12px}
     h2{font-family:var(--serif);font-size:48px;line-height:1.02;margin:0 0 18px;color:white;text-shadow:0 8px 40px rgba(139,92,246,0.12)}
     p.lead{max-width:780px;margin:0 auto 22px;color:rgba(255,255,255,0.88);font-size:18px}
 
     .ctas{display:flex;justify-content:center;gap:14px;margin-top:18px}
-    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(6px);}
+
+    /* Buttons (FIXED gradient vars) */
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 18px;border-radius:12px;
+      font-weight:700;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+    }
     .btn-primary{background:linear-gradient(90deg,var(--accent1),#00d4ff);color:#07060b}
     .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.06)}
+    .btn-solid{
+      color:#03121c;
+      background:linear-gradient(90deg, var(--accent1), var(--accent2));
+      box-shadow:0 10px 36px rgba(125,92,255,.18);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .btn--ghost{background:transparent;color:#cfe4ff;border:1px solid rgba(255,255,255,.08)}
 
     /* Animated butterfly wing overlay */
     .wing-overlay{position:absolute;inset:0;pointer-events:none;z-index:15}
     .wing{position:absolute;width:42vmax;height:42vmax;border-radius:50%;mix-blend-mode:screen;opacity:0.18;filter:blur(36px);transform-origin:center}
     .wing.left{left:-6%;top:8%;background:radial-gradient(circle at 36% 28%, rgba(139,92,246,0.95), rgba(139,92,246,0.28) 30%, transparent 55%);animation:floatL 9s ease-in-out infinite}
     .wing.right{right:-6%;bottom:8%;background:radial-gradient(circle at 64% 72%, rgba(110,231,183,0.95), rgba(110,231,183,0.25) 30%, transparent 55%);animation:floatR 10s ease-in-out infinite}
-
     @keyframes floatL{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
     @keyframes floatR{0%{transform:translateY(0) rotate(6deg)}50%{transform:translateY(20px) rotate(-6deg)}100%{transform:translateY(0) rotate(6deg)}}
 
- .section{padding:60px 0}
-    .section h3{font-family:var(--serif);font-size:26px;color:white;margin:0 0 12px}
-    .section p{color:var(--muted);margin:0 0 12px}
+    /* Featured release */
+    .featured{max-width:1100px; margin:20px auto 34px; padding:0 22px; display:grid; grid-template-columns: 1.2fr .8fr; gap:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:18px; overflow:hidden; backdrop-filter:blur(6px); box-shadow:0 10px 36px rgba(125,92,255,.12)}
+    .cover{aspect-ratio:16/9; width:100%; object-fit:cover; display:block}
+    .card__body{padding:16px 16px 18px}
+    .card__title{font-family:'Cormorant Garamond',serif; font-size:28px; margin:6px 0}
+    .meta{color:#a9b7d7; font-size:14px}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
 
-    .preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .preview{height:180px;border-radius:10px;overflow:hidden;position:relative}
-    .preview .label{position:absolute;left:12px;bottom:12px;font-weight:700;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:6px 10px;border-radius:8px}
+    /* Sections */
+    main{padding-top:18vh}
+    .section{max-width:1100px; margin:14px auto 60px; padding:0 22px}
+    .section h2{font-family:'Cormorant Garamond',serif; font-size:28px; margin:12px 0 12px}
+    .grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:20px}
+
+    .tile{display:flex; flex-direction:column; background:linear-gradient(180deg, rgba(125,92,255,.06), rgba(78,240,240,.04)); border:1px solid rgba(255,255,255,.06); border-radius:16px; overflow:hidden}
+    .tile img{aspect-ratio:1/1; width:100%; object-fit:cover}
+    .tile .t-body{padding:12px 14px}
+    .tile .t-title{font-family:'Cormorant Garamond',serif; font-size:20px}
+    .tile .t-meta{color:#a9b7d7; font-size:13px; margin:6px 0 10px}
+
+    .soundcloud-embed iframe{border-radius:12px; overflow:hidden}
 
     footer{padding:36px 0;border-top:1px solid rgba(255,255,255,0.03);color:rgba(255,255,255,0.6)}
 
@@ -280,201 +129,239 @@
     @media (max-width:880px){
       h2{font-size:32px}
       .brand h1{font-size:13px}
-      nav ul{display:none}
-      .menu-toggle{display:inline-block}
     }
-    
   </style>
 </head>
+
 <body>
 
-
- <header>
+  <header>
     <div class="nav container">
       <div class="brand">
         <div class="logo">B</div>
         <h1>Cosmic Butterfly Collective</h1>
       </div>
-  <!-- Optional nav -->
-  <nav class="nav" aria-label="Main navigation">
-   <div class="brand">  </div>
-    <a href="index.html">Home</a>
-    <a href="music_v2.html">Music</a>
-    <a href="blog_v2.html">Journal</a>
-    <a href="about_new.html">About</a>
-  </nav> 
-  
-  
+
+      <nav class="nav" aria-label="Main navigation">
+        <div class="brand"></div>
+        <a href="index.html">Home</a>
+        <a href="music_v2.html">Music</a>
+        <a href="blog_v2.html">Journal</a>
+        <a href="about_new.html">About</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Header -->
-
-  <!-- Featured release -->
-
-
-   
   <section class="hero" aria-label="Hero - Cosmic Butterfly Collective">
     <video playsinline autoplay muted loop id="heroVideo">
-      <!-- Replace src with your video file (recommended: 1920x1080 mp4, loopable) -->
       <source src="assets/hero-loop.mp4" type="video/mp4">
-      <!-- Fallback background image -->
       Your browser does not support the video tag.
     </video>
 
-    <div class="wing-overlay">
+    <div class="wing-overlay" aria-hidden="true">
       <div class="wing left"></div>
       <div class="wing right"></div>
     </div>
 
     <div class="hero-inner container">
-      <div class="eyebrow">ALDCTORAH — Multidisciplinary Director.</div>
+      <div class="eyebrow">ALDCTORAH — Multidisciplinary Artist.</div>
       <h2>Experience the Butterfly Effect</h2>
-      <p class="lead"> Cosmic Butterfly Collective introduces Qonna to bridge old Sudanese memory and futuristic sound, Redefining mystic streetwear — a sanctuary for transformation through creation.</p>
+      <p class="lead">
+        Cosmic Butterfly Collective introduces Qonna to bridge old Sudanese memory and futuristic sound,
+        redefining mystic streetwear — a sanctuary for transformation through creation.
+      </p>
 
       <div class="ctas">
         <a class="btn btn-primary" href="Meet_Qonna.html">Listen to Qonna</a>
         <a class="btn btn-ghost" href="gallery.html">Explore Fashion</a>
       </div>
-
     </div>
   </section>
 
-  <section class="featured">
-    <div class="card">
-      <img class="cover" src="assets/IMG_0464.PNG" alt="Featured release cover" />
-      <div class="card__body">
-        <div class="card__title">Qonna — Remembered Futures (EP)</div>
-        <div class="meta">Techno • House • Sudanese motifs • 2025</div>
-        <div class="player" style="margin:12px 0 10px">
-          <!-- Example SoundCloud embed (replace URL with your track/playlist) -->
-          <iframe class="sc-embed" scrolling="no" frameborder="yes" allow="autoplay" src="assets/Alman_soundCLoud_screen.png"></iframe>
-        </div>
-        <div class="row">
-          <a class="btn" href="https://soundcloud.com/user-683135207-458196881/al-aman-a-tribute-to-al-balabil?in=user-683135207-458196881/sets/qonna">Listen</a>
-          <a class="btn btn--ghost" href="#">Liner Notes</a>
-        </div>
-      </div>
-    </div>
+  <main>
+    <section class="featured">
+      <div class="card">
+        <img class="cover" src="assets/IMG_0464.PNG" alt="Featured release cover" />
+        <div class="card__body">
+          <div class="card__title">Qonna — Remembered Futures (EP)</div>
+          <div class="meta">Techno • House • Sudanese motifs • 2025</div>
 
-    <div class="card" style="padding:16px">
-      <div class="card__title">Upcoming Live</div>
-      <div class="meta" style="margin-bottom:10px">Immersive set blending field recordings with electronic trance</div>
-      <div class="shows">
-   
-        <div class="show">
-          <strong>Mar 9</strong> — River Studio, Brooklyn<br/>
-          Doors 7pm • Set 9pm
-        </div>
-         <div class="show">
-          <strong>Apr 12</strong> — Cosmic Hall, NYC<br/>
-          Doors 8pm • Set 9:30pm
-        </div>
-        <div class="show">
-          <strong>May 9</strong> — River Studio, Brooklyn<br/>
-          Doors 7pm • Set 9pm
+          <div class="player" style="margin:12px 0 10px">
+            <!-- FIXED: Proper SoundCloud embed iframe -->
+            <iframe
+              width="100%"
+              height="100"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/al-aman-a-tribute-to-al-balabil&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
+            </iframe>
+          </div>
+
+          <div class="row">
+            <a class="btn btn-solid" href="https://soundcloud.com/user-683135207-458196881/al-aman-a-tribute-to-al-balabil?in=user-683135207-458196881/sets/qonna" target="_blank" rel="noopener">Listen on SoundCloud</a>
+            <a class="btn btn--ghost" href="#" aria-disabled="true">Liner Notes</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Releases grid -->
-  <section class="section">
-    <h2>Selected Tracks & Mixes</h2>
-    <div class="grid">
-      <article class="tile">
-   <img src="assets/IMG_0464.PNG" alt="Track cover 1" /> 
-        <div class="t-body">
-          <div class="t-title">Ma‘a al-Tuyoor (مع الطيور) </div>
-          <div class="t-meta">Qonna • 122 BPM • 4:55 min</div>
-<div class="soundcloud-embed">
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com/user-683135207-458196881/ma-al-tuyoor-drifting-with-the-birds?in=user-683135207-458196881/sets/qonna-the-remembering&si=5b156b1d134e426dba6c5091d69b4fe2&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>    
-
-</div>
-      </article>
-
-
-
-      <article class="tile">
-        <img src="assets/cosmic_aldctorah.jpeg" alt=" Zaneeq" />
-        <div class="t-body">
-          <div class="t-title"> Omdurman Aman - (امدرمان امان) </div>
-          <div class="t-meta">Techo Emperor • Zneeq • 10:13 min </div>
-           <div class="soundcloud-embed">
-<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" 
-src="https://soundcloud.com/user-683135207-458196881/oumdurman-aman-remix-v2?in=user-683135207-458196881/sets/remixes&si=ea26d2be186e45d889ac423d6f825cec&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>   
-      </article>
-
-
-      <article class="tile">
-        <img src="assets/Ma Bansa_ A Musical Bond.png" alt="Ma Bansa" />
-        <div class="t-body">
-          <div class="t-title">Omri Ma Bansa — (عمري ما بنسا)</div>
-          <div class="t-meta"> Mardoum Pulse • 3:37 min</div>
-          <div class="soundcloud-embed">
-<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com/user-683135207-458196881/ma-bansa?in=user-683135207-458196881/sets/qonna-tribute-to-abdel-gadir&si=53614e2d158e4825baa7697fb6a8824f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>  
-      </article>
-
-
-      <article class="tile">
-        <img src="assets/cosmic_aldctorah.jpeg" alt="Afro-House" />
-        <div class="t-body">
-          <div class="t-title"> Live Remix - Afro-House</div>
-          <div class="t-meta">  DJ Set • 124 BPM • 48:43 min </div>
-           <div class="soundcloud-embed">
-<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix?si=d433a562460a4ce0a9f1616aa8c647a1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>
-      </article>
-
-      <article class="tile">
-        <img src="assets/Green_Aldctorah_on_train.jpeg" alt="" />
-        <div class="t-body">
-          <div class="t-title"> Lemon Barah (ليمون بارا)</div>
-          <div class="t-meta">   Cover tribute • Qonna & ALDCTORAH </div>
-           <div class="soundcloud-embed">
-<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
- src="https://soundcloud.com/user-683135207-458196881/lemon-barah-techno-heritage-club-mix?in=user-683135207-458196881/sets/qonna-tribute-to-abdel-gadir&si=bff0eb0752ba4c57b1ec71578db4b60f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>
-      </article>
-
-      <article class="tile">
-        <img src="assets/cosmic_aldctorah.jpeg" alt="Track cover 4" />
-        <div class="t-body">
-          <div class="t-title"> Noor Baytna (نور بيتنا )</div>
-          <div class="t-meta"> Cover tribute • Qonna & ALDCTORAH</div>
-           <div class="soundcloud-embed">
-<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
-src="https://soundcloud.com/user-683135207-458196881/noor-baytna-our-home-visited?in=user-683135207-458196881/sets/qonna-the-remembering&si=040da7d3ffad461eb8683bc8e5a8bdf9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-</div>
-      </article>
-    </div>
-
-
-     <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>
-        <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
-        <div style="font-size:13px;color:var(--muted)">ALDCTORAH — Multidisciplinary Director• © <span id="year"></span></div>
+      <div class="card" style="padding:16px">
+        <div class="card__title">Upcoming Live</div>
+        <div class="meta" style="margin-bottom:10px">Immersive set blending field recordings with electronic trance</div>
+        <div class="shows">
+          <div class="show"><strong>Mar 9</strong> — River Studio, Brooklyn<br/>Doors 7pm • Set 9pm</div>
+          <div class="show"><strong>Apr 12</strong> — Cosmic Hall, NYC<br/>Doors 8pm • Set 9:30pm</div>
+          <div class="show"><strong>May 9</strong> — River Studio, Brooklyn<br/>Doors 7pm • Set 9pm</div>
+        </div>
       </div>
-<!-- Load Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <div style="display:flex;gap:12px;align-items:center">
-<!--      <a href="https://www.instagram.com/aldctorah/"  aria-label="Instagram" style="text-decoration:none;color:var(--muted)"> ALDCTROAH IG</a>
-        <a href="https://soundcloud.com/user-683135207-458196881/tracks"  aria-label="SoundCloud" style="text-decoration:none;color:var(--muted)">SoundCloud</a>
-  -->  
-  
-        <a href="https://open.spotify.com/album/5ODZ7rrg4z0MeWvXIuh1wv" target="_blank"><i class="fab fa-spotify"></i></a>
-  <a href="https://geo.music.apple.com/album/الاوصفوك-ep/1826410709" target="_blank"><i class="fab fa-apple"></i></a>
-  <a href="https://soundcloud.com/user-683135207-458196881/tracks" target="_blank"><i class="fab fa-soundcloud"></i></a>
-  <a href="https://music.youtube.com/playlist?list=OLAK5uy_m3u6_vtebVVKWyf628yiWm7xXj0DZ4M2Y" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  </section>
+    <section class="section">
+      <h2>Selected Tracks & Mixes</h2>
+
+      <div class="grid">
+        <article class="tile">
+          <img src="assets/IMG_0464.PNG" alt="Track cover: Ma‘a al-Tuyoor" />
+          <div class="t-body">
+            <div class="t-title">Ma‘a al-Tuyoor (مع الطيور)</div>
+            <div class="t-meta">Qonna • 122 BPM • 4:55 min</div>
+
+            <!-- FIXED: Proper SoundCloud embed -->
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="100"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/ma-al-tuyoor-drifting-with-the-birds&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="assets/cosmic_aldctorah.jpeg" alt="Track cover: Omdurman Aman" />
+          <div class="t-body">
+            <div class="t-title">Omdurman Aman — (امدرمان امان)</div>
+            <div class="t-meta">Techo Emperor • Zneeq • 10:13 min</div>
+
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="120"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/oumdurman-aman-remix-v2&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="assets/Ma Bansa_ A Musical Bond.png" alt="Track cover: Omri Ma Bansa" />
+          <div class="t-body">
+            <div class="t-title">Omri Ma Bansa — (عمري ما بنسا)</div>
+            <div class="t-meta">Mardoum Pulse • 3:37 min</div>
+
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="120"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/ma-bansa&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="assets/cosmic_aldctorah.jpeg" alt="Track cover: Live Remix - Afro-House" />
+          <div class="t-body">
+            <div class="t-title">Live Remix — Afro-House</div>
+            <div class="t-meta">DJ Set • 124 BPM • 48:43 min</div>
+
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="120"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/arabian-up-beat-deep-house-mix&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="assets/Green_Aldctorah_on_train.jpeg" alt="Track cover: Lemon Barah" />
+          <div class="t-body">
+            <div class="t-title">Lemon Barah (ليمون بارا)</div>
+            <div class="t-meta">Cover tribute • Qonna & ALDCTORAH</div>
+
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="120"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/lemon-barah-techno-heritage-club-mix&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="assets/cosmic_aldctorah.jpeg" alt="Track cover: Noor Baytna" />
+          <div class="t-body">
+            <div class="t-title">Noor Baytna (نور بيتنا)</div>
+            <div class="t-meta">Cover tribute • Qonna & ALDCTORAH</div>
+
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="100"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-683135207-458196881/noor-baytna-our-home-visited&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false">
+              </iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
+          <div style="font-size:13px;color:var(--muted)">
+            ALDCTORAH — Multidisciplinary Artist © <span id="year"></span>
+          </div>
+        </div>
+
+        <!-- Load Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="https://open.spotify.com/album/5ODZ7rrg4z0MeWvXIuh1wv" target="_blank" rel="noopener" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://geo.music.apple.com/album/الاوصفوك-ep/1826410709" target="_blank" rel="noopener" aria-label="Apple Music"><i class="fab fa-apple"></i></a>
+          <a href="https://soundcloud.com/user-683135207-458196881/tracks" target="_blank" rel="noopener" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.youtube.com/playlist?list=OLAK5uy_m3u6_vtebVVKWyf628yiWm7xXj0DZ4M2Y" target="_blank" rel="noopener" aria-label="YouTube Music"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
-
 </html>
