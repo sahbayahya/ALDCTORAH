@@ -1,51 +1,82 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Article — Monarch Butterfly Collective</title>
-  <meta name="description" content="Article template for Monarch Butterfly Collective — cosmic, mystic, modern." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cosmic Butterfly Collective — Home</title>
 
-  <!-- Fonts to match homepage -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <!-- Fonts -->
+  <meta name="description" content="Cosmic Butterfly Collective — music, creative direction, brand universes, mystic fashion, woodcraft and spiritual stories. QONNA | DJ Aldctorah." />
+  <link rel="stylesheet" href="styles.css" />
   <style>
     :root{
-      --bg:#02020a;      /* deep space */
-      --card:#081023;    /* glass card */
-      --muted:#cfd6e8;   /* soft text */
-      --ink:#ffffff;     /* primary text */
-      --violet:#7d5cff;  /* accent 1 */
-      --teal:#4ef0f0;    /* accent 2 */
+      --bg:#05040a; /* deep space */
+      --panel:#0f0b17; /* card background */
+      --accent1: #8b5cf6; /* violet */
+      --accent2: #6ee7b7; /* soft neon */
+      --muted: #bfc6d4;
+      --glass: rgba(255,255,255,0.04);
+      --max-width: 1200px;
+      --serif: 'Playfair Display', serif;
+      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
+    /* Reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:radial-gradient(circle at 60% 20%, rgba(125,92,255,.08), transparent 35%),
-                                   radial-gradient(circle at 20% 80%, rgba(78,240,240,.06), transparent 40%),
-                                   var(--bg);
-      color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.65;
-      overflow-x:hidden;
+      margin:0;
+      font-family:var(--sans);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 8%),
+                  radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.04), transparent 6%),
+                  linear-gradient(180deg, var(--bg), #07060b 60%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-y:auto;
     }
+.section {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+}
 
-    /* Nebula video texture */
-    .bg-video{position:fixed; inset:0; width:100%; height:100%; object-fit:cover; opacity:.22; z-index:-2; filter:contrast(1.05) saturate(1.05) brightness(.8)}
-    .bg-vignette{position:fixed; inset:0; z-index:-1; background:radial-gradient(1200px 600px at 50% 20%, transparent 0, rgba(0,0,0,.4) 60%, rgba(0,0,0,.7) 100%)}
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
 
-    /* Top nav (optional, matches homepage style) */
-    .nav{position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:50; display:flex; gap:16px; align-items:center; padding:6px 14px; border-radius:999px; background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.06)}
-    .nav .brand{font-family:'Cormorant Garamond',serif; font-weight:600; color:#fff; letter-spacing:.6px}
-    .nav a{color:#b8c7e7; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px}
-    .nav a:hover{color:#fff; background:linear-gradient(90deg, rgba(125,92,255,.12), rgba(78,240,240,.06))}
+.preview {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-    /* Article header */
-    header.article{max-width:920px; margin:120px auto 16px; padding:0 20px}
-    .eyebrow{color:var(--teal); font-weight:700; letter-spacing:1.5px; font-size:12px; text-transform:uppercase}
-    h1.title{font-family:'Cormorant Garamond',serif; font-size:44px; line-height:1.08; margin:.35em 0 .2em; text-shadow:0 10px 40px rgba(124,91,255,.14)}
-    .meta{color:#a9b7d7; font-size:14px}
+.preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
 
+.label {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+  
     /* Article body */
     .prose{max-width:900px; margin:18px auto 60px; padding:0 20px}
     .lead{font-size:20px; color:#e6eef8; margin:10px 0 18px}
@@ -74,92 +105,301 @@
     .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; color:#03121c; background:linear-gradient(90deg, var(--violet), var(--teal)); box-shadow:0 10px 36px rgba(125,92,255,.18)}
     .btn--ghost{background:transparent; color:#cfe4ff; border:1px solid rgba(255,255,255,.08)}
 
-    /* Responsive */
-    @media (max-width:640px){
-      h1.title{font-size:32px}
-      .nav{left:12px; transform:none}
+    /* Layout */
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    header{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:center}
+    .nav{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),#00d4ff);box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07060b;font-family:var(--serif);}
+    .brand h1{margin:0;font-family:var(--serif);font-size:15px;color:#fff;letter-spacing:0.6px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--accent1)}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+ 
+    header {
+      text-align: center;
+      padding: 5rem 1rem 2rem;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 25px #b394ff;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+      animation: fadeIn 4s ease forwards;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #e0d5ff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #bfaeff;
+    }
+
+.label {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+    /* Mobile nav */
+    .menu-toggle{display:none;background:none;border:0;color:var(--muted);font-size:18px}
+
+    /* Hero */
+    .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center}
+    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(105%) saturate(110%) hue-rotate(10deg);opacity:0.92}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(4,3,6,0.75), rgba(4,3,6,0.2));mix-blend-mode:overlay}
+
+    .hero-inner{position:relative;z-index:20;padding:120px 20px 80px;text-align:center;color:white}
+    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.7);margin-bottom:12px}
+    h2{font-family:var(--serif);font-size:48px;line-height:1.02;margin:0 0 18px;color:white;text-shadow:0 8px 40px rgba(139,92,246,0.12)}
+    p.lead{max-width:780px;margin:0 auto 22px;color:rgba(255,255,255,0.88);font-size:18px}
+
+    .ctas{display:flex;justify-content:center;gap:14px;margin-top:18px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(6px);}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),#00d4ff);color:#07060b}
+    .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.06)}
+
+    /* Animated butterfly wing overlay */
+    .wing-overlay{position:absolute;inset:0;pointer-events:none;z-index:15}
+    .wing{position:absolute;width:42vmax;height:42vmax;border-radius:50%;mix-blend-mode:screen;opacity:0.18;filter:blur(36px);transform-origin:center}
+    .wing.left{left:-6%;top:8%;background:radial-gradient(circle at 36% 28%, rgba(139,92,246,0.95), rgba(139,92,246,0.28) 30%, transparent 55%);animation:floatL 9s ease-in-out infinite}
+    .wing.right{right:-6%;bottom:8%;background:radial-gradient(circle at 64% 72%, rgba(110,231,183,0.95), rgba(110,231,183,0.25) 30%, transparent 55%);animation:floatR 10s ease-in-out infinite}
+
+    @keyframes floatL{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
+    @keyframes floatR{0%{transform:translateY(0) rotate(6deg)}50%{transform:translateY(20px) rotate(-6deg)}100%{transform:translateY(0) rotate(6deg)}}
+
+    /* Sections */
+    main{padding-top:18vh}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+
+    .section{padding:60px 0}
+    .section h3{font-family:var(--serif);font-size:26px;color:white;margin:0 0 12px}
+    .section p{color:var(--muted);margin:0 0 12px}
+
+    .preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .preview{height:180px;border-radius:10px;overflow:hidden;position:relative}
+    .preview .label{position:absolute;left:12px;bottom:12px;font-weight:700;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:6px 10px;border-radius:8px}
+
+    footer{padding:36px 0;border-top:1px solid rgba(255,255,255,0.03);color:rgba(255,255,255,0.6)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      h2{font-size:32px}
+      .brand h1{font-size:13px}
+      nav ul{display:none}
+      .menu-toggle{display:inline-block}
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Background texture video (same as homepage) -->
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="assets/" type="video/mp4" />
-  </video>
-  <div class="bg-vignette" aria-hidden="true"></div>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo">M</div>
+        <h1>Cosmic Butterfly Collective</h1>
+      </div>
 
-  <!-- Optional nav -->
-  <nav class="nav" aria-label="Main navigation">
-    <div class="brand">Monarch Butterfly Collective</div>
-    <a href="index.html">Home</a>
-    <a href="blog_v2.html">Blog</a>
-    <a href="music_v2.html">Music</a>
-    <a href="gallery.html">Fashion</a>
-  </nav>
-
-  <!-- Article header -->
-  <header class="article">
-    <header class="title">  Cosmic Butterfly Collective </header>
-    <div class="meta">By Aldctorah • <time datetime="2025-11-11">November 11, 2025</time> • 7 min read</div>
+      <!-- Optional nav -->
+      <nav class="nav" aria-label="Main navigation">
+        <div class="brand"></div>
+        <a href="index.html">Home</a>
+        <a href="music_v2.html">Music</a>
+        <a href="blog_v2.html">Journal</a>
+        <a href="about_new.html">About Us</a>
+      </nav>
+    </div>
   </header>
 
+  <section class="hero" aria-label="Socials hero">
+    <div class="wing-overlay" aria-hidden="true">
+      <div class="wing left"></div>
+      <div class="wing right"></div>
+    </div>
 
-  <!-- Article body -->
-   <main class="prose">
-    <p class="lead">
-  
-<p>
+    <div class="hero-inner container">
+      <!-- REWRITTEN HEADLINE + FIRST TWO LINES -->
+      <div class="eyebrow">Cosmic Butterfly Collective • Creative House</div>
+      <h2>Socials & Signals</h2>
+      <p class="lead">Music Production, Creative media, and brand universes — crafted with mystic intention.</p>
 
-Cosmic Butterfly Collective, Inc. emerged as a natural evolution of Monarch Butterfly Collective LLC, founded in 2022 in New York City. What began as an independent creative studio producing multidisciplinary art, performances, and sound-based installations has transformed into a nonprofit collective devoted to education, cultural exchange, and spiritual creativity.
-Rooted in the same vision that inspired its early days, the Collective now seeks to expand its mission beyond individual projects — nurturing artistic transformation as a communal, educational process. This transition represents both continuity and growth: the same heart, now supported by a nonprofit structure that allows deeper public impact, partnerships, and grant-supported programming.
-Today, Cosmic Butterfly Collective continues the legacy of the Monarch Butterfly spirit — celebrating transformation, beauty, and the power of art to heal, connect, and enlighten.
-</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://www.linkedin.com/company/109815902/admin/dashboard/">LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:monarchbutterflycollective@gmail.com" target="_blank" rel="noopener">Email</a>
+      </div>
+    </div>
+  </section>
 
-<h3> <a href="music_v2.html">Music & Sound</a> </h3>
+  <!-- NOTE: Removed the duplicate "page-hero" block below to avoid repeating the same hero twice.
+       If you want to keep it, make sure it has different content. -->
 
+  <main class="container">
 
-<p>Through the AI persona <a href="Meet_Qonna.html"> Qonna (قونه)</a>, we revive old Sudanese songs and infuse them with modern sounds — techno, amapiano, and house — creating a bridge between ancestral memory and future rhythm. As a DJ and producer, Aldctorah carries these sounds into the world, connecting past and present through hypnotic, soulful sets.
-   </p>
+    <!-- Main About Card -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="grid" style="align-items:stretch;">
+        <div style="grid-column:span 8;">
+          <div class="card prose">
+            <h3 id="about-title" style="margin-top:0;">Cosmic Butterfly Collective</h3>
 
+            <p>We are Frequency Dancers — Waveform Sculptors.</p>
 
-<h3> <a href="gallery.html">Fashion & Design</a> </h3>
+            <p>
+              A cosmic butterfly teaches us to be many in one: musician, cosmologist, lighting artist, dancer, photographer, designer, builder...
+              Uniting starlight and sub-bass is our nature.
+            </p>
 
+            <p>
+              Cosmic Butterfly Collective is a house of creativity — a place where artists rise, and brands are born.
+              We help emerging creators reach their potential, and we help mission-driven companies transform their products into living worlds:
+              stories people feel, visuals people remember, and identities people follow.
+            </p>
 
-<p>Our fashion arm reimagines mystic streetwear — clothing and runway experiences that merge spiritual symbolism with contemporary design. Each piece expresses how mysticism can live within daily life, transforming solitude into style and ritual into rhythm.
-</p>
-<h3> <a href="#">Wood & Craft</a></h3>
+            <p>
+              We breathe in the future and exhale the present. We only look back to see ourselves in the stories —
+              to admire the versions of us that once were: divine echoes in creation, reminding us to be fully here.
+            </p>
 
+            <p>
+              Every piece of art is an attempt to describe the Divine — a soundwave infused with intention, echoing the essence of Joy.
+              The moving image of joy is the dancer: decoding frequencies, rewiring memory, forging each step into a hypnotic ritual.
+              Each pulse is a ripple. Each ripple, a smile. Each smile, a transformation — a return to Joy.
+            </p>
 
+            <h2 class="section-title">What We Create</h2>
 
-<p>In our woodcarving and furniture design studio, we explore the spiritual side of making — shaping wood into cabinets, cabins, and hand-carved furniture that embody presence, grounding, and the connection between the body, materials, and meaning.
-</p>
+            <p>
+              <b>For Artists</b> — music development, performance concepts, visual identity, content direction, releases, and world-building.
+              We help you refine your sound, your story, and your stage presence — until your art feels inevitable.
+            </p>
 
+            <p>
+              <b>For Brands & Companies</b> — creative direction and brand-building: naming, logos, character creation, campaigns, photos/video concepts,
+              social media storytelling, and the full image your customers and fans experience.
+              We don’t just design assets — we sculpt a universe around your product.
+            </p>
 
-<h3> <a href="blog_v2.html"> The Blog  </a> </h3>
+            <p>
+              <b>For Experiences</b> — immersive shows, lighting design, sonic architecture, installations, and events where sound, light, and narrative align.
+            </p>
 
+            <h2 class="section-title">Experience the Butterfly Effect</h2>
 
+            <p>
+              Gathered in the mystic realm — from dreams to reality — we claim nothing. We simply stand,
+              performing what has already been choreographed by the spirit of Joy, grateful to be witnesses.
+              Every detail is designed to awaken the infinite — a chain reaction of movement, memory, and meaning.
+              This is more than performance.
+              It is sonic architecture.
+              It is the cosmic butterfly effect.
+            </p>
 
-<p>Our blog is a space of reflection and storytelling — where we share how spiritual guidance, manifestation, and creative intuition weave through our work. It’s a journal of synchronicities, lessons, and gratitude for the unseen forces — the Universe, God, and the soul’s journey — that guide our path.
+            <p class="section-title">Welcome to the future realm. Let’s transcend.</p>
 
+            <p style="font-weight:700; color:#fff; margin-bottom:0;">
+              Welcome to the future realm. Let’s transcend.
+            </p>
+          </div>
+        </div>
 
-</p>
-   
-   
+        <!-- Side Cards -->
+        <div style="grid-column:span 4; display:grid; gap:18px;">
+          <div class="card">
+            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Core Mediums</h4>
+            <p class="muted" style="margin:0;">
+              Music • Fashion • Light • Craft — each as ceremony.
+            </p>
+          </div>
 
-</section>
+          <div class="card">
+            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Collaborations</h4>
+            <p class="muted" style="margin:0 0 10px;">
+              Interested in collaborating, booking, or commissioning a piece?
+            </p>
+            <a href="socials.html" class="btn btn-ghost" style="display:inline-block">Reach out</a>
+          </div>
 
+          <div class="card">
+            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Explore Next</h4>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <a class="btn btn-ghost" href="music_v2.html" style="display:inline-block">Music</a>
+              <a class="btn btn-ghost" href="gallery.html" style="display:inline-block">Fashion</a>
+              <a class="btn btn-ghost" href="woodcraft.html" style="display:inline-block">Wood & Craft</a>
+              <a class="btn btn-ghost" href="blog_v2.html" style="display:inline-block">Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
+          <div style="font-size:13px;color:var(--muted)">Aldctorah — modern mystic • © <span id="year"></span></div>
+        </div>
+      </div>
+    </footer>
 
-  </div>
+  </main>
 
-       
-
-
-
-
-  </div>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

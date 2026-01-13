@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    body {
+      background-image: url('IMG_0433.PNG');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    /* Page container */
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 20px;
+      padding: 2rem 2rem;
+      max-width: 760px;
+      width: 100%;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .main-icon {
+      font-weight: 300;
+      font-size: 1.8rem;
+      color: white;
+      user-select: none;
+    }
+
+    .sub {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Filter pills */
+    .filters {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0 1.4rem 0;
+    }
+
+    .filter-btn {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      font-weight: 300;
+      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.22);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    /* Posts list */
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .post-card {
+      text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.25s ease, transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .post-card:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
+
+    .post-title {
+      font-weight: 300;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .meta {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+    }
+
+    .excerpt {
+      font-weight: 300;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.78);
+      margin-top: 0.2rem;
+    }
+
+    /* Menu button */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 300;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1.2rem; }
+      .overlay { padding: 1.4rem 1.2rem; }
+      .main-icon { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Goes back to index and shows nav immediately -->
+  <a href="index.html?nav=1" class="back-button">Menu</a>
+
+  <div class="overlay">
+    <div class="header-row">
+      <div>
+        <div class="main-icon">Journal</div>
+        <div class="sub">Essays · Projects · Releases</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="All">All</button>
+      <button class="filter-btn" data-filter="Essays">Essays</button>
+      <button class="filter-btn" data-filter="Projects">Projects</button>
+      <button class="filter-btn" data-filter="Releases">Releases</button>
+    </div>
+
+    <!-- Posts -->
+    <div class="posts" id="posts"></div>
+  </div>
+
+  <script>
+    // Edit this list anytime (add your real articles/projects/releases here)
+    const posts = [
+      {
+        title: "Sonic Futures",
+        url: "article1.html",
+        category: "Essays",
+        date: "2026-01-13",
+        excerpt: "Notes on building future-sound worlds—where rhythm becomes architecture."
+      },
+      {
+        title: "Vocal2Techno Engine – Dev Log",
+        url: "project1.html",
+        category: "Projects",
+        date: "2026-01-10",
+        excerpt: "From voice to MIDI to hypnotic techno—my pipeline and experiments."
+      },
+      {
+        title: "Techno Rituals",
+        url: "article2.html",
+        category: "Essays",
+        date: "2026-01-05",
+        excerpt: "A ritual is a loop with intention. Techno is the modern ceremony."
+      },
+      {
+        title: "Techno Prayers – Set Release",
+        url: "release1.html",
+        category: "Releases",
+        date: "2025-12-28",
+        excerpt: "A release log + listening links—future realms of joy in sound."
+      }
+    ];
+
+    const postsEl = document.getElementById('posts');
+    const filterBar = document.getElementById('filters');
+
+    function renderPosts(filter) {
+      postsEl.innerHTML = "";
+
+      const filtered = (filter === "All")
+        ? posts
+        : posts.filter(p => p.category === filter);
+
+      if (filtered.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = "excerpt";
+        empty.textContent = "No posts in this category yet.";
+        postsEl.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach(post => {
+        const a = document.createElement('a');
+        a.href = post.url;
+        a.className = "post-card";
+
+        a.innerHTML = `
+          <div class="post-title">${post.title}</div>
+          <div class="meta">
+            <span class="tag">${post.category}</span>
+            <span>${post.date}</span>
+          </div>
+          <div class="excerpt">${post.excerpt || ""}</div>
+        `;
+
+        postsEl.appendChild(a);
+      });
+    }
+
+    // Initial render
+    renderPosts("All");
+
+    // Filter handling
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      renderPosts(filter);
+    });
+  </script>
+</body>
+</html>
