@@ -300,52 +300,10 @@ May our sound tell your story, and may we sculpt worlds your audience admire.
 
   <main class="container">
 
-    <!-- Quick intro / cards -->
-    <section class="section" aria-labelledby="what-title">
-      <div class="grid" style="align-items:stretch;">
-        <div style="grid-column:span 7;">
-          <div class="card">
-            <h3 id="what-title">The Collective</h3>
-
-<p>
-We are a multidisciplinary practice — music (<strong>Qonna</strong>), fashion (<strong>ALSHEMMA</strong>), and the art of hospitality (<strong>Monarch Café</strong>).
-All Guided by gratitude. Anchored in patience. We wait for the pieces to assemble, allowing the full image to reveal itself with clarity and purpose.
-Our work is guided by the desire to create lasting memory.
-</p>
-
-<p>
-Each project is an invitation to witness transformation:
-Beats as ceremony, garments as armor,
-and dreams as portals welcoming the future with open arms.
-</p>
-
-<p>
-Interested in CBC’s designs, collaborations, or private shows?
-<a href="socials.html">Reach out</a>.
-</p>
-
-        </div>
-
-        <div style="grid-column:span 5;display:grid;gap:18px">
-          <div class="card">
-            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Latest Release</h4>
-            <p class="muted">Qonna — " meomery loop and tribute to Al-Balabil" (Techno / Amapiano fusion) — out now.</p>
-            <a href="music_v2.html" class="btn btn-ghost" style="margin-top:8px;display:inline-block">Listen</a>
-          </div>
-
-          <div class="card">
-            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Upcoming</h4>
-            <p class="muted">Mystic Streetwear drop + live woodcarving performance — details on Fashion page.</p>
-            <a href="gallery.html" class="btn btn-ghost" style="margin-top:8px;display:inline-block">See Show</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
    <!-- Previews -->
 <section class="section" aria-labelledby="projects-title">
-  <h3 id="projects-title">Explore</h3>
+   <h3 id="what-title">The Collective</h3>
+ <!--  <h3 id="projects-title">Explore</h3> -->
 
   <div class="preview-grid">
     <a class="preview" 
@@ -374,7 +332,65 @@ Interested in CBC’s designs, collaborations, or private shows?
   </div>
 </section>
 
+    <!-- Quick intro / cards -->
+    <section class="section">
 
+<p>
+Cosmic Butterfly Collective is a multidisciplinary creative studio working across music (<strong>Qonna</strong>),
+fashion (<strong>ALSHEMMA</strong>), and experiential hospitality (<strong>Monarch Café</strong>).
+We combine artistic vision with disciplined process to develop cohesive identities, immersive experiences,
+and culturally rooted narratives.
+</p>
+
+<p>
+Our approach is intentional and patient — allowing concepts to mature until the full picture is clear.
+Each project is designed to create lasting impact:
+music as experience, garments as identity, and environments that foster connection and memory.
+</p>
+
+<p>
+Interested in collaborations, custom designs, experiential projects, or private events?
+<a href="socials.html">Contact us</a>.
+</p>
+
+
+
+
+
+<!--
+<p>
+We are a multidisciplinary practice — music (<strong>Qonna</strong>), fashion (<strong>ALSHEMMA</strong>), and the art of hospitality (<strong>Monarch Café</strong>).
+All Guided by gratitude. Anchored in patience. We wait for the pieces to assemble, allowing the full image to reveal itself with clarity and purpose.
+Our work is guided by the desire to create lasting memory.
+</p>
+
+<p>
+Each project is an invitation to witness transformation:
+Beats as ceremony, garments as armor,
+and dreams as portals welcoming the future with open arms.
+</p>
+
+<p>
+Interested in CBC’s designs, collaborations, or private shows?
+<a href="socials.html">Reach out</a>.
+</p>
+-->
+<!--
+        <div style="grid-column:span 5;display:grid;gap:18px">
+          <div class="card">
+            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Latest Release</h4>
+            <p class="muted">Qonna — " meomery loop and tribute to Al-Balabil" (Techno / Amapiano fusion) — out now.</p>
+            <a href="music_v2.html" class="btn btn-ghost" style="margin-top:8px;display:inline-block">Listen</a>
+          </div>
+
+          <div class="card">
+            <h4 style="font-family:var(--serif);margin:0 0 8px;color:white">Upcoming</h4>
+            <p class="muted">Mystic Streetwear drop + live woodcarving performance — details on Fashion page.</p>
+            <a href="gallery.html" class="btn btn-ghost" style="margin-top:8px;display:inline-block">See Show</a>
+          </div>
+        </div>
+ -->
+    </section>
     <section class="section">
       <h3>Manifest & Method</h3>
       <p>We work intuitively — sketching, sampling, carving the dream — allowing it to manifest through the chosen medium.
@@ -391,7 +407,7 @@ than the movement of this butterfly.
     <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
       <div>
         <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
-        <div style="font-size:13px;color:var(--muted)">ALDCTORAH — Multidisciplinary Artist © <span id="year"></span></div>
+      <div style="font-size:13px;color:var(--muted)">A House of Creation and Art © <span id="year"></span></div>
       </div>
 <!-- Load Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -409,8 +425,10 @@ than the movement of this butterfly.
   </footer>
     </main>
   <script>
-    // small helpers
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // small helpers   <!-- new Date().getFullYear(); -->
+   document.getElementById('year').textContent = new Date().getFullYear();
+
+  
 
     // mobile menu toggle (simple)
     const toggle = document.querySelector('.menu-toggle');
