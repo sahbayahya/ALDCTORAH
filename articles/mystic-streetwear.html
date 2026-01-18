@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mystic Streetwear — Cosmic Butterfly Collective</title>
+  <meta name="description" content="Mystic Streetwear by ALDCTORAH — ritual garments, cosmic armor, wearable mythology." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#05040a;
+      --panel:#0f0b17;
+      --accent1:#8b5cf6;
+      --accent2:#6ee7b7;
+      --muted:#bfc6d4;
+      --glass:rgba(255,255,255,0.04);
+      --max-width:1100px;
+      --serif:'Playfair Display', serif;
+      --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 60%),
+        radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.05), transparent 55%),
+        linear-gradient(180deg, var(--bg), #07060b 60%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 22px}
+
+    /* Header — click-safe */
+    header.site{
+      position:fixed;
+      top:18px; left:0; right:0;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    header.site .nav{pointer-events:auto;}
+    .nav{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 20px;
+      border-radius:16px;
+      background:rgba(8,6,12,0.35);
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent1),#00d4ff);
+      box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#07060b;font-family:var(--serif);
+    }
+    .brand h1{
+      margin:0;
+      font-family:var(--serif);
+      font-size:15px;
+      color:#fff;
+      letter-spacing:0.6px;
+      white-space:nowrap;
+    }
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .nav-links a:hover{color:var(--accent1)}
+
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:120px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:start;
+    }
+    .hero-card{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      backdrop-filter: blur(10px);
+      box-shadow:0 10px 36px rgba(125,92,255,.12);
+    }
+    .hero-media{
+      width:100%;
+      aspect-ratio: 16/10;
+      object-fit:cover;
+      display:block;
+      background:rgba(255,255,255,0.03);
+    }
+    .hero-body{padding:16px 16px 18px}
+    .eyebrow{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:rgba(255,255,255,0.7);
+      margin-bottom:10px;
+    }
+    .title{
+      font-family:var(--serif);
+      font-size:40px;
+      line-height:1.05;
+      margin:0 0 10px;
+      color:#fff;
+      text-shadow:0 12px 50px rgba(139,92,246,0.16);
+    }
+    .lead{color:rgba(255,255,255,0.86);line-height:1.75;margin:0 0 14px}
+    .meta{color:#a9b7d7;font-size:14px}
+
+    /* Sticky buy panel */
+    .buy{
+      position:sticky;
+      top:104px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      backdrop-filter: blur(10px);
+      box-shadow:0 10px 36px rgba(125,92,255,.10);
+      padding:16px;
+    }
+    .price{
+      font-family:var(--serif);
+      font-size:22px;
+      color:#fff;
+      margin:6px 0 10px;
+    }
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+    .chip{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.03);
+      color:#d7def0;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip[aria-pressed="true"]{
+      border-color:rgba(110,231,183,0.35);
+      box-shadow:0 0 0 3px rgba(110,231,183,0.10);
+      color:#fff;
+    }
+
+    /* Buttons */
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:12px;
+      font-weight:800;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+      white-space:nowrap;
+    }
+    .btn-solid{
+      color:#03121c;
+      background:linear-gradient(90deg, var(--accent1), var(--accent2));
+      box-shadow:0 10px 36px rgba(125,92,255,.18);
+    }
+    .btn-ghost{background:transparent;color:var(--muted)}
+    .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.12)}
+
+    /* Variations */
+    .section{
+      padding:14px 0 40px;
+    }
+    .section h2{
+      font-family:var(--serif);
+      font-size:26px;
+      color:#fff;
+      margin:10px 0 10px;
+    }
+    .hint{color:rgba(255,255,255,0.65);font-size:14px;margin:0 0 12px}
+
+    .scroller{
+      display:flex;
+      gap:14px;
+      overflow:auto;
+      padding:10px 2px 14px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .scroller::-webkit-scrollbar{height:10px}
+    .scroller::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.10);border-radius:99px}
+
+    .variant{
+      flex:0 0 320px;
+      scroll-snap-align:start;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      backdrop-filter: blur(10px);
+      box-shadow:0 10px 36px rgba(125,92,255,.10);
+    }
+    .variant img{
+      width:100%;
+      aspect-ratio: 4/5;
+      object-fit:cover;
+      display:block;
+      background:rgba(255,255,255,0.03);
+    }
+    .v-body{padding:14px}
+    .v-title{font-family:var(--serif);font-size:20px;color:#fff;margin:0 0 6px}
+    .v-meta{font-size:13px;color:#a9b7d7;margin:0 0 10px}
+    .v-story{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.78);margin:0 0 12px}
+    .v-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:26px 0 40px;
+      color:rgba(255,255,255,0.65);
+      margin-top:18px;
+    }
+    .footer-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .buy{position:relative; top:auto}
+      .title{font-size:34px}
+    }
+    @media (max-width:640px){
+      .nav{padding:10px 14px}
+      .brand h1{display:none}
+      .variant{flex-basis: 84vw;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site">
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo">B</div>
+        <h1>Cosmic Butterfly Collective</h1>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="../music_v2.html">Music</a>
+        <a href="../blog_v2.html">Journal</a>
+        <a href="../about_new.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO: main product -->
+    <section class="hero" aria-label="Mystic Streetwear hero">
+      <div class="hero-grid">
+
+        <article class="hero-card" aria-label="Featured design">
+          <!-- MAIN IMAGE (replace this) -->
+          <img class="hero-media" src="assets/streetwear/main-01.jpg" alt="Mystic Streetwear — featured design" />
+
+          <div class="hero-body">
+            <div class="eyebrow">ALSHEMMA • Ritual Garments</div>
+            <h1 class="title" id="productTitle">Cosmic Butterfly Armor — Hoodie</h1>
+            <p class="lead" id="productStory">
+              A garment as a portal: stitched for nights when the city becomes a constellation.
+              Wear it like protection — soft on the skin, electric in the aura.
+            </p>
+            <div class="meta" id="productMeta">Limited drop • Handmade story • 2026</div>
+          </div>
+        </article>
+
+        <!-- STICKY BUY -->
+        <aside class="buy" aria-label="Purchase panel">
+          <div class="eyebrow">Select a variation</div>
+          <div class="price" id="productPrice">$88</div>
+
+          <div style="font-weight:700;color:#fff;margin:10px 0 6px">Size</div>
+          <div class="chips" role="group" aria-label="Size options">
+            <button class="chip" type="button" aria-pressed="true" data-size="S">S</button>
+            <button class="chip" type="button" aria-pressed="false" data-size="M">M</button>
+            <button class="chip" type="button" aria-pressed="false" data-size="L">L</button>
+            <button class="chip" type="button" aria-pressed="false" data-size="XL">XL</button>
+          </div>
+
+          <div style="font-weight:700;color:#fff;margin:8px 0 6px">Colorway</div>
+          <div class="chips" role="group" aria-label="Color options">
+            <button class="chip" type="button" aria-pressed="true" data-color="Violet Nebula">Violet Nebula</button>
+            <button class="chip" type="button" aria-pressed="false" data-color="Teal Dawn">Teal Dawn</button>
+            <button class="chip" type="button" aria-pressed="false" data-color="Black Void">Black Void</button>
+          </div>
+
+          <div class="row" style="margin-top:12px">
+            <!-- Replace href with your actual shop link -->
+            <a class="btn btn-solid" id="buyLink" href="https://your-store-link.com" target="_blank" rel="noopener">
+              Purchase
+            </a>
+            <a class="btn btn-ghost" href="gallery.html">Lookbook</a>
+          </div>
+
+          <div style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6">
+            Tip: Click a variation below to update the hero + purchase link.
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- VARIATIONS SCROLLER -->
+    <section class="section" aria-label="Design variations">
+      <h2>Design Variations</h2>
+      <p class="hint">Scroll sideways — each variation is a different story + purchase link.</p>
+
+      <div class="scroller" id="variants">
+
+        <!-- CARD 1 -->
+        <article class="variant" data-title="Cosmic Butterfly Armor — Hoodie"
+                 data-story="A garment as a portal: stitched for nights when the city becomes a constellation."
+                 data-meta="Hoodie • Limited drop • 2026"
+                 data-price="$88"
+                 data-link="https://your-store-link.com/product/hoodie-01"
+                 data-img="assets/streetwear/main-01.jpg">
+          <img src="assets/streetwear/var-hoodie-01.jpg" alt="Hoodie variation — Violet Nebula" />
+          <div class="v-body">
+            <h3 class="v-title">Violet Nebula Hoodie</h3>
+            <p class="v-meta">Embroidered sigil • Soft fleece • Unisex</p>
+            <p class="v-story">For late-night creation sessions — when ideas arrive like meteors.</p>
+            <div class="v-actions">
+              <button class="btn btn-ghost" type="button">View</button>
+              <a class="btn btn-solid" href="https://your-store-link.com/product/hoodie-01" target="_blank" rel="noopener">Buy</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="variant" data-title="Mystic Streetwear — Oversized Tee"
+                 data-story="A clean silhouette with a hidden prayer in the print — made to move through the city like a spell."
+                 data-meta="Oversized Tee • Drop 01 • 2026"
+                 data-price="$44"
+                 data-link="https://your-store-link.com/product/tee-01"
+                 data-img="assets/streetwear/main-tee.jpg">
+          <img src="assets/streetwear/var-tee-01.jpg" alt="Oversized tee variation" />
+          <div class="v-body">
+            <h3 class="v-title">Teal Dawn Tee</h3>
+            <p class="v-meta">Breathable cotton • Minimal glyph</p>
+            <p class="v-story">For bright mornings after deep nights — clarity, not noise.</p>
+            <div class="v-actions">
+              <button class="btn btn-ghost" type="button">View</button>
+              <a class="btn btn-solid" href="https://your-store-link.com/product/tee-01" target="_blank" rel="noopener">Buy</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="variant" data-title="Cosmic Butterfly — Satin Scarf"
+                 data-story="Silk-smooth movement: like a frequency ribbon around your neck or hair."
+                 data-meta="Satin Scarf • Small batch • 2026"
+                 data-price="$32"
+                 data-link="https://your-store-link.com/product/scarf-01"
+                 data-img="assets/streetwear/main-scarf.jpg">
+          <img src="assets/streetwear/var-scarf-01.jpg" alt="Satin scarf variation" />
+          <div class="v-body">
+            <h3 class="v-title">Black Void Scarf</h3>
+            <p class="v-meta">Satin • Lightweight • Ritual accessory</p>
+            <p class="v-story">Wear it when you want to disappear — and still be remembered.</p>
+            <div class="v-actions">
+              <button class="btn btn-ghost" type="button">View</button>
+              <a class="btn btn-solid" href="https://your-store-link.com/product/scarf-01" target="_blank" rel="noopener">Buy</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ADD MORE VARIATIONS BY DUPLICATING A CARD -->
+
+      </div>
+    </section>
+
+    <!-- BACK / NEXT -->
+    <section class="section" style="padding-top:0">
+      <div class="row" style="justify-content:space-between">
+        <a class="btn btn-ghost" href="../index.html">← Back to Home</a>
+        <a class="btn btn-solid" href="../blog_v2.html">Journal →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
+        <div style="font-size:13px;color:var(--muted)">A House of Creation and Art © <span id="year"></span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Chip toggles (size/color)
+    function bindChips(selector){
+      document.querySelectorAll(selector).forEach(group => {
+        const chips = group.querySelectorAll('.chip');
+        chips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            chips.forEach(c => c.setAttribute('aria-pressed','false'));
+            chip.setAttribute('aria-pressed','true');
+          });
+        });
+      });
+    }
+    bindChips('[aria-label="Size options"]');
+    bindChips('[aria-label="Color options"]');
+
+    // Variant -> updates hero + buy link
+    const variants = document.getElementById('variants');
+    const titleEl = document.getElementById('productTitle');
+    const storyEl = document.getElementById('productStory');
+    const metaEl  = document.getElementById('productMeta');
+    const priceEl = document.getElementById('productPrice');
+    const buyLink = document.getElementById('buyLink');
+    const heroImg = document.querySelector('.hero-media');
+
+    variants.addEventListener('click', (e) => {
+      const card = e.target.closest('.variant');
+      if(!card) return;
+
+      // If they clicked a "Buy" link, let it work normally
+      if(e.target.tagName.toLowerCase() === 'a') return;
+
+      titleEl.textContent = card.dataset.title || titleEl.textContent;
+      storyEl.textContent = card.dataset.story || storyEl.textContent;
+      metaEl.textContent  = card.dataset.meta  || metaEl.textContent;
+      priceEl.textContent = card.dataset.price || priceEl.textContent;
+
+      if(card.dataset.link){
+        buyLink.href = card.dataset.link;
+      }
+      if(card.dataset.img){
+        heroImg.src = card.dataset.img;
+      }
+
+      // Smooth scroll hero into view on mobile after selecting
+      if(window.innerWidth < 980){
+        document.querySelector('.hero').scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  </script>
+
+</body>
+</html>
