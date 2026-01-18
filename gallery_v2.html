@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mystic Wear — Digital Art Prints | Cosmic Butterfly Collective</title>
+  <title>Mystic Streetwear — Cosmic Butterfly Collective</title>
 
-  <meta name="description" content="Mystic Wear — a simple gallery of digital art prints by Cosmic Butterfly Collective. Order canvas prints in multiple sizes." />
+  <meta name="description" content="Mystic Streetwear by Cosmic Butterfly Collective — limited, intentional garments. Scroll variations, explore details, and purchase." />
 
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -24,6 +24,7 @@
       --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
+    /* Reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -92,10 +93,10 @@
     }
     .nav-links a:hover{color:var(--accent1)}
 
-    /* Hero */
+    /* Hero (same feel as index, slightly shorter) */
     .hero{
       position:relative;
-      min-height:62vh;
+      min-height:68vh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -111,11 +112,12 @@
     .hero::after{
       content:'';
       position:absolute; inset:0;
-      background:linear-gradient(0deg, rgba(4,3,6,0.84), rgba(4,3,6,0.22));
+      background:linear-gradient(0deg, rgba(4,3,6,0.82), rgba(4,3,6,0.25));
       mix-blend-mode:overlay;
       pointer-events:none;
     }
 
+    /* Animated butterfly wing overlay */
     .wing-overlay{position:absolute;inset:0;pointer-events:none;z-index:15}
     .wing{
       position:absolute;
@@ -139,7 +141,7 @@
     .hero-inner{
       position:relative;
       z-index:20;
-      padding:120px 22px 60px;
+      padding:120px 22px 64px;
       text-align:center;
       color:#fff;
     }
@@ -167,6 +169,7 @@
 
     .ctas{display:flex;justify-content:center;gap:14px;margin-top:14px;flex-wrap:wrap}
 
+    /* Buttons (same as index) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -183,6 +186,7 @@
     .btn-ghost{background:transparent;color:var(--muted)}
     .btn-ghost:hover{border-color:rgba(255,255,255,0.16)}
 
+    /* Main spacing */
     main{padding-top:18vh}
     .section{padding:54px 0}
     .section h3{
@@ -190,8 +194,13 @@
       font-size:26px;
       color:#fff;
       margin:0 0 14px;
+      letter-spacing:0.2px;
     }
-
+    .section p{
+      margin:0;
+      color:rgba(255,255,255,0.78);
+      line-height:1.75;
+    }
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border:1px solid rgba(255,255,255,0.06);
@@ -200,38 +209,36 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Simple gallery grid */
-    .grid{
+    /* Collection layout */
+    .looks{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: 1fr;
       gap:18px;
       margin-top:18px;
     }
 
-    .item{
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.06);
-      background:rgba(8,6,12,0.25);
-      backdrop-filter: blur(10px);
-      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    }
-    .item:hover{
-      transform:translateY(-3px);
-      border-color:rgba(139,92,246,0.25);
-      box-shadow:0 18px 60px rgba(125,92,255,0.14);
+    .look{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:16px;
+      align-items:stretch;
     }
 
-    .imgwrap{position:relative}
-    .imgwrap img{
+    .look-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(0,0,0,0.22);
+    }
+
+    .main-img{
       width:100%;
-      height:260px;
+      height:min(520px, 56vh);
       object-fit:cover;
       display:block;
       filter:contrast(103%) saturate(110%);
     }
 
-    /* Optional small thumbs for variations */
     .thumbs{
       display:flex;
       gap:10px;
@@ -239,45 +246,51 @@
       padding:12px;
       background:rgba(0,0,0,0.18);
       border-top:1px solid rgba(255,255,255,0.06);
+      scroll-snap-type:x mandatory;
     }
+    .thumbs::-webkit-scrollbar{height:8px}
+    .thumbs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:999px}
+
     .thumb{
-      width:76px;height:56px;border-radius:12px;overflow:hidden;
+      width:96px;
+      height:76px;
+      border-radius:12px;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,0.06);
       background:rgba(255,255,255,0.02);
       flex:0 0 auto;
       cursor:pointer;
-      opacity:.85;
-      transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
+      scroll-snap-align:start;
+      opacity:0.85;
+      transition: transform .2s ease, opacity .2s ease, border-color .2s ease;
     }
     .thumb:hover{transform:translateY(-2px);opacity:1;border-color:rgba(139,92,246,0.25)}
-    .thumb.is-active{opacity:1;border-color:rgba(110,231,183,0.35)}
+    .thumb.is-active{opacity:1;border-color:rgba(110,231,183,0.35);box-shadow:0 14px 40px rgba(110,231,183,0.08)}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 
-    .info{
-      padding:14px 14px 16px;
+    .look-info{
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(8,6,12,0.25);
+      backdrop-filter: blur(10px);
+      padding:16px;
     }
-
-    .title{
+    .look-title{
       margin:0;
       font-family:var(--serif);
-      font-size:18px;
+      font-size:20px;
       color:#fff;
+      letter-spacing:0.2px;
     }
-    .desc{
-      margin:0;
-      color:rgba(255,255,255,0.78);
-      line-height:1.65;
-      font-size:14px;
-    }
-
     .meta{
       display:flex;
-      gap:8px;
       flex-wrap:wrap;
-      color:rgba(255,255,255,0.7);
+      gap:8px;
+      align-items:center;
+      color:rgba(255,255,255,0.72);
       font-size:13px;
     }
     .pill{
@@ -286,36 +299,21 @@
       border:1px solid rgba(255,255,255,0.08);
       background:rgba(255,255,255,0.03);
     }
-
-    /* Sizes */
-    .sizes{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:4px;
+    .desc{
+      color:rgba(255,255,255,0.78);
+      line-height:1.7;
+      margin:0;
+      font-size:14px;
     }
-    .size-btn{
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      color:rgba(255,255,255,0.82);
-      padding:8px 10px;
-      border-radius:12px;
-      font-weight:700;
-      font-size:13px;
-      cursor:pointer;
-      transition:border-color .2s ease, transform .2s ease, color .2s ease;
-    }
-    .size-btn:hover{transform:translateY(-1px);border-color:rgba(139,92,246,0.22);color:#fff}
-    .size-btn.is-selected{border-color:rgba(110,231,183,0.35);box-shadow:0 14px 40px rgba(110,231,183,0.06);color:#fff}
-
     .actions{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:8px;
+      margin-top:auto;
+      padding-top:6px;
     }
 
-    /* Footer (index style) */
+    /* Footer (same tone as index) */
     footer{
       padding:32px 0;
       border-top:1px solid rgba(255,255,255,0.05);
@@ -332,12 +330,16 @@
     .footer-icons a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:18px}
     .footer-icons a:hover{color:#fff}
 
+    /* Responsive */
+    @media (max-width:980px){
+      .look{grid-template-columns:1fr}
+      .main-img{height:min(520px, 52vh)}
+    }
     @media (max-width:880px){
       h2{font-size:32px}
       .brand h1{font-size:13px}
       .nav{padding:10px 14px}
       .nav-links{gap:12px}
-      .imgwrap img{height:240px}
     }
   </style>
 </head>
@@ -351,17 +353,17 @@
       </div>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="../index.html">Home</a>
-        <a href="../music_v2.html">Music</a>
-        <a href="../blog_v2.html">Journal</a>
-        <a href="../about_new.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="music_v2.html">Music</a>
+        <a href="blog_v2.html">Journal</a>
+        <a href="about_new.html">About</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" aria-label="Mystic Wear hero">
+  <section class="hero" aria-label="Mystic Streetwear hero">
     <video playsinline autoplay muted loop id="heroVideo">
-      <source src="../assets/hero-loop.mp4" type="video/mp4" />
+      <source src="assets/hero-loop.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -371,155 +373,135 @@
     </div>
 
     <div class="hero-inner container">
-      <div class="eyebrow">ALDCTORAH — Digital Art</div>
-      <h2>Mystic Wear — Canvas Prints</h2>
+      <div class="eyebrow">ALDCTORAH — Multidisciplinary Artist</div>
+      <h2>Mystic Streetwear</h2>
       <p class="lead">
-        A simple gallery of digital artworks. Choose a canvas size and order as a print.
+        Garments as armor, symbols as memory — limited pieces with a cosmic pulse.
+        Tap a variation to change the main image. Scroll the thumbnails for details.
       </p>
 
       <div class="ctas">
-        <a class="btn btn-primary" href="#prints"><i class="fa-regular fa-images"></i> View Prints</a>
-        <a class="btn btn-ghost" href="../socials.html"><i class="fa-regular fa-paper-plane"></i> Custom order</a>
+        <a class="btn btn-primary" href="#collection"><i class="fa-solid fa-shirt"></i> View Collection</a>
+        <a class="btn btn-ghost" href="socials.html"><i class="fa-regular fa-paper-plane"></i> Inquire</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <section class="section" aria-label="How ordering works">
+    <section class="section" aria-label="Intro">
       <div class="card">
-        <h3 style="margin-top:0">How to Order</h3>
-        <p style="margin:0;color:rgba(255,255,255,0.78);line-height:1.75">
-          Select a size on any artwork, then click <strong>Order Canvas</strong>.
-          (For now, buttons can point to your <a href="../socials.html">Connect</a> page, a Google Form, Etsy listing, or Shopify product page.)
+        <h3 style="margin-top:0">The Collection</h3>
+        <p>
+          Each design has a main view plus variations (side, back, detail). If you don’t have a shop link yet,
+          keep the “Purchase” button pointing to your socials or a placeholder—then swap it later with your store URL.
         </p>
       </div>
     </section>
 
-    <section class="section" id="prints" aria-label="Digital art prints">
-      <h3>Canvas Prints</h3>
+    <section class="section" id="collection" aria-label="Mystic Streetwear looks">
+      <h3>Looks</h3>
 
-      <div class="grid">
+      <div class="looks">
 
-        <!-- ITEM 1 -->
-        <article class="item" data-item>
-          <div class="imgwrap">
-            <img src="../assets/IMG_0464.PNG" alt="AI Persona Qonna — Rebirth" data-main />
+        <!-- LOOK 1 -->
+        <article class="look" data-look>
+          <div class="look-media">
+            <img class="main-img" src="assets/IMG_8333.jpeg" alt="Look 1 — Main" data-main />
+            <div class="thumbs" aria-label="Look 1 variations">
+              <div class="thumb is-active" data-thumb><img src="assets/IMG_8333.jpeg" alt="Look 1 main thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/IMG_8332.jpeg" alt="Look 1 side thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/IMG_8323.jpeg" alt="Look 1 back thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/IMG_8319.jpeg" alt="Look 1 detail thumbnail"></div>
+            </div>
           </div>
 
-          <!-- Optional variations (remove if you don't need) -->
-          <div class="thumbs" aria-label="Variations">
-            <div class="thumb is-active" data-thumb><img src="../assets/IMG_0464.PNG" alt="Rebirth (main) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="../assets/IMG_8258.PNG" alt="Rebirth (alt) thumbnail"></div>
-          </div>
-
-          <div class="info">
-            <h4 class="title">Qonna — Rebirth</h4>
+          <div class="look-info">
+            <h4 class="look-title">Look I — Nebula Armor</h4>
             <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
-              <span class="pill" style="border-color:rgba(110,231,183,0.25)">Limited</span>
+              <span class="pill">Limited</span>
+              <span class="pill">Streetwear</span>
+              <span class="pill" style="border-color:rgba(110,231,183,0.25)">Violet / Cosmic</span>
             </div>
-            <p class="desc">A portrait of memory and future — violet signal with a quiet glow.</p>
-
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
-
+            <p class="desc">
+              A ritual silhouette — built for movement, layered with symbol and intention.
+              Designed to feel like a calm shield in a loud world.
+            </p>
             <div class="actions">
-              <!-- Replace ORDER_URL with your real link (Etsy/Shopify/Form). -->
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
+              <a class="btn btn-primary" href="socials.html" aria-label="Purchase Look 1">
+                <i class="fa-solid fa-bag-shopping"></i> Purchase
               </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Ask pricing
+              <a class="btn btn-ghost" href="socials.html" aria-label="Ask about sizing for Look 1">
+                <i class="fa-regular fa-message"></i> Ask sizing
               </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
             </div>
           </div>
         </article>
 
-        <!-- ITEM 2 -->
-        <article class="item" data-item>
-          <div class="imgwrap">
-            <img src="../assets/IMG_8320.jpeg" alt="Mystic Streetwear — Series I" data-main />
+        <!-- LOOK 2 -->
+        <article class="look" data-look>
+          <div class="look-media">
+            <img class="main-img" src="assets/IMG_0678.JPG" alt="Look 2 — Main" data-main />
+            <div class="thumbs" aria-label="Look 2 variations">
+              <div class="thumb is-active" data-thumb><img src="assets/IMG_0678.JPG" alt="Look 2 main thumbnail"></div>
+
+              <!-- If you have these files, keep them. If not, replace with correct paths. -->
+              <div class="thumb" data-thumb><img src="assets/look2/side.jpg" alt="Look 2 side thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/look2/back.jpg" alt="Look 2 back thumbnail"></div>
+            </div>
           </div>
 
-          <div class="thumbs" aria-label="Variations">
-            <div class="thumb is-active" data-thumb><img src="../assets/IMG_8320.jpeg" alt="Series I (main) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="../assets/woodwork.jpg" alt="Series I (texture) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="../assets/CottageGreen.jpg" alt="Series I (alt) thumbnail"></div>
-          </div>
-
-          <div class="info">
-            <h4 class="title">Series I — Mystic Signal</h4>
+          <div class="look-info">
+            <h4 class="look-title">Look II — Aurora Signal</h4>
             <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
-              <span class="pill" style="border-color:rgba(139,92,246,0.25)">Studio</span>
+              <span class="pill">Drop</span>
+              <span class="pill">Unisex</span>
+              <span class="pill" style="border-color:rgba(139,92,246,0.25)">Glow accents</span>
             </div>
-            <p class="desc">A layered collage of process, texture, and cosmic atmosphere.</p>
-
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
-
+            <p class="desc">
+              Minimal lines, sharp intent — a clean piece that carries the frequency without shouting.
+              Built for night movement and festival light.
+            </p>
             <div class="actions">
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
+              <a class="btn btn-primary" href="socials.html" aria-label="Purchase Look 2">
+                <i class="fa-solid fa-bag-shopping"></i> Purchase
               </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Request custom size
+              <a class="btn btn-ghost" href="socials.html" aria-label="Custom request for Look 2">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Custom request
               </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
             </div>
           </div>
         </article>
 
-        <!-- ITEM 3 -->
-        <article class="item" data-item>
-          <div class="imgwrap">
-            <img src="../assets/IMG_8258.PNG" alt="Festival of Light — Aldctorah Set" data-main />
+        <!-- OPTIONAL: Your existing gallery images as additional looks -->
+        <article class="look" data-look>
+          <div class="look-media">
+            <img class="main-img" src="assets/IMG_8320.jpeg" alt="Mystic Streetwear — Series I" data-main />
+            <div class="thumbs" aria-label="Series I variations">
+              <div class="thumb is-active" data-thumb><img src="assets/IMG_8320.jpeg" alt="Series I thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/IMG_8258.PNG" alt="Series I alt thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/IMG_0464.PNG" alt="Series I alt thumbnail"></div>
+              <div class="thumb" data-thumb><img src="assets/woodwork.jpg" alt="Series I alt thumbnail"></div>
+            </div>
           </div>
 
-          <div class="info">
-            <h4 class="title">Festival of Light</h4>
+          <div class="look-info">
+            <h4 class="look-title">Series I — Mystic Streetwear</h4>
             <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
-              <span class="pill" style="border-color:rgba(110,231,183,0.25)">Glow</span>
+              <span class="pill">Collection</span>
+              <span class="pill">Concept</span>
+              <span class="pill" style="border-color:rgba(110,231,183,0.25)">Studio notes</span>
             </div>
-            <p class="desc">A night-energy piece designed to live on a wall like a pulse.</p>
-
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
-
+            <p class="desc">
+              A moodboard look — variations include studio, persona imagery, and process textures.
+              Replace any thumbnails with true garment photos when ready.
+            </p>
             <div class="actions">
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
+              <a class="btn btn-primary" href="socials.html" aria-label="Inquire about Series I">
+                <i class="fa-regular fa-paper-plane"></i> Inquire
               </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Ask about framing
+              <a class="btn btn-ghost" href="gallery.html" aria-label="Open gallery">
+                <i class="fa-regular fa-images"></i> View gallery
               </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
             </div>
           </div>
         </article>
@@ -547,58 +529,31 @@
   </main>
 
   <script>
-    // year
+    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // try play hero video
+    // ensure video plays where autoplay is restricted
     const v = document.getElementById('heroVideo');
     if(v){ v.play().catch(()=>{}); }
 
-    // Thumbnail -> main image (per item)
-    document.querySelectorAll('[data-item]').forEach((item) => {
-      const main = item.querySelector('[data-main]');
-      const thumbs = Array.from(item.querySelectorAll('[data-thumb]'));
+    // thumbnail -> main image switcher (per look)
+    document.querySelectorAll('[data-look]').forEach((look) => {
+      const main = look.querySelector('[data-main]');
+      const thumbs = Array.from(look.querySelectorAll('[data-thumb]'));
 
       thumbs.forEach((t) => {
         t.addEventListener('click', () => {
           const img = t.querySelector('img');
           if(!img || !main) return;
 
+          // update main image + alt
           main.src = img.src;
-          main.alt = img.alt.replace('(main) thumbnail','').trim();
+          main.alt = img.alt.replace('thumbnail','main');
 
+          // active state
           thumbs.forEach(x => x.classList.remove('is-active'));
           t.classList.add('is-active');
         });
-      });
-
-      // Size selector
-      const sizeBtns = Array.from(item.querySelectorAll('.size-btn'));
-      const selectedSizeEl = item.querySelector('[data-selected-size]');
-
-      sizeBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          sizeBtns.forEach(b => b.classList.remove('is-selected'));
-          btn.classList.add('is-selected');
-          if(selectedSizeEl) selectedSizeEl.textContent = btn.dataset.size || '';
-        });
-      });
-    });
-
-    // OPTIONAL (advanced): Append size to order link as a query param
-    // If you have an order form that accepts ?size=16x20 you can use this.
-    document.querySelectorAll('[data-item]').forEach((item) => {
-      const orderBtn = item.querySelector('[data-order]');
-      const selectedSizeEl = item.querySelector('[data-selected-size]');
-      if(!orderBtn || !selectedSizeEl) return;
-
-      orderBtn.addEventListener('click', (e) => {
-        // Example: socials.html?size=16x20
-        try{
-          const url = new URL(orderBtn.href, window.location.href);
-          url.searchParams.set('size', selectedSizeEl.textContent.trim());
-          orderBtn.href = url.toString();
-        }catch(err){}
       });
     });
   </script>
