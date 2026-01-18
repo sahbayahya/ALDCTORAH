@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cosmic Butterfly Collective</title>
+  <title>Cosmic Butterfly Collective — Journal</title>
+
+  <meta name="description" content="Cosmic Butterfly Collective — Journal. A living archive of projects, music creation, mystic streetwear, and dream sculpting." />
+
   <link rel="stylesheet" href="styles.css" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    
- :root{
-      --bg:#05040a; /* deep space */
-      --panel:#0f0b17; /* card background */
-      --accent1: #8b5cf6; /* violet */
-      --accent2: #6ee7b7; /* soft neon */
-      --muted: #bfc6d4;
-      --glass: rgba(255,255,255,0.04);
-      --max-width: 1200px;
-      --serif: 'Playfair Display', serif;
-      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    :root{
+      --bg:#05040a;
+      --panel:#0f0b17;
+      --accent1:#8b5cf6;
+      --accent2:#6ee7b7;
+      --muted:#bfc6d4;
+      --glass:rgba(255,255,255,0.04);
+      --max-width:1100px;
+      --serif:'Playfair Display', serif;
+      --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
     /* Reset */
@@ -26,274 +29,282 @@
     body{
       margin:0;
       font-family:var(--sans);
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 8%),
-                  radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.04), transparent 6%),
-                  linear-gradient(180deg, var(--bg), #07060b 60%);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 60%),
+        radial-gradient(900px 400px at 90% 80%, rgba(110,231,183,0.05), transparent 55%),
+        linear-gradient(180deg, var(--bg), #07060b 60%);
       color:var(--muted);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      overflow-y:auto;
-    }
-.section {
-  text-align: center;
-  padding: 60px 20px;
-  color: white;
-}
-
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.preview {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 250px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.preview:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-}
-
-.label {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  font-weight: 500;
-  color: #fff;
-}
-
-
-
-    .background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.25;
-    }
-    
-    .header{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:center}
-
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      overflow-x:hidden;
     }
 
-    .blog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2.5rem;
-      padding: 3rem;
-      animation: fadeIn 4s ease forwards;
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 22px}
+
+    /* Header (glass, fixed, click-safe) */
+    header{
+      position:fixed;
+      top:18px; left:0; right:0;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    header .nav{pointer-events:auto;}
+
+    .nav{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 20px;
+      border-radius:16px;
+      background:rgba(8,6,12,0.35);
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
     }
 
-    .blog-item {
-      background: linear-gradient(180deg, rgba(125, 92, 255, 0.08), rgba(78, 240, 240, 0.04));
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 1.2rem;
-      padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(125, 92, 255, 0.15);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .blog-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(125, 92, 255, 0.3);
-    }
-
-    .blog-item h2 {
-      color: #fff;
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .blog-item p {
-      color: #cfcdf3;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    .blog-item a {
-      display: inline-block;
-      margin-top: 1rem;
-      color: #4ef0f0;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .blog-item a:hover {
-      color: #b394ff;
-      text-shadow: 0 0 10px rgba(125, 92, 255, 0.4);
-    }
-
-
-   /* Layout */
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    header{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:center}
-    .nav{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),#00d4ff);box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07060b;font-family:var(--serif);}
-    .brand h1{margin:0;font-family:var(--serif);font-size:15px;color:#fff;letter-spacing:0.6px}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
-    nav a:hover{color:var(--accent1)}
-
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .brand .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent1),#00d4ff);
+      box-shadow:0 6px 30px rgba(139,92,246,0.18), inset 0 -6px 14px rgba(255,255,255,0.03);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;color:#07060b;font-family:var(--serif);
     }
- 
- 
-
-    header {
-      text-align: center;
-      padding: 5rem 1rem 2rem;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      text-shadow: 0 0 25px #b394ff;
-      animation: fadeIn 3s ease forwards;
+    .brand h1{
+      margin:0;
+      font-family:var(--serif);
+      font-size:15px;
+      color:#fff;
+      letter-spacing:0.6px;
+      white-space:nowrap;
     }
 
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 3rem;
-      animation: fadeIn 4s ease forwards;
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
     }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.85);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: #e0d5ff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #bfaeff;
-    }
-
-  
-
-.label {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  font-weight: 500;
-  color: #fff;
-}
-
-
-    /* Mobile nav */
-    .menu-toggle{display:none;background:none;border:0;color:var(--muted);font-size:18px}
+    .nav-links a:hover{color:var(--accent1)}
 
     /* Hero */
-    .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(105%) saturate(110%) hue-rotate(10deg);opacity:0.92}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(4,3,6,0.75), rgba(4,3,6,0.2));mix-blend-mode:overlay}
-    .hero-inner{position:relative;z-index:20;padding:120px 20px 80px;text-align:center;color:white}
-    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.7);margin-bottom:12px}
-    h2{font-family:var(--serif);font-size:36px;line-height:1.02;margin:0 0 18px;color:white;text-shadow:0 8px 40px rgba(139,92,246,0.12)}
-    p.lead{max-width:780px;margin:0 auto 22px;color:rgba(255,255,255,0.88);font-size:18px}
-
-    .ctas{display:flex;justify-content:center;gap:14px;margin-top:18px}
-    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(6px);}
-    .btn-primary{background:linear-gradient(90deg,var(--accent1),#00d4ff);color:#07060b}
-    .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.06)}
+    .hero{
+      position:relative;
+      min-height:62vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .hero video{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      filter:contrast(105%) saturate(110%) hue-rotate(10deg);
+      opacity:0.9;
+    }
+    .hero::after{
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(0deg, rgba(4,3,6,0.80), rgba(4,3,6,0.25));
+      mix-blend-mode:overlay;
+    }
 
     /* Animated butterfly wing overlay */
     .wing-overlay{position:absolute;inset:0;pointer-events:none;z-index:15}
-    .wing{position:absolute;width:42vmax;height:42vmax;border-radius:50%;mix-blend-mode:screen;opacity:0.18;filter:blur(36px);transform-origin:center}
-    .wing.left{left:-6%;top:8%;background:radial-gradient(circle at 36% 28%, rgba(139,92,246,0.95), rgba(139,92,246,0.28) 30%, transparent 55%);animation:floatL 9s ease-in-out infinite}
-    .wing.right{right:-6%;bottom:8%;background:radial-gradient(circle at 64% 72%, rgba(110,231,183,0.95), rgba(110,231,183,0.25) 30%, transparent 55%);animation:floatR 10s ease-in-out infinite}
-
+    .wing{
+      position:absolute;width:42vmax;height:42vmax;border-radius:50%;
+      mix-blend-mode:screen;opacity:0.18;filter:blur(36px);
+      transform-origin:center;
+    }
+    .wing.left{
+      left:-6%;top:8%;
+      background:radial-gradient(circle at 36% 28%, rgba(139,92,246,0.95), rgba(139,92,246,0.28) 30%, transparent 55%);
+      animation:floatL 9s ease-in-out infinite
+    }
+    .wing.right{
+      right:-6%;bottom:8%;
+      background:radial-gradient(circle at 64% 72%, rgba(110,231,183,0.95), rgba(110,231,183,0.25) 30%, transparent 55%);
+      animation:floatR 10s ease-in-out infinite
+    }
     @keyframes floatL{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
     @keyframes floatR{0%{transform:translateY(0) rotate(6deg)}50%{transform:translateY(20px) rotate(-6deg)}100%{transform:translateY(0) rotate(6deg)}}
 
-    /* Sections */
+    .hero-inner{
+      position:relative;
+      z-index:20;
+      padding:120px 20px 70px;
+      text-align:center;
+      color:#fff;
+    }
+    .eyebrow{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:rgba(255,255,255,0.75);
+      margin-bottom:12px
+    }
+    h2{
+      font-family:var(--serif);
+      font-size:38px;
+      line-height:1.05;
+      margin:0 0 12px;
+      color:#fff;
+      text-shadow:0 8px 40px rgba(139,92,246,0.14);
+    }
+    p.lead{
+      max-width:780px;
+      margin:0 auto 18px;
+      color:rgba(255,255,255,0.88);
+      font-size:18px;
+      line-height:1.55;
+    }
+
+    .ctas{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 18px;border-radius:12px;
+      font-weight:700;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+      white-space:nowrap;
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),#00d4ff);color:#07060b}
+    .btn-ghost{background:transparent;color:var(--muted)}
+    .btn-solid{
+      color:#03121c;
+      background:linear-gradient(90deg, var(--accent1), var(--accent2));
+      box-shadow:0 10px 36px rgba(125,92,255,.18);
+    }
+
+    /* Page content */
     main{padding-top:18vh}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
 
-    .section{padding:60px 0}
-    .section h3{font-family:var(--serif);font-size:26px;color:white;margin:0 0 12px}
-    .section p{color:var(--muted);margin:0 0 12px}
+    .section{
+      max-width:var(--max-width);
+      margin:20px auto 70px;
+      padding:0 22px;
+    }
 
-    .preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .preview{height:180px;border-radius:10px;overflow:hidden;position:relative}
-    .preview .label{position:absolute;left:12px;bottom:12px;font-weight:700;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:6px 10px;border-radius:8px}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin:0 0 18px;
+    }
 
-    footer{padding:36px 0;border-top:1px solid rgba(255,255,255,0.03);color:rgba(255,255,255,0.6)}
+    .section-title{
+      margin:0;
+      font-family:'Cormorant Garamond', serif;
+      font-size:28px;
+      color:#fff;
+    }
+    .section-sub{
+      margin:0;
+      color:var(--muted);
+      max-width:520px;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    /* Blog grid */
+    .blog-list{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .blog-item{
+      display:flex;
+      flex-direction:column;
+      background:linear-gradient(180deg, rgba(125,92,255,.07), rgba(78,240,240,.04));
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 10px 36px rgba(125,92,255,.10);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      min-height:100%;
+    }
+
+    .blog-item:hover{
+      transform:translateY(-4px);
+      border-color:rgba(139,92,246,0.28);
+      box-shadow:0 14px 46px rgba(125,92,255,.18);
+    }
+
+    .blog-item h3{
+      margin:0 0 8px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:22px;
+      color:#fff;
+      line-height:1.1;
+    }
+
+    .blog-item p{
+      margin:0 0 14px;
+      color:rgba(255,255,255,0.78);
+      line-height:1.6;
+      font-size:15px;
+      flex:1;
+    }
+
+    .blog-item a{
+      align-self:flex-start;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#4ef0f0;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:0.4px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(255,255,255,0.02);
+    }
+
+    .blog-item a:hover{
+      color:#b394ff;
+      border-color:rgba(179,148,255,0.35);
+      text-shadow:0 0 10px rgba(125, 92, 255, 0.35);
+    }
+
+    /* Footer */
+    footer{
+      padding:36px 0;
+      border-top:1px solid rgba(255,255,255,0.03);
+      color:rgba(255,255,255,0.6);
+    }
+    footer a{color:rgba(255,255,255,0.7)}
+    footer a:hover{color:#fff}
 
     /* Responsive */
+    @media (max-width:980px){
+      .blog-list{grid-template-columns:1fr}
+      .section-head{flex-direction:column;align-items:flex-start}
+    }
     @media (max-width:880px){
       h2{font-size:32px}
       .brand h1{font-size:13px}
-      nav ul{display:none}
-      .menu-toggle{display:inline-block}
+      .nav-links{gap:12px}
     }
   </style>
 </head>
+
 <body>
-
-
 
   <header>
     <div class="nav container">
@@ -301,91 +312,89 @@
         <div class="logo">B</div>
         <h1>Cosmic Butterfly Collective</h1>
       </div>
-  <!-- Optional nav -->
-  <nav class="nav" aria-label="Main navigation">
-   <div class="brand">  </div>
-    <a href="index.html">Home</a>
-    <a href="music_v2.html">Music</a>
-    <a href="blog_v2.html">Journal</a>
-    <a href="about_new.html">About</a>
-  </nav> 
-  
-    
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="music_v2.html">Music</a>
+        <a href="blog_v2.html">Journal</a>
+        <a href="about_new.html">About</a>
+      </nav>
     </div>
   </header>
 
-   
-
-  <section class="hero" aria-label="Hero - Monarch Butterfly Collective">
+  <section class="hero" aria-label="Hero - Cosmic Butterfly Collective Journal">
     <video playsinline autoplay muted loop id="heroVideo">
-      <!-- Replace src with your video file (recommended: 1920x1080 mp4, loopable) -->
       <source src="assets/hero-loop.mp4" type="video/mp4">
-      <!-- Fallback background image -->
       Your browser does not support the video tag.
     </video>
 
-    <div class="wing-overlay">
+    <div class="wing-overlay" aria-hidden="true">
       <div class="wing left"></div>
       <div class="wing right"></div>
     </div>
 
     <div class="hero-inner container">
-  
-<div class="eyebrow">ALDCTORAH — DJ & Multidisciplinary Artist.</div>
-<h2>Cosmic Butterfly Collective Journey</h2>
-<p class="lead">A living archive of projects — music creation, mystic streetwear, and dream's sclupting.</p>
+      <div class="eyebrow">ALDCTORAH — DJ & Multidisciplinary Artist</div>
+      <h2>Cosmic Butterfly Collective Journey</h2>
+      <p class="lead">A living archive of projects — music creation, mystic streetwear, and dream sculpting.</p>
 
+      <div class="ctas">
+        <a class="btn btn-primary" href="Meet_Qonna.html">Listen to Qonna</a>
+        <a class="btn btn-ghost" href="gallery.html">Explore Fashion</a>
+        <a class="btn btn-solid" href="music_v2.html">Enter the Sound Temple</a>
+      </div>
     </div>
-</section>
-
-
-
-
-
-   <main class="container">  </main>
-  <section class="blog-list">
-    <article class="blog-item">
-      <h2>The Birth of Qonna — Reviving Ancestral Voices</h2>
-      <p>Discover how our Qonna was created to reimagine old Sudanese melodies through modern rhythms. A story about remembrance, rhythm, and rebirth.</p>
-      <a href="articles/meet_gonna.html">Read More →</a>
-    </article>
-<!-- 
-    <article class="blog-item">
-      <h2>Cosmic Thrones</h2>
-      <p>From stars to manifestation — the way Vikings connect with their mystical 
-        nature is deeply inspiring, resonating with our own spiritual understanding 
-        of the Thrones of God in the Qur’an. This is how we view the ancient in the Monarch Butterfly Studio every episode,
-         a prayer in motion.</p>
-      <a href="/articles/cosmicTroneMap.html">Read More →</a>
-    </article>
--->
-    <article class="blog-item">
-      <h2>Mystic Streetwear  —  Dressing the Modern Mystic</h2>
-      <p>Fashion becomes ritual. Our Mystic Streetwear collection blends spiritual symbolism with everyday wear, inviting the sacred into the streets.</p>
-      <a href="articles/mystic-streetwear.html">Read More →</a>
-    </article>
-
-    <article class="blog-item">
-      <h2>Mystical Teacher  — Trust in the Process</h2>
-      <p>We work intuitively — sketching, sampling, carving the dream —
-         allowing it to manifest through the chosen medium. The mystery is our method.</p>
-      <a href="articles/god_is_my_teacher.html">Read More →</a>
-    </article>
   </section>
+
+  <main>
+    <section class="section" aria-label="Journal Posts">
+      <div class="section-head">
+        <h3 class="section-title">Journal</h3>
+        <p class="section-sub">Stories behind the projects — the sound, the symbols, the process.</p>
+      </div>
+
+      <div class="blog-list">
+        <article class="blog-item">
+          <h3>The Birth of Qonna — Reviving Ancestral Voices</h3>
+          <p>Discover how Qonna was created to reimagine old Sudanese melodies through modern rhythms — a story about remembrance, rhythm, and rebirth.</p>
+          <a href="articles/meet_gonna.html">Read More <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="blog-item">
+          <h3>Mystic Streetwear — Dressing the Modern Mystic</h3>
+          <p>Fashion becomes ritual. Our Mystic Streetwear collection blends spiritual symbolism with everyday wear, inviting the sacred into the streets.</p>
+          <a href="articles/mystic-streetwear.html">Read More <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="blog-item">
+          <h3>Mystical Teacher — Trust in the Process</h3>
+          <p>We work intuitively — sketching, sampling, carving the dream — allowing it to manifest through the chosen medium. The mystery is our method.</p>
+          <a href="articles/god_is_my_teacher.html">Read More <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
 
     <footer>
       <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
         <div>
           <strong style="font-family:var(--serif);color:#fff">Cosmic Butterfly Collective</strong>
-          <div style="font-size:13px;color:var(--muted)">A House of Creation and Art © <span id="year"></span></div>
+          <div style="font-size:13px;color:var(--muted)">
+            A House of Creation and Art © <span id="year"></span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="https://open.spotify.com/album/5ODZ7rrg4z0MeWvXIuh1wv" target="_blank" rel="noopener" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://geo.music.apple.com/album/الاوصفوك-ep/1826410709" target="_blank" rel="noopener" aria-label="Apple Music"><i class="fab fa-apple"></i></a>
+          <a href="https://soundcloud.com/user-683135207-458196881/tracks" target="_blank" rel="noopener" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.youtube.com/playlist?list=OLAK5uy_m3u6_vtebVVKWyf628yiWm7xXj0DZ4M2Y" target="_blank" rel="noopener" aria-label="YouTube Music"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </footer>
-
   </main>
 
   <script>
-    document.getElementById('year').textContent = 2022
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
