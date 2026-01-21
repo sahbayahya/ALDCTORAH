@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mystic Wear — Digital Art Prints | Cosmic Butterfly Collective</title>
+  <title>Mystic — Digital Art Prints | Cosmic Butterfly Collective</title>
 
   <meta name="description" content="Mystic Wear — a simple gallery of digital art prints by Cosmic Butterfly Collective. Order canvas prints in multiple sizes." />
 
@@ -152,7 +152,7 @@
     }
     h2{
       font-family:var(--serif);
-      font-size:38px;
+      font-size:24px;
       line-height:1.05;
       margin:0 0 14px;
       text-shadow:0 8px 40px rgba(139,92,246,0.12);
@@ -178,10 +178,11 @@
       border:1px solid rgba(255,255,255,0.06);
       backdrop-filter: blur(6px);
       white-space:nowrap;
+      cursor:pointer;
     }
     .btn-primary{background:linear-gradient(90deg,var(--accent1),#00d4ff);color:#07060b}
     .btn-ghost{background:transparent;color:var(--muted)}
-    .btn-ghost:hover{border-color:rgba(255,255,255,0.16)}
+    .btn-ghost:hover{border-color:rgba(255,255,255,0.16);color:#fff}
 
     main{padding-top:18vh}
     .section{padding:54px 0}
@@ -226,32 +227,11 @@
     .imgwrap img{
       width:100%;
       height:260px;
-      object-fit:cover;
+      object-fit:cover; /* artistic grid crop */
       display:block;
       filter:contrast(103%) saturate(110%);
+      cursor:zoom-in;
     }
-
-    /* Optional small thumbs for variations */
-    .thumbs{
-      display:flex;
-      gap:10px;
-      overflow:auto;
-      padding:12px;
-      background:rgba(0,0,0,0.18);
-      border-top:1px solid rgba(255,255,255,0.06);
-    }
-    .thumb{
-      width:76px;height:56px;border-radius:12px;overflow:hidden;
-      border:1px solid rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.02);
-      flex:0 0 auto;
-      cursor:pointer;
-      opacity:.85;
-      transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
-    }
-    .thumb:hover{transform:translateY(-2px);opacity:1;border-color:rgba(139,92,246,0.25)}
-    .thumb.is-active{opacity:1;border-color:rgba(110,231,183,0.35)}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 
     .info{
       padding:14px 14px 16px;
@@ -287,27 +267,6 @@
       background:rgba(255,255,255,0.03);
     }
 
-    /* Sizes */
-    .sizes{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
-    .size-btn{
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      color:rgba(255,255,255,0.82);
-      padding:8px 10px;
-      border-radius:12px;
-      font-weight:700;
-      font-size:13px;
-      cursor:pointer;
-      transition:border-color .2s ease, transform .2s ease, color .2s ease;
-    }
-    .size-btn:hover{transform:translateY(-1px);border-color:rgba(139,92,246,0.22);color:#fff}
-    .size-btn.is-selected{border-color:rgba(110,231,183,0.35);box-shadow:0 14px 40px rgba(110,231,183,0.06);color:#fff}
-
     .actions{
       display:flex;
       gap:10px;
@@ -339,6 +298,223 @@
       .nav-links{gap:12px}
       .imgwrap img{height:240px}
     }
+
+    /* ===== Lightbox / Viewer ===== */
+    .lightbox{
+      position:fixed; inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+    }
+    .lightbox.is-open{display:flex;}
+
+    .lb-card{
+      width:min(1160px, 96vw);
+      max-height:92vh;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      box-shadow:0 30px 120px rgba(0,0,0,0.55);
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      position:relative;
+    }
+
+    .lb-media{
+      position:relative;
+      background:rgba(0,0,0,0.25);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    /* Pan/zoom stage */
+    .lb-stage{
+      position:relative;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      touch-action:none; /* required for pinch/drag */
+      background:rgba(0,0,0,0.18);
+    }
+    .lb-stage img{
+      width:100%;
+      height:100%;
+      object-fit:contain; /* full image */
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+      transform-origin:center center;
+      will-change:transform;
+    }
+
+    /* Viewer nav overlay */
+    .lb-nav{
+      position:absolute;
+      top:12px;
+      left:12px;
+      right:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      pointer-events:none;
+      z-index:10;
+    }
+    .lb-nav .navbtn{
+      pointer-events:auto;
+      width:44px;height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.06);
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .lb-nav .navbtn:hover{border-color:rgba(255,255,255,0.18)}
+    .lb-counter{
+      pointer-events:auto;
+      font-size:12px;
+      color:rgba(255,255,255,0.80);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.35);
+      padding:8px 12px;
+      border-radius:999px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Zoom controls */
+    .lb-zoom{
+      position:absolute;
+      bottom:12px;
+      left:12px;
+      display:flex;
+      gap:8px;
+      z-index:10;
+    }
+    .zbtn{
+      width:42px;height:42px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.06);
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      backdrop-filter: blur(8px);
+    }
+    .zbtn:hover{border-color:rgba(255,255,255,0.18)}
+    .zlabel{
+      align-self:center;
+      font-size:12px;
+      color:rgba(255,255,255,0.82);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.35);
+      padding:8px 12px;
+      border-radius:999px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Thumbnail strip in viewer */
+    .lb-strip{
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      padding:12px 12px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:rgba(0,0,0,0.22);
+    }
+    .lb-thumb{
+      width:84px;height:60px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+      flex:0 0 auto;
+      cursor:pointer;
+      opacity:.82;
+      transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
+      background:rgba(255,255,255,0.03);
+    }
+    .lb-thumb:hover{transform:translateY(-2px);opacity:1;border-color:rgba(139,92,246,0.30)}
+    .lb-thumb.is-active{opacity:1;border-color:rgba(110,231,183,0.40)}
+    .lb-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .lb-side{
+      padding:16px 16px 18px;
+      overflow:auto;
+    }
+
+    .lb-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .lb-title{
+      margin:0;
+      font-family:var(--serif);
+      color:#fff;
+      font-size:22px;
+      line-height:1.15;
+    }
+    .lb-close{
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.06);
+      color:#fff;
+      width:40px;height:40px;
+      border-radius:12px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lb-close:hover{border-color:rgba(255,255,255,0.18)}
+
+    .lb-desc{
+      margin:6px 0 12px;
+      color:rgba(255,255,255,0.78);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    /* Sizes (viewer only) */
+    .sizes{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+    .size-btn{
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.03);
+      color:rgba(255,255,255,0.82);
+      padding:8px 10px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      transition:border-color .2s ease, transform .2s ease, color .2s ease;
+    }
+    .size-btn:hover{transform:translateY(-1px);border-color:rgba(139,92,246,0.22);color:#fff}
+    .size-btn.is-selected{border-color:rgba(110,231,183,0.35);box-shadow:0 14px 40px rgba(110,231,183,0.06);color:#fff}
+
+    /* Mobile: stack viewer */
+    @media (max-width:980px){
+      .lb-card{
+        grid-template-columns:1fr;
+        max-height:94vh;
+      }
+      .lb-stage{height:62vh;}
+      .lb-nav{top:10px}
+      .lb-zoom{bottom:10px}
+      .lb-strip{padding:10px}
+    }
   </style>
 </head>
 
@@ -351,10 +527,10 @@
       </div>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="music_v2.html">Music</a>
-        <a href="blog_v2.html">Journal</a>
-        <a href="about_new.html">About</a>
+        <a href="../index.html">Home</a>
+        <a href="../music_v2.html">Music</a>
+        <a href="../blog_v2.html">Journal</a>
+        <a href="../about_new.html">About</a>
       </nav>
     </div>
   </header>
@@ -372,160 +548,188 @@
 
     <div class="hero-inner container">
       <div class="eyebrow">ALDCTORAH — Digital Art</div>
-      <h2>Mystic Wear — Canvas Prints</h2>
+      <h2>CBC — Gallery</h2>
       <p class="lead">
-        A simple gallery of digital artworks. Choose a canvas size and order as a print.
+        A gallery-first collection of digital artworks. Click <strong>View</strong> for a closer look.
       </p>
 
       <div class="ctas">
-        <a class="btn btn-primary" href="#prints"><i class="fa-regular fa-images"></i> View Prints</a>
-        <a class="btn btn-ghost" href="../socials.html"><i class="fa-regular fa-paper-plane"></i> Custom order</a>
+        <a class="btn btn-primary" href="#prints"><i class="fa-regular fa-images"></i> View Collection</a>
+        <a class="btn btn-ghost" href="socials.html"><i class="fa-regular fa-paper-plane"></i> Custom request</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <section class="section" aria-label="How ordering works">
-      <div class="card">
-        <h3 style="margin-top:0">How to Order</h3>
-        <p style="margin:0;color:rgba(255,255,255,0.78);line-height:1.75">
-          Select a size on any artwork, then click <strong>Order Canvas</strong>.
-          (For now, buttons can point to your <a href="../socials.html">Connect</a> page, a Google Form, Etsy listing, or Shopify product page.)
-        </p>
-      </div>
-    </section>
 
     <section class="section" id="prints" aria-label="Digital art prints">
-      <h3>Canvas Prints</h3>
+      <h3>Digital Art Collection</h3>
 
       <div class="grid">
 
         <!-- ITEM 1 -->
-        <article class="item" data-item>
+        <article class="item" data-item data-id="qonna-rebirth">
           <div class="imgwrap">
-            <img src="assets/Qonna.PNG" alt="Qonna — Rebirth" data-main />
+            <img src="assets/Qonna.PNG"
+                 data-full="assets/Qonna.PNG"
+                 alt="Qonna — Rebirth"
+                 data-main />
           </div>
-
-          <!-- Optional variations (remove if you don't need) 
-          <div class="thumbs" aria-label="Variations">
-            <div class="thumb is-active" data-thumb><img src="assets/IMG_0464.PNG" alt="Rebirth (main) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="assets/IMG_8258.PNG" alt="Rebirth (alt) thumbnail"></div>
-          </div>
-          -->
-
           <div class="info">
-            <h4 class="title">Qonna — Rebirth</h4>
+            <h4 class="title">Qonna's part of the Collective </h4>
+            <!--
             <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
+              <span class="pill">Digital</span>
+              <span class="pill">Canvas-ready</span>
               <span class="pill" style="border-color:rgba(110,231,183,0.25)">Limited</span>
             </div>
-            <p class="desc">A portrait of memory and future — violet signal with a quiet glow.</p>
-
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
-
+             -->
+            <p class="desc">A portrait of memory and future—
+a woman offering her heart,
+inviting light from within.
+Qonna has always been
+the ambassador of joy
+in every Sudanese neighborhood.</p>
             <div class="actions">
-              <!-- Replace ORDER_URL with your real link (Etsy/Shopify/Form). -->
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
-              </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Ask pricing
-              </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
             </div>
           </div>
         </article>
 
         <!-- ITEM 2 -->
-        <article class="item" data-item>
+        <article class="item" data-item data-id="series-1-mystic-signal">
           <div class="imgwrap">
-            <img src="assets/MysticStreetWearMainPic.jpg" alt="Mystic Streetwear — Series I" data-main />
+            <img src="assets/TheWhomofSuffering.jpeg"
+                 data-full="assets/TheWhomofSuffering.jpeg"
+                 alt="Mystic Art"
+                 data-main />
           </div>
-<!--
-          <div class="thumbs" aria-label="Variations">
-            <div class="thumb is-active" data-thumb><img src="../assets/IMG_8320.jpeg" alt="Series I (main) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="../assets/woodwork.jpg" alt="Series I (texture) thumbnail"></div>
-            <div class="thumb" data-thumb><img src="../assets/CottageGreen.jpg" alt="Series I (alt) thumbnail"></div>
-          </div>
-           -->
-
           <div class="info">
-            <h4 class="title">Series I — Mystic Signal</h4>
-            <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
-              <span class="pill" style="border-color:rgba(139,92,246,0.25)">Studio</span>
+            <h4 class="title">Beauty of quiet suffering</h4>
+            <p class="desc">When my sister saw this and I couldn’t find the words to describe it,
+she quickly, simply said:
+“Art and creation born from the womb of suffering.”
+And suddenly it made sense to me—
+even if it was illogical;
+it was the beauty of quiet suffering.</p>
+            <div class="actions">
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
             </div>
-            <p class="desc">A layered collage of process, texture, and cosmic atmosphere.</p>
+          </div>
+        </article>
 
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
+          <!-- ITEM 2 -->
+        <article class="item" data-item data-id="series-1-mystic-signal">
+          <div class="imgwrap">
+            <img src="assets/AssestionUnicorn.jpeg"
+                 data-full="assets/AssestionUnicorn.jpeg"
+                 alt="Mystic Collective"
+                 data-main />
+          </div>
+          <div class="info">
+            <h4 class="title">Behind One Beautiful Thought</h4>
+<p class="desc">
+  We gathered the collective behind the unknown,
+  drawn only by a glimpse of beauty.
+  It feels as though an entire empire
+  will one day find its way to live—
+  even if it rests upon a cloud.
+  Its cargo is simple:
+  a single leaf,
+  carrying everything,
+  protected by the spirit of soldiers all around.
+  This is the Collective Memory.
+</p>
 
             <div class="actions">
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
-              </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Request custom size
-              </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
             </div>
           </div>
         </article>
 
         <!-- ITEM 3 -->
-        <article class="item" data-item>
+        <article class="item" data-item data-id="divine-names">
           <div class="imgwrap">
-            <img src="assets/DigitalALMalikALGdoos.jpeg" alt="Divine Names — within ALDCTORAH's eyes" data-main />
+            <img src="assets/DigitalALMalikALGdoos.jpeg"
+                 data-full="assets/DigitalALMalikALGdoos.jpeg"
+                 alt="Divine Names — within ALDCTORAH's eyes"
+                 data-main />
           </div>
-
           <div class="info">
             <h4 class="title">Divine Names</h4>
-            <div class="meta">
-              <span class="pill">Digital print</span>
-              <span class="pill">Canvas</span>
-              <span class="pill" style="border-color:rgba(110,231,183,0.25)">Glow</span>
-            </div>
-            <p class="desc">A night-energy piece designed to live on a wall like a pulse.</p>
-
-            <div class="sizes" aria-label="Choose size">
-              <button class="size-btn is-selected" type="button" data-size="12x16">12×16</button>
-              <button class="size-btn" type="button" data-size="16x20">16×20</button>
-              <button class="size-btn" type="button" data-size="20x30">20×30</button>
-              <button class="size-btn" type="button" data-size="24x36">24×36</button>
-            </div>
-
+            <p class="desc">A Morning-Sky that bring hope and demanding us to flowerish as well.</p>
             <div class="actions">
-              <a class="btn btn-primary" href="../socials.html" data-order>
-                <i class="fa-solid fa-bag-shopping"></i> Order Canvas
-              </a>
-              <a class="btn btn-ghost" href="../socials.html">
-                <i class="fa-regular fa-message"></i> Ask about framing
-              </a>
-            </div>
-
-            <div style="font-size:12px;color:rgba(255,255,255,0.6)">
-              Selected size: <span data-selected-size>12x16</span>
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
             </div>
           </div>
         </article>
 
+        <article class="item" data-item data-id="The Galaxy's Outsider">
+          <div class="imgwrap">
+            <img src="assets/TheGalaxyOutsiders.jpeg"
+                 data-full="assets/TheGalaxyOutsiders.jpeg"
+                 alt="The Blue Sky — within ALDCTORAH's eyes"
+                 data-main />
+          </div>
+          <div class="info">
+            <h4 class="title">The Galaxy's Ousider</h4>
+            <p class="desc">If you look closely,
+you will find the newborn—
+one gravity has yet to invite
+to join the galaxy.
+Until then,
+it remains an outsider.</p>
+            <div class="actions">
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="item" data-item data-id="divine-names">
+          <div class="imgwrap">
+            <img src="assets/SkyFlowrish.jpeg"
+                 data-full="assets/SkyFlowrish.jpeg"
+                 alt="The Blue Sky — within ALDCTORAH's eyes"
+                 data-main />
+          </div>
+          <div class="info">
+            <h4 class="title">The Flowershing Hope </h4>
+            <p class="desc">TThe first light and the last—
+both demand the flourishing of hope,
+every day and every night.
+Keep watching the dawn;
+you might, for a fleeting moment,
+be reminded of the sun rising.</p>
+            <div class="actions">
+              <button class="btn btn-primary" type="button" data-view>
+                <i class="fa-regular fa-eye"></i> View
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ADD MORE ITEMS by duplicating -->
+      </div>
+    </section>
+
+     <section class="section" aria-label="How ordering works">
+      <div class="card">
+        <h3 style="margin-top:0">How Prints Work</h3>
+        <p style="margin:0;color:rgba(255,255,255,0.78);line-height:1.75">
+          The grid is a pure art collection view. Click <strong>View</strong> on any piece to open a full-screen viewer.
+          The viewer is where you can select size and request a canvas print.
+        </p>
       </div>
     </section>
 
@@ -548,6 +752,74 @@
     </footer>
   </main>
 
+  <!-- LIGHTBOX / FULL VIEWER -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-card" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+
+      <!-- nav overlay -->
+      <div class="lb-nav">
+        <button class="navbtn" id="lbPrev" type="button" aria-label="Previous artwork">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="lb-counter" id="lbCounter">1 / 1</div>
+        <button class="navbtn" id="lbNext" type="button" aria-label="Next artwork">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="lb-media">
+        <!-- pan/zoom stage -->
+        <div class="lb-stage" id="lbStage" aria-label="Artwork image area (pinch to zoom)">
+          <img id="lbImg" src="" alt="">
+        </div>
+
+        <!-- zoom controls -->
+        <div class="lb-zoom" aria-label="Zoom controls">
+          <button class="zbtn" id="zOut" type="button" aria-label="Zoom out"><i class="fa-solid fa-minus"></i></button>
+          <button class="zbtn" id="zReset" type="button" aria-label="Reset zoom"><i class="fa-solid fa-rotate-left"></i></button>
+          <button class="zbtn" id="zIn" type="button" aria-label="Zoom in"><i class="fa-solid fa-plus"></i></button>
+          <div class="zlabel" id="zLabel">100%</div>
+        </div>
+
+        <!-- thumbnail strip -->
+        <div class="lb-strip" id="lbStrip" aria-label="Artwork thumbnails"></div>
+      </div>
+
+      <div class="lb-side">
+        <div class="lb-top">
+          <h3 class="lb-title" id="lbTitle">Artwork</h3>
+          <button class="lb-close" id="lbClose" type="button" aria-label="Exit viewer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <p class="lb-desc" id="lbDesc"></p>
+        <div class="meta" id="lbMeta" style="margin-bottom:10px"></div>
+
+        <div style="font-weight:800;color:#fff;margin:10px 0 8px">Choose size</div>
+        <div class="sizes" id="lbSizes" aria-label="Choose size in viewer"></div>
+
+        <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.65)">
+          Selected size: <span id="lbSelected">12x16</span>
+        </div>
+
+        <!-- Print actions ONLY inside viewer -->
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-primary" id="lbOrder" href="../socials.html" target="_self">
+            <i class="fa-solid fa-bag-shopping"></i> Order Canvas
+          </a>
+          <a class="btn btn-ghost" id="lbAsk" href="../socials.html" target="_self">
+            <i class="fa-regular fa-message"></i> Ask pricing
+          </a>
+        </div>
+
+        <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6">
+          Tip: Swipe left/right (mobile) or use arrows (desktop) to browse. Pinch-to-zoom is supported.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -556,53 +828,429 @@
     const v = document.getElementById('heroVideo');
     if(v){ v.play().catch(()=>{}); }
 
-    // Thumbnail -> main image (per item)
-    document.querySelectorAll('[data-item]').forEach((item) => {
-      const main = item.querySelector('[data-main]');
-      const thumbs = Array.from(item.querySelectorAll('[data-thumb]'));
+    // ===== Collect all items =====
+    const items = Array.from(document.querySelectorAll('[data-item]')).map((item) => {
+      const imgEl = item.querySelector('[data-main]');
+      const title = item.querySelector('.title')?.textContent?.trim() || 'Artwork';
+      const desc  = item.querySelector('.desc')?.textContent?.trim() || '';
+      const meta  = item.querySelector('.meta')?.innerHTML || '';
+      const id    = item.dataset.id || title.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+      const thumbSrc = imgEl?.src || '';
+      const fullSrc  = imgEl?.dataset?.full || thumbSrc;
+      return { item, title, desc, meta, id, thumbSrc, fullSrc };
+    });
 
-      thumbs.forEach((t) => {
-        t.addEventListener('click', () => {
-          const img = t.querySelector('img');
-          if(!img || !main) return;
+    // ===== Lightbox elements =====
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbDesc = document.getElementById('lbDesc');
+    const lbMeta = document.getElementById('lbMeta');
+    const lbSizes = document.getElementById('lbSizes');
+    const lbSelected = document.getElementById('lbSelected');
+    const lbOrder = document.getElementById('lbOrder');
+    const lbAsk = document.getElementById('lbAsk');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCounter = document.getElementById('lbCounter');
+    const lbStage = document.getElementById('lbStage');
+    const lbStrip = document.getElementById('lbStrip');
 
-          main.src = img.src;
-          main.alt = img.alt.replace('(main) thumbnail','').trim();
+    // Zoom controls
+    const zIn = document.getElementById('zIn');
+    const zOut = document.getElementById('zOut');
+    const zReset = document.getElementById('zReset');
+    const zLabel = document.getElementById('zLabel');
 
-          thumbs.forEach(x => x.classList.remove('is-active'));
-          t.classList.add('is-active');
-        });
-      });
+    // Size options (global for now)
+    const SIZE_OPTIONS = [
+      {value:'12x16', label:'12×16'},
+      {value:'16x20', label:'16×20'},
+      {value:'20x30', label:'20×30'},
+      {value:'24x36', label:'24×36'},
+    ];
 
-      // Size selector
-      const sizeBtns = Array.from(item.querySelectorAll('.size-btn'));
-      const selectedSizeEl = item.querySelector('[data-selected-size]');
+    let currentIndex = 0;
 
-      sizeBtns.forEach((btn) => {
+    // ===== Deep link handling (#view=ID) =====
+    function setHashForViewer(id){
+      const url = new URL(window.location.href);
+      url.hash = `view=${encodeURIComponent(id)}`;
+      history.pushState({viewer:true, id}, '', url.toString());
+    }
+
+    function clearHashAfterViewer(){
+      const url = new URL(window.location.href);
+      // keep the page hash clean; you can also set to #prints if you prefer
+      url.hash = '';
+      history.pushState({viewer:false}, '', url.toString());
+    }
+
+    function findIndexById(id){
+      return items.findIndex(x => x.id === id);
+    }
+
+    // ===== Sizes =====
+    function setLinksWithSize(sizeVal){
+      try{
+        const o = new URL('../socials.html', window.location.href);
+        o.searchParams.set('size', sizeVal);
+        o.searchParams.set('art', items[currentIndex]?.title || 'Artwork');
+        lbOrder.href = o.toString();
+      }catch(e){}
+      try{
+        const a = new URL('../socials.html', window.location.href);
+        a.searchParams.set('size', sizeVal);
+        a.searchParams.set('art', items[currentIndex]?.title || 'Artwork');
+        lbAsk.href = a.toString();
+      }catch(e){}
+    }
+
+    function buildSizes(selected){
+      lbSizes.innerHTML = '';
+      SIZE_OPTIONS.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'size-btn' + (opt.value === selected ? ' is-selected' : '');
+        btn.dataset.size = opt.value;
+        btn.textContent = opt.label;
         btn.addEventListener('click', () => {
-          sizeBtns.forEach(b => b.classList.remove('is-selected'));
+          Array.from(lbSizes.querySelectorAll('.size-btn')).forEach(b => b.classList.remove('is-selected'));
           btn.classList.add('is-selected');
-          if(selectedSizeEl) selectedSizeEl.textContent = btn.dataset.size || '';
+          lbSelected.textContent = opt.value;
+          setLinksWithSize(opt.value);
         });
+        lbSizes.appendChild(btn);
       });
+    }
+
+    // ===== Thumbnail strip =====
+    function buildStrip(){
+      lbStrip.innerHTML = '';
+      items.forEach((it, idx) => {
+        const t = document.createElement('div');
+        t.className = 'lb-thumb' + (idx === currentIndex ? ' is-active' : '');
+        t.setAttribute('role','button');
+        t.setAttribute('tabindex','0');
+        t.setAttribute('aria-label', `View ${it.title}`);
+        t.innerHTML = `<img src="${it.thumbSrc}" alt="${it.title} thumbnail">`;
+        t.addEventListener('click', () => {
+          currentIndex = idx;
+          renderLightbox();
+        });
+        t.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            currentIndex = idx;
+            renderLightbox();
+          }
+        });
+        lbStrip.appendChild(t);
+      });
+
+      // Auto-scroll active thumb into view
+      requestAnimationFrame(() => {
+        const active = lbStrip.querySelector('.lb-thumb.is-active');
+        if(active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      });
+    }
+
+    // ===== Zoom / Pan state =====
+    let scale = 1;
+    let minScale = 1;
+    let maxScale = 5;
+    let panX = 0;
+    let panY = 0;
+
+    // pointer / gesture state
+    const pointers = new Map();
+    let startScale = 1;
+    let startPanX = 0;
+    let startPanY = 0;
+    let startDist = 0;
+    let startMid = {x:0,y:0};
+    let dragStart = {x:0,y:0};
+    let dragPanStart = {x:0,y:0};
+
+    function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+
+    function updateTransform(){
+      lbImg.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+      zLabel.textContent = `${Math.round(scale * 100)}%`;
+    }
+
+    function resetZoom(){
+      scale = 1;
+      panX = 0;
+      panY = 0;
+      updateTransform();
+    }
+
+    function zoomTo(newScale, centerX = null, centerY = null){
+      const oldScale = scale;
+      scale = clamp(newScale, minScale, maxScale);
+
+      // If a center is provided, zoom around that point (in stage coords)
+      if(centerX !== null && centerY !== null){
+        const rect = lbStage.getBoundingClientRect();
+        const cx = centerX - (rect.left + rect.width/2);
+        const cy = centerY - (rect.top + rect.height/2);
+
+        // keep point under finger stable
+        const k = (scale / oldScale) - 1;
+        panX -= cx * k;
+        panY -= cy * k;
+      }
+
+      updateTransform();
+    }
+
+    // ===== Rendering =====
+    function renderLightbox(){
+      const data = items[currentIndex];
+      if(!data) return;
+
+      // Update deep link hash
+      setHashForViewer(data.id);
+
+      lbImg.src = data.fullSrc;
+      lbImg.alt = data.title;
+
+      lbTitle.textContent = data.title;
+      lbDesc.textContent = data.desc;
+      lbMeta.innerHTML = data.meta;
+
+      lbCounter.textContent = `${currentIndex + 1} / ${items.length}`;
+
+      // default size (keep current selection if any)
+      const currentSize = (lbSelected.textContent || '12x16').trim();
+      const chosen = SIZE_OPTIONS.some(s => s.value === currentSize) ? currentSize : '12x16';
+      lbSelected.textContent = chosen;
+      buildSizes(chosen);
+      setLinksWithSize(chosen);
+
+      // Update strip
+      buildStrip();
+
+      // Reset zoom when switching images
+      resetZoom();
+
+      // Disable prev/next opacity
+      lbPrev.style.opacity = currentIndex === 0 ? 0.45 : 1;
+      lbNext.style.opacity = currentIndex === items.length - 1 ? 0.45 : 1;
+    }
+
+    function openLightbox(index){
+      if(!items.length) return;
+      currentIndex = clamp(index, 0, items.length - 1);
+      renderLightbox();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox({restoreFocus=true} = {}){
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      resetZoom();
+
+      // Exit viewer should return you to the main page view (and not stay in hash state)
+      clearHashAfterViewer();
+
+      // Optional: keep scroll position as-is, no jumping
+      if(restoreFocus && lastFocusEl){
+        try{ lastFocusEl.focus({preventScroll:true}); }catch(e){}
+      }
+    }
+
+    function next(){
+      if(currentIndex < items.length - 1){
+        currentIndex++;
+        renderLightbox();
+      }
+    }
+    function prev(){
+      if(currentIndex > 0){
+        currentIndex--;
+        renderLightbox();
+      }
+    }
+
+    // ===== Open from grid =====
+    let lastFocusEl = null;
+
+    items.forEach((d, idx) => {
+      const viewBtn = d.item.querySelector('[data-view]');
+      const mainImg = d.item.querySelector('[data-main]');
+
+      const open = (el) => {
+        lastFocusEl = el || null;
+        openLightbox(idx);
+      };
+
+      if(viewBtn){
+        viewBtn.addEventListener('click', () => open(viewBtn));
+      }
+      if(mainImg){
+        mainImg.addEventListener('click', () => open(mainImg));
+      }
     });
 
-    // OPTIONAL (advanced): Append size to order link as a query param
-    // If you have an order form that accepts ?size=16x20 you can use this.
-    document.querySelectorAll('[data-item]').forEach((item) => {
-      const orderBtn = item.querySelector('[data-order]');
-      const selectedSizeEl = item.querySelector('[data-selected-size]');
-      if(!orderBtn || !selectedSizeEl) return;
-
-      orderBtn.addEventListener('click', (e) => {
-        // Example: socials.html?size=16x20
-        try{
-          const url = new URL(orderBtn.href, window.location.href);
-          url.searchParams.set('size', selectedSizeEl.textContent.trim());
-          orderBtn.href = url.toString();
-        }catch(err){}
-      });
+    // ===== Close interactions (X, backdrop, ESC, browser back) =====
+    lbClose.addEventListener('click', () => closeLightbox());
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) closeLightbox();
     });
+
+    // Prev/Next buttons
+    lbNext.addEventListener('click', next);
+    lbPrev.addEventListener('click', prev);
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if(!lightbox.classList.contains('is-open')) return;
+
+      if(e.key === 'Escape') closeLightbox();
+      if(e.key === 'ArrowRight') next();
+      if(e.key === 'ArrowLeft') prev();
+      if(e.key === '+' || e.key === '=') zoomTo(scale + 0.15);
+      if(e.key === '-') zoomTo(scale - 0.15);
+      if(e.key.toLowerCase() === '0') resetZoom();
+    });
+
+    // Browser back button should close viewer if open
+    window.addEventListener('popstate', () => {
+      const h = window.location.hash || '';
+      const viewing = h.startsWith('#view=');
+      if(!viewing && lightbox.classList.contains('is-open')){
+        // user pressed back from viewer state
+        closeLightbox({restoreFocus:false});
+      } else if(viewing && !lightbox.classList.contains('is-open')){
+        // navigated into a view hash
+        const id = decodeURIComponent(h.replace('#view=',''));
+        const idx = findIndexById(id);
+        if(idx >= 0) openLightbox(idx);
+      }
+    });
+
+    // ===== Deep link open on load =====
+    (function(){
+      const h = window.location.hash || '';
+      if(h.startsWith('#view=')){
+        const id = decodeURIComponent(h.replace('#view=',''));
+        const idx = findIndexById(id);
+        if(idx >= 0) openLightbox(idx);
+      }
+    })();
+
+    // ===== Pinch-to-zoom + pan (Pointer Events) =====
+    lbStage.addEventListener('pointerdown', (e) => {
+      // only inside viewer
+      if(!lightbox.classList.contains('is-open')) return;
+
+      lbStage.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+      // Start drag if single pointer
+      if(pointers.size === 1){
+        dragStart = {x:e.clientX, y:e.clientY};
+        dragPanStart = {x:panX, y:panY};
+      }
+
+      // Start pinch if two pointers
+      if(pointers.size === 2){
+        const pts = Array.from(pointers.values());
+        startDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        startScale = scale;
+        startPanX = panX;
+        startPanY = panY;
+        startMid = {x:(pts[0].x + pts[1].x)/2, y:(pts[0].y + pts[1].y)/2};
+      }
+    });
+
+    lbStage.addEventListener('pointermove', (e) => {
+      if(!lightbox.classList.contains('is-open')) return;
+      if(!pointers.has(e.pointerId)) return;
+
+      pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+      if(pointers.size === 1){
+        // pan
+        const dx = e.clientX - dragStart.x;
+        const dy = e.clientY - dragStart.y;
+        // only pan when zoomed in, otherwise allow swipe navigation by dragging
+        if(scale > 1.02){
+          panX = dragPanStart.x + dx;
+          panY = dragPanStart.y + dy;
+          updateTransform();
+        }
+      } else if(pointers.size === 2){
+        const pts = Array.from(pointers.values());
+        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        const mid = {x:(pts[0].x + pts[1].x)/2, y:(pts[0].y + pts[1].y)/2};
+
+        const ratio = dist / (startDist || dist);
+        const newScale = clamp(startScale * ratio, minScale, maxScale);
+
+        // keep midpoint stable (roughly)
+        scale = newScale;
+        const dxm = mid.x - startMid.x;
+        const dym = mid.y - startMid.y;
+        panX = startPanX + dxm;
+        panY = startPanY + dym;
+
+        updateTransform();
+      }
+    });
+
+    lbStage.addEventListener('pointerup', (e) => {
+      if(!pointers.has(e.pointerId)) return;
+      pointers.delete(e.pointerId);
+
+      // If zoom not active, interpret as swipe nav based on drag distance
+      if(pointers.size === 0 && scale <= 1.02){
+        // if user dragged enough left/right, navigate
+        const dx = e.clientX - dragStart.x;
+        const dy = e.clientY - dragStart.y;
+        if(Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.2){
+          if(dx < 0) next();
+          else prev();
+        }
+      }
+    });
+
+    lbStage.addEventListener('pointercancel', (e) => {
+      pointers.delete(e.pointerId);
+    });
+
+    // Double click / double tap to zoom
+    let lastTap = 0;
+    lbStage.addEventListener('click', (e) => {
+      if(!lightbox.classList.contains('is-open')) return;
+      const now = Date.now();
+      if(now - lastTap < 300){
+        // toggle between 1x and 2x
+        if(scale < 1.2) zoomTo(2, e.clientX, e.clientY);
+        else resetZoom();
+      }
+      lastTap = now;
+    });
+
+    // Mouse wheel zoom (desktop)
+    lbStage.addEventListener('wheel', (e) => {
+      if(!lightbox.classList.contains('is-open')) return;
+      e.preventDefault();
+      const delta = -e.deltaY;
+      const step = delta > 0 ? 0.12 : -0.12;
+      zoomTo(scale + step, e.clientX, e.clientY);
+    }, {passive:false});
+
+    // Zoom buttons
+    zIn.addEventListener('click', () => zoomTo(scale + 0.2));
+    zOut.addEventListener('click', () => zoomTo(scale - 0.2));
+    zReset.addEventListener('click', resetZoom);
   </script>
 </body>
 </html>
